@@ -16,6 +16,7 @@
 
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
+    {% if author.current_status %}<p class = "author__bio">{{ author.current_status }} <br> {{ author.current_dept }}<br>{{ author.current_org}}</p>{% endif %}
     {% if author.bio %}<p class="author__bio">{{ author.bio }}</p>{% endif %}
   </div>
 
