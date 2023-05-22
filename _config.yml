@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : yu_tianjiao
 facebook:
   username               :
   app_id                 :
@@ -82,12 +82,15 @@ analytics:
 author:
   name             : "Tianjiao(Joey) Yu"
   avatar           : "tianjiao_yu.jpeg"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Blacksburg, VA"
+  current_status   : "Ph.D. Student"
+  current_dept     : "Computer Science"
+  current_org      : "Virginia Tech"
+  bio              : "#Your biography for the left-hand sidebar"
+  location         : #"Blacksburg, VA"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=70Y7ZrAAAAAJ&hl=en"
-  email            :
+  email            : "tianjiao@vt.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
@@ -102,7 +105,7 @@ author:
   instagram        :
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         :
+  linkedin         : "https://www.linkedin.com/in/tianjiao-yu-08403316a/"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
