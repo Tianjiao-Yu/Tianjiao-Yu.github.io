@@ -85,7 +85,7 @@ author:
   current_status   : "Ph.D. Student"
   current_dept     : "Computer Science"
   current_org      : "Virginia Tech"
-  bio              : "#Your biography for the left-hand sidebar"
+  bio              : #"Your biography for the left-hand sidebar"
   location         : #"Blacksburg, VA"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
