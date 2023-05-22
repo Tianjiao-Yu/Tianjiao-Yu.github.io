@@ -9,8 +9,15 @@ author_profile: true
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther 
 [paper](https://par.nsf.gov/servlets/purl/10315695)
 
+- **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, Proceedings of the ACM Web Conference 2023
+**Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther
+[paper](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514)
 
-{% if author.googlescholar %}
+- **The design of electronic medical records system using Skip-gram algorithm**, Network Modeling Analysis in Health Informatics and Bioinformatics
+**Tianjiao Yu**
+[paper](https://link.springer.com/article/10.1007/s13721-020-00281-4)
+
+<!-- {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
 
@@ -19,3 +26,4 @@ Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 {% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %}
+ -->
