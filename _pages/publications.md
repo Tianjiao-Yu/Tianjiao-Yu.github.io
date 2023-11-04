@@ -17,6 +17,9 @@ Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 on Applications of Computer Vision. 2024. <br>
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 
+- **Plan‐bot: Contextualized & knowledge‐grounded multimodal taskbot**, In Alexa Prize TaskBot Challenge 2 Proceedings, 2023. <br>
+Afrina Tabassum, Muntasir Wahed, **Tianjiao Yu**, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourent‐
+zou. 
 - **The design of electronic medical records system using Skip-gram algorithm**, Network Modeling Analysis in Health Informatics and Bioinformatics <br>
 **Tianjiao Yu** 
 [Link](https://link.springer.com/article/10.1007/s13721-020-00281-4)
