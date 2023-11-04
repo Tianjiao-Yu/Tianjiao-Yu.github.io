@@ -6,18 +6,18 @@ author_profile: true
 ---
 # Papers
 
-- **Sedition hunters: Countering extremism through collective action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective \n
+- **Sedition hunters: Countering extremism through collective action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 [Link](https://par.nsf.gov/servlets/purl/10315695)
 
-- **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, Proceedings of the ACM Web Conference 2023 \n
+- **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, Proceedings of the ACM Web Conference 2023 <br>
 **Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther 
 [Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514)
 - **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, Proceedings of the IEEE/CVF Winter Conference
-on Applications of Computer Vision. 2024.
+on Applications of Computer Vision. 2024. <br>
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 
-- **The design of electronic medical records system using Skip-gram algorithm**, Network Modeling Analysis in Health Informatics and Bioinformatics
+- **The design of electronic medical records system using Skip-gram algorithm**, Network Modeling Analysis in Health Informatics and Bioinformatics <br>
 **Tianjiao Yu** 
 [Link](https://link.springer.com/article/10.1007/s13721-020-00281-4)
 
