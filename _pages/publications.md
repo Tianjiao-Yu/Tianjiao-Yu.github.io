@@ -13,7 +13,7 @@ Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 - **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, Proceedings of the ACM Web Conference 2023
 **Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther 
 [Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514)
-- **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval **, Proceedings of the IEEE/CVF Winter Conference
+- **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, Proceedings of the IEEE/CVF Winter Conference
 on Applications of Computer Vision. 2024.
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 
