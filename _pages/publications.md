@@ -6,7 +6,7 @@ author_profile: true
 ---
 # Papers
 
-- **Sedition hunters: Countering extremism through collective action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
+- **Sedition Hunters: Countering Extremism through Collective Action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 [Link](https://par.nsf.gov/servlets/purl/10315695)
 
