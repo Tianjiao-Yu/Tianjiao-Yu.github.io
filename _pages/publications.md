@@ -5,9 +5,9 @@ permalink: /publications/
 author_profile: true
 ---
 # Papers
-- **Do What You Are Supposed To Do: Grounding Essential Affordance with Language**, Manuscript in preparation, 2024. <br>
+- **Do What You Are Supposed To Do: Grounding Essential Affordance with Language**, Manuscript in prep, 2024. <br>
 **Tianjiao Yu**, Ismini Lourentzou.
-- **Integrating Cognitive Intelligence in Embodied AI: A Modular Approach to Spatial Affordance and Scene Understanding**, Manuscript in preparation, 2024. <br>
+- **Integrating Cognitive Intelligence in Embodied AI: A Modular Approach to Spatial Affordance and Scene Understanding**, Manuscript in prep, 2024. <br>
 **Tianjiao Yu**, Ismini Lourentzou.
 - **Sedition Hunters: Countering Extremism through Collective Action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
