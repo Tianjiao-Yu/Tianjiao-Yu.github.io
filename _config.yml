@@ -84,13 +84,13 @@ author:
   avatar           : "tianjiao_yu.jpeg"
   current_status   : "Ph.D. Student"
   current_dept     : "Computer Science"
-  current_org      : "Virginia Tech"
+  current_org      : "University OF Illinois Urbana-Champaign (UIUC)"
   bio              : #"Your biography for the left-hand sidebar"
-  location         : #"Blacksburg, VA"
+  location         : #"Champaign, IL"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?user=70Y7ZrAAAAAJ&hl=en"
-  email            : "tianjiao@vt.edu"
+  email            : "ty41@illinois.edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
   bitbucket        :
