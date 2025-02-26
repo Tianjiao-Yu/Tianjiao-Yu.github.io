@@ -7,8 +7,13 @@ author_profile: true
 # Papers
 - **Do What You Are Supposed To Do: Grounding Essential Affordance with Language**, Manuscript in prep, 2024. <br>
 **Tianjiao Yu**, Ismini Lourentzou.
-- **Integrating Cognitive Intelligence in Embodied AI: A Modular Approach to Spatial Affordance and Scene Understanding**, Manuscript in prep, 2024. <br>
-**Tianjiao Yu**, Ismini Lourentzou.
+- **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
+**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou
+- **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, CVPR, 2025 <br>
+Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou
+- **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
+Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, **Tianjiao Yu**, Pinar Yanardag, Ismini Lourentzou
+  
 - **Sedition Hunters: Countering Extremism through Collective Action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 [Link](https://par.nsf.gov/servlets/purl/10315695)
