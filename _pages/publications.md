@@ -5,8 +5,6 @@ permalink: /publications/
 author_profile: true
 ---
 # Papers
-- **Do What You Are Supposed To Do: Grounding Essential Affordance with Language**, Manuscript in prep, 2024. <br>
-**Tianjiao Yu**, Ismini Lourentzou.
 - **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou
 [Link](https://plan-lab.github.io/projects/ece/)
