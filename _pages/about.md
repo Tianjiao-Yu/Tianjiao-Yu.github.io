@@ -19,7 +19,7 @@ redirect_from:
   position: relative;
 ">
 
-  <div style="font-size: 4em; color: #4a90e2; line-height: 0.5; margin-bottom: -0.2em;">❝</div>
+  <div style="font-size: 2em; color: #FFA500; line-height: 0.5; margin-bottom: -0.2em;">❝</div>
 
   <p style="font-size: 1.4em; font-style: italic; margin: 0.2em 0 0.5em;">
     Colorless green ideas sleep furiously.
