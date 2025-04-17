@@ -8,8 +8,10 @@ redirect_from:
   - /about.html
 ---
 
-> *“Colorless green ideas sleep furiously.”*  
-> — Noam Chomsky
+<div style="text-align: center; font-style: italic; font-size: 1.2em; margin-bottom: 2em;">
+  “Colorless green ideas sleep furiously.”<br>
+  <span style="font-style: normal; font-size: 0.9em;">— Noam Chomsky</span>
+</div>
 
 I am currently a **Ph.D. candidate in Computer Science** at the** UIUC**, advised by [Dr. Ismini Lourentzou](https://isminoula.github.io/). I began my doctoral studies at Virginia Tech, where I had also worked under [Dr. Kurt Luther](https://crowd.cs.vt.edu/kurt-luther/). Prior to my Ph.D., I earned an M.S. in Computer Science from **Georgetown University** and a B.S. in Computer Science from the **University of Minnesota, Twin Cities.**
 
