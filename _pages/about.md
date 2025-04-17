@@ -8,6 +8,7 @@ redirect_from:
   - /about.html
 ---
 
+<!-- ✨ Minimal & Beautiful Quote -->
 <div style="
   max-width: 700px;
   margin: 3em auto 2em auto;
@@ -31,6 +32,8 @@ redirect_from:
 
 <!-- 🧠 Title as heading -->
 <h1 style="text-align: center; margin-top: 2em;">About Me</h1>
+
+
 
 I am currently a **Ph.D. candidate in Computer Science** at the **UIUC**, advised by [Dr. Ismini Lourentzou](https://isminoula.github.io/). I began my doctoral studies at Virginia Tech, where I had also worked under [Dr. Kurt Luther](https://crowd.cs.vt.edu/kurt-luther/). Prior to my Ph.D., I earned an M.S. in Computer Science from **Georgetown University** and a B.S. in Computer Science from the **University of Minnesota, Twin Cities.**
 
