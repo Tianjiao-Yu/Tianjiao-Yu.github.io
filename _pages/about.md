@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "About Me"
+
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -27,6 +27,9 @@ redirect_from:
   <p style="font-size: 1.3em; font-style: italic; margin: 0 0 0.5em;">Colorless green ideas sleep furiously.</p>
   <p style="font-size: 0.95em; font-weight: bold; margin: 0; color: #666;">— Noam Chomsky</p>
 </div>
+
+<!-- 🧠 Title as heading -->
+<h1 style="text-align: center; margin-top: 2em;">About Me</h1>
 
 I am currently a **Ph.D. candidate in Computer Science** at the** UIUC**, advised by [Dr. Ismini Lourentzou](https://isminoula.github.io/). I began my doctoral studies at Virginia Tech, where I had also worked under [Dr. Kurt Luther](https://crowd.cs.vt.edu/kurt-luther/). Prior to my Ph.D., I earned an M.S. in Computer Science from **Georgetown University** and a B.S. in Computer Science from the **University of Minnesota, Twin Cities.**
 
