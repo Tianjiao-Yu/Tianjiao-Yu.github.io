@@ -19,10 +19,8 @@ redirect_from:
   position: relative;
 ">
 
-  <div style="font-size: 2em; color: #FFA500; line-height: 0.5; margin-bottom: -0.2em;">❝</div>
-
   <p style="font-size: 1.4em; font-style: italic; margin: 0.2em 0 0.5em;">
-    Colorless green ideas sleep furiously.
+    Colorless <span style="color: #228B22;">green</span> ideas sleep <span style="color: #E25822;">furiously</span>.
   </p>
 
   <p style="font-size: 0.95em; font-weight: bold; color: #777; margin-top: 0.5em;">
