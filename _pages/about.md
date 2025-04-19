@@ -28,8 +28,8 @@ redirect_from:
   </p>
 </div>
 
-<!-- 🧠 Title as heading -->
-<h1 style="text-align: center; margin-top: 2em;">About Me</h1>
+<!-- 🧠 Title as heading --> 
+<!-- <h1 style="text-align: center; margin-top: 2em;">About Me</h1> -->
 
 
 
