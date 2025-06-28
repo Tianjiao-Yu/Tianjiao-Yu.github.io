@@ -4,7 +4,6 @@ title: "Publications"
 permalink: /publications/
 author_profile: true
 ---
-# Papers
 - **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, Arxiv, 2025 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou
 [Link](https://plan-lab.github.io/projects/part2gs/)
