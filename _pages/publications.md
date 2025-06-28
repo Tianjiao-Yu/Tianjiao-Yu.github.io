@@ -5,6 +5,9 @@ permalink: /publications/
 author_profile: true
 ---
 # Papers
+- **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, Arxiv, 2025 <br>
+**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou
+[Link](https://plan-lab.github.io/projects/part2gs/)
 - **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou
 [Link](https://plan-lab.github.io/projects/ece/)
