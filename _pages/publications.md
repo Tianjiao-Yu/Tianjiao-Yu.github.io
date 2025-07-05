@@ -6,16 +6,16 @@ author_profile: true
 ---
 - **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, Arxiv, 2025 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou
-[Project Page](https://plan-lab.github.io/projects/part2gs/)·[Paper Link](https://arxiv.org/pdf/2506.17212v1)
+[Project Page](https://plan-lab.github.io/projects/part2gs/) · [Paper Link](https://arxiv.org/pdf/2506.17212v1)
 - **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou
-[Project Page](https://plan-lab.github.io/projects/ece/)·[Paper Link](https://arxiv.org/pdf/2503.10628)
+[Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628)
 - **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, CVPR, 2025 <br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou
-[Project Page](https://plan-lab.github.io/projects/calico/)·[Paper Link](https://arxiv.org/pdf/2412.19331)
+[Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331)
 - **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
 Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, **Tianjiao Yu**, Pinar Yanardag, Ismini Lourentzou
-[Project Page](https://plan-lab.github.io/projects/prima/)·[Paper Link](https://arxiv.org/pdf/2412.15209) 
+[Project Page](https://plan-lab.github.io/projects/prima/) · [Paper Link](https://arxiv.org/pdf/2412.15209) 
 - **Sedition Hunters: Countering Extremism through Collective Action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther
 [Paper Link](https://par.nsf.gov/servlets/purl/10315695)
