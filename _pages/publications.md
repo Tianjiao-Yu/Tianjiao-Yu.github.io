@@ -10,6 +10,12 @@ author_profile: true
 - **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou
 [Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628)
+**MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**, Arxiv, 2025 <br>
+Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou
+[Paper Link](https://arxiv.org/abs/2507.19598)
+**PurpCode: Reasoning for Safer Code Generation**, Arxiv, 2025 <br>
+Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang
+[Paper Link](https://arxiv.org/abs/2507.19060)
 - **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, CVPR, 2025 <br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou
 [Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331)
