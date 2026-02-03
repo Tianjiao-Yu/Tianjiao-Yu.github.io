@@ -45,9 +45,7 @@ My recent work explores:
 - **Part-level 3D generation and articulation** for modeling structured objects  
 - **Uncertainty-aware embodied agents** that adapt reasoning and planning in dynamic environments
 
-Across these directions, I aim to build language-enabled systems that do not merely predict tokens or pixels, but instead reason over **structure, parts, space, and action**.  
-
-My work draws inspiration from theoretical linguistics, geometric modeling, and generative learning to develop agents that can understand, construct, and interact with complex 3D worlds.
+Across these directions, I aim to build language-enabled systems that do not merely predict tokens or pixels, but instead reason over **structure, parts, space, and action**. My work draws inspiration from theoretical linguistics, geometric modeling, and generative learning to develop agents that can understand, construct, and interact with complex 3D worlds.
 
 <br>
 <br>
