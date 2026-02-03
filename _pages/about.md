@@ -35,7 +35,19 @@ redirect_from:
 
 I am currently a **Ph.D. candidate in Computer Science** at **UIUC**, advised by [Dr. Ismini Lourentzou](https://isminoula.github.io/). I began my doctoral studies at Virginia Tech, where I had also worked under [Dr. Kurt Luther](https://crowd.cs.vt.edu/kurt-luther/). Prior to my Ph.D., I earned an M.S. in Computer Science from **Georgetown University** and a B.A. in Computer Science (Linguistics concentration) from **University of Minnesota, Twin Cities.**
 
-My research lies at the intersection of **natural language processing, multimodal learning**, and **embodied AI**. I am particularly interested in building language-enabled agents that can reason, act, and communicate within dynamic, interactive environments. My work explores how language understanding can be grounded in perception and action, enabling machines to navigate and adapt to the complexities of the real world. During my academic journey, I have had the opportunity to work on various interdisciplinary projects that combine **theoretical linguistics**, **crowdsourced intelligence**, and **social analysis**.
+
+My research centers on **reasoning in 3D and embodied settings**, grounded in a broader foundation of **natural language processing and multimodal learning**.
+I study how structured representations - linguistic, spatial, and geometric — can be integrated to enable machines to reason about the world in a grounded, interpretable, and generative way.
+
+My recent work explores:
+
+- **Collaborative reasoning frameworks** that unify language and 3D generation  
+- **Part-level 3D generation and articulation** for modeling structured objects  
+- **Uncertainty-aware embodied agents** that adapt reasoning and planning in dynamic environments
+
+Across these directions, I aim to build language-enabled systems that do not merely predict tokens or pixels, but instead reason over **structure, parts, space, and action**.  
+
+My work draws inspiration from theoretical linguistics, geometric modeling, and generative learning to develop agents that can understand, construct, and interact with complex 3D worlds.
 
 <br>
 <br>
