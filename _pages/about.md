@@ -52,7 +52,7 @@ Across these directions, I aim to build language-enabled systems that do not mer
 
 Publications
 ---
-⭐⭐⭐ **Core3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, Arxiv, 2025 <br>
+⭐⭐⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, Arxiv, 2025 <br>
 **Tianjiao Yu**, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou
 [Project Page](https://plan-lab.github.io/projects/core3d/) · [Paper Link](https://arxiv.org/abs/2512.12768) <br>
 ⭐⭐⭐ **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, Arxiv, 2025 <br>
