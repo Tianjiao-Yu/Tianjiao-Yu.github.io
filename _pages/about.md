@@ -63,7 +63,7 @@ Publications
 ⭐⭐⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628) <br>
-⭐ **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**, Arxiv, 2025 <br>
+⭐ **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**, EMNLP, 2025 <br>
 Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2507.19598) <br>
 ⭐ **PurpCode: Reasoning for Safer Code Generation**, Arxiv, 2025 <br>
