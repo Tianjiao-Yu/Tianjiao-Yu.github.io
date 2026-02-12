@@ -16,22 +16,22 @@ Our Gaming AGI empowers game developers to produce AI game experiences at low te
 
 ### 1. Flow Chart
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/assets/eternl/flow_chart.png" alt=""><figcaption></figcaption></figure>
 
 The workflow starts with developers supplying game backend data to the Ability SDKs in the game engine. The SDK translates the data into requests, consolidates on-chain data about an AI agent, and delivers them to our Gaming AGI. Our Gaming AGI processes these requests to generate responses and revert back to the SDK for execution, providing immersive and dynamic player experiences.
 
 ### 2. Accessibility
 
-**Our ability SDKs are easy to integrate** into conventional game production. Developers adopt a [standardized and game-compatible input structure](../4.-gaming-agi/#id-2.-current-components) for AI output trained for relevancy and performance. No AI knowledge is required to use our ability functions. &#x20;
+**Our ability SDKs are easy to integrate** into conventional game production. Developers adopt a [standardized and game-compatible input structure](/eternl_ai/4.-gaming-agi/) for AI output trained for relevancy and performance. No AI knowledge is required to use our ability functions. &#x20;
 
-**Our ability SDKs are free to use**. Game developers only pay for inferencing costs connected to supervised-learning-based interactions from their players, competitively priced by our [Compute Network](../5.-compute-network/). The sole requirement is launching the game on our [AI Game Hub](../2.-ecosystem/scaling-of-game-hub.md).
+**Our ability SDKs are free to use**. Game developers only pay for inferencing costs connected to supervised-learning-based interactions from their players, competitively priced by our [Compute Network](/eternl_ai/5.-compute-network/). The sole requirement is launching the game on our [AI Game Hub](/eternl_ai/2.-ecosystem/scaling-of-game-hub/).
 
 ### **3. Ability**&#x20;
 
 The same ability can be carried out distinctly by different AI agents—with different identities, personalities, and ability accesses—and by different specifications as requested in the SDKs.&#x20;
 
 * **Agent Identity** influences the execution of an ability through backstory and personality. For example, a courageous agent tends to trigger more dangerous adventures.    &#x20;
-* **Function Specification** defines the functional execution of an ability. For example, the combat function can be [specified for the goal of Hit and Run](intelligent-agent.md#id-2.-combat-ability) rather than Annihilation. &#x20;
+* **Function Specification** defines the functional execution of an ability. For example, the combat function can be [specified for the goal of Hit and Run](/eternl_ai/3.-ability-sdks/intelligent-agent/) rather than Annihilation. &#x20;
 
 ### **4. Engineer Priority**
 
@@ -62,7 +62,7 @@ Currently, the Dynamic World SDKs are a lower development priority due to the im
 
 ### **5. Current Offerings**
 
-Our offerings focus on versatile functionalities categorized into two product lines—[**Intelligent Agent**](intelligent-agent.md) and [**Dynamic World**](dynamic-world.md).&#x20;
+Our offerings focus on versatile functionalities categorized into two product lines—[**Intelligent Agent**](/eternl_ai/3.-ability-sdks/intelligent-agent/) and [**Dynamic World**](/eternl_ai/3.-ability-sdks/dynamic-world/).&#x20;
 
 1. **Intelligent Agent** functions ignite any avatar, NPC, monster, or collectible to be an agent possessing AI-powered interactive ability and gameplay intelligence. They enable human-like agents that form more immersive, dynamic, and sophisticated relationships with players. &#x20;
 2. **Dynamic World** functions ignite game environments to be dynamic and self-evolving and respond to player actions in real-tim&#x65;**.** They enable non-static environments to hold more meanings and player connections to enhance social and emotional attachment. &#x20;
@@ -70,6 +70,3 @@ Our offerings focus on versatile functionalities categorized into two product li
 <table><thead><tr><th width="235">Ability SDKs</th><th>Description</th></tr></thead><tbody><tr><td><strong>Intelligent Agent</strong></td><td></td></tr><tr><td>Chat</td><td>Chat by contextual functions and dialogue styles.</td></tr><tr><td>Combat</td><td>Combat by goals and styles .</td></tr><tr><td>Navigate</td><td>Navigate by modes.</td></tr><tr><td><strong>Dynamic World</strong></td><td></td></tr><tr><td>Narrative</td><td>Generate narratives for gameplay events and by personality. </td></tr><tr><td>*Dynamic Storylines</td><td>Generate sequential contents and states players drive. </td></tr><tr><td>*Self-Operating World</td><td>Generate self-operating worlds driven by AI and player actions.</td></tr></tbody></table>
 
 &#x20; \* indicates use cases of the narrative ability sdk.&#x20;
-
-
-

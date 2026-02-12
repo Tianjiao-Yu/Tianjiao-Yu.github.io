@@ -14,7 +14,7 @@ Leveraging our infrastructure offerings, Eternal.ai aims to build a Game Hub tha
 
 ## **Blue Sea Opportunity**&#x20;
 
-AI is undeniably shaping the [future of gaming](../1.-overview-and-propositions/future-of-gaming.md), but despite the interest, most game developers—boutique studios other than the top brands—[are limited](../1.-overview-and-propositions/ai-game-developer-challenges.md) in AI game production. The reason is that, aside from the majority of unsatisfactory technologies, most solutions are not catered to help boutique developers build AI game experiences, but rather: &#x20;
+AI is undeniably shaping the [future of gaming](/eternl_ai/1.-overview-and-propositions/future-of-gaming/), but despite the interest, most game developers—boutique studios other than the top brands—[are limited](/eternl_ai/1.-overview-and-propositions/ai-game-developer-challenges/) in AI game production. The reason is that, aside from the majority of unsatisfactory technologies, most solutions are not catered to help boutique developers build AI game experiences, but rather: &#x20;
 
 1. Tailored for top studios and AAA titles such as inworld.ai—easier to profit.
 2. Using AI as productivity rather than experience tools such as unity—clearer market fit.

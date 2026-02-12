@@ -10,7 +10,7 @@ order: 6
 
 # Ecosystem Moat
 
-Eternl.ai aims to [scale our Game Hub](scaling-of-game-hub.md) within a year, establishing a robust moat and virtuous growth cycle enabled by the deeply integrated ecosystem.
+Eternl.ai aims to [scale our Game Hub](/eternl_ai/2.-ecosystem/scaling-of-game-hub/) within a year, establishing a robust moat and virtuous growth cycle enabled by the deeply integrated ecosystem.
 
 As our ecosystem has more games, it has a: &#x20;
 

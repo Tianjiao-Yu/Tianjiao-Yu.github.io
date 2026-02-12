@@ -13,7 +13,7 @@ order: 18
 
 ## Burning Mechanism
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/assets/eternl/tokenization.png" alt=""><figcaption></figcaption></figure>
 
 Our token value capture lies on onboarding games, crypto or non-crypto, which facilitate game deposits, purchases and transactions of AI assets and NFT. The key burning mechanisms include:&#x20;
 

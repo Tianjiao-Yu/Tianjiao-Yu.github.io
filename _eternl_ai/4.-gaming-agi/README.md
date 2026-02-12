@@ -13,7 +13,7 @@ order: 10
 
 Our Gaming AGI starts with a model framework that deeply integrates multimodal large language models ("MLLMs") with a Reinforcement Learning Model Library ("RLML"). This approach produces immersive, dynamic, and sophisticated AI game experiences through AI agents or game worlds. &#x20;
 
-## **R\&D Guiding Principles**
+## **R&D Guiding Principles**
 
 As AI evolves towards AGI, a critical need is emerging within the gaming industry: seamless integration of the advanced intelligence. This involves not only enabling natural interactions between AI and players but also equipping AGI entities with the capability to perform complex actions within games.&#x20;
 
@@ -27,7 +27,7 @@ As the era of AGI approaches and as MLLMs continue to advance, we aim to ground 
 
 ## **Technology Overview**
 
-<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/assets/eternl/overview.png" alt=""><figcaption></figcaption></figure>
 
 ### **1. Framework Design**
 

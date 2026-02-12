@@ -73,7 +73,7 @@ The chat ability SDK equips agents with the ability to engage in tailored intera
    * Classy: refined elegance, employing sophisticated vocabulary and polished manners.
    * Heroic: bravery and altruism, focusing on inspirational and motivational speech.
 3. **Worldview:** context relevancy and avoid deviations from worldviews. Two solutions are offered:
-   * Economical: Our Worldview [RAG](../4.-gaming-agi/foundation-models.md#id-4.-retrieval-augmented-generation-rag) Library contains databases for prompt input and output management, ensuring whitelisting and blacklisting for appropriateness.
+   * Economical: Our Worldview [RAG](/eternl_ai/4.-gaming-agi/foundation-models/) Library contains databases for prompt input and output management, ensuring whitelisting and blacklisting for appropriateness.
    * Performance: on top of the RAG library, a game developer can provide a worldview script to augment training data, annotated in our standards, for relevancy fine-tuning.&#x20;
 
 <pre class="language-python"><code class="lang-python"># pseudo code
@@ -109,9 +109,9 @@ print(chat)
 
 Existing large language models ("LLMs") have demonstrated exceptionally high performance in natural language capabilities. However, for the same reason for both triumph and downfall, the next-token prediction model design underperforms in context relevancy and output control. To enhance capabilities, we have adopted the following strategies:
 
-* [**Prompt-engineering**](../4.-gaming-agi/foundation-models.md#id-1.-prompt-engineering-and-prompt-learning) **for output control:** ensure the output follows the specific standards of the standardized input requests from the ability SDK.&#x20;
-* [**Fine-tuning**](../4.-gaming-agi/foundation-models.md#id-2.2.-multimodal-parameter-efficient-fine-tuning-m-peft) **for contextual performance:** use relevant training data corresponding to each component for fine-tuning.&#x20;
-* [**Ability patcher**](../4.-gaming-agi/foundation-models.md#id-3.-ability-patchers) **to improve relevancy:** enhance attention mechanisms to be more precise and contextually aware related to conversations.&#x20;
+* [**Prompt-engineering**](/eternl_ai/4.-gaming-agi/foundation-models/) **for output control:** ensure the output follows the specific standards of the standardized input requests from the ability SDK.&#x20;
+* [**Fine-tuning**](/eternl_ai/4.-gaming-agi/foundation-models/) **for contextual performance:** use relevant training data corresponding to each component for fine-tuning.&#x20;
+* [**Ability patcher**](/eternl_ai/4.-gaming-agi/foundation-models/) **to improve relevancy:** enhance attention mechanisms to be more precise and contextually aware related to conversations.&#x20;
 
 **Chat Ability - Outlook for extending dialogues to actions**
 
