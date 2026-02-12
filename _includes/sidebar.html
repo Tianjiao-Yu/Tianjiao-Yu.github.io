@@ -19,7 +19,7 @@
     {% endfor %}
     {% if page.sidebar.nav %}
       {% if page.sidebar.nav == 'eternl_ai' %}
-        {% include eternl_ai_nav_list nav=page.sidebar.nav %}
+        {% include eternl_ai_nav_list.html nav=page.sidebar.nav %}
       {% else %}
         {% include nav_list nav=page.sidebar.nav %}
       {% endif %}
