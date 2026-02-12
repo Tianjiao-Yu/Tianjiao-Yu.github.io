@@ -1,3 +1,12 @@
+---
+title: "Ecosystem Moat"
+permalink: /eternl_ai/2.-ecosystem/ecosystem-moat/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # Ecosystem Moat
 
 Eternl.ai aims to [scale our Game Hub](scaling-of-game-hub.md) within a year, establishing a robust moat and virtuous growth cycle enabled by the deeply integrated ecosystem.
