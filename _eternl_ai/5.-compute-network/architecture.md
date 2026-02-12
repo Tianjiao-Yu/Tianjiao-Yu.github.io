@@ -1,3 +1,13 @@
+---
+title: "Architecture"
+permalink: /eternl_ai/5.-compute-network/architecture/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # Architecture
 
 ## Task Process
