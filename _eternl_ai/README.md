@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Eternl.AI Whitepaper:"
 permalink: /eternl_ai/
 layout: single
 author_profile: false
