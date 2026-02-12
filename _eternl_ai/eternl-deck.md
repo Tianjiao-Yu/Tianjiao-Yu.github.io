@@ -17,7 +17,7 @@ order: 0
     <div class="slide-wrapper">
       <img src="/images/eternl/Full_0430/ba55bb5d-01.png" alt="Slide 1" class="slide active">
       <img src="/images/eternl/Full_0430/ba55bb5d-02.png" alt="Slide 2" class="slide">
-      <img src="/images/eternl/Full_0430/ba55bb5d-03.png" alt="Slide 3" class="slide">
+
       <img src="/images/eternl/Full_0430/ba55bb5d-04.png" alt="Slide 4" class="slide">
       <img src="/images/eternl/Full_0430/ba55bb5d-05.png" alt="Slide 5" class="slide">
       <img src="/images/eternl/Full_0430/ba55bb5d-06.png" alt="Slide 6" class="slide">
@@ -33,7 +33,7 @@ order: 0
   </div>
   
   <div class="slide-counter">
-    <span class="current-slide" id="currentSlide">1</span> / <span class="total-slides" id="totalSlides">12</span>
+    <span class="current-slide" id="currentSlide">1</span> / <span class="total-slides" id="totalSlides">11</span>
   </div>
   
   <div class="slide-dots" id="slideDots"></div>
@@ -44,9 +44,8 @@ order: 0
 <script src="/assets/js/slide-viewer.js"></script>
 
 <style>
-/* Keep all your CSS here - same as before */
 .slide-viewer {
-  max-width: 1200px;
+  max-width: 1600px; /* Increased from 1400px */
   margin: 2em auto;
   background: #f8f9fa;
   padding: 2em;
@@ -58,12 +57,13 @@ order: 0
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 0.5em; /* Reduced from 1em */
 }
 
 .slide-wrapper {
   position: relative;
   width: 100%;
+  min-height: 800px; /* Increased from 600px */
   overflow: hidden;
   background: white;
   border-radius: 8px;
@@ -77,36 +77,36 @@ order: 0
   width: 100%;
   height: auto;
   display: none;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .slide.active {
   display: block;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.98); }
-  to { opacity: 1; transform: scale(1); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .slide-nav {
   background: #667eea;
   color: white;
   border: none;
-  font-size: 2.5em;
-  padding: 0.6em 0.85em;
+  font-size: 1.5em; /* Reduced from 2.5em */
+  padding: 0.4em 0.6em; /* Reduced from 0.5em 0.7em */
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
   user-select: none;
   flex-shrink: 0;
+  min-width: 45px; /* Reduced from 60px */
 }
 
 .slide-nav:hover {
   background: #5568d3;
   transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .slide-nav:active {
@@ -156,26 +156,25 @@ order: 0
 
 .dot:hover {
   background: #5568d3;
-  transform: scale(1.2);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .slide-viewer {
     padding: 1em;
   }
   
   .slide-nav {
-    font-size: 1.8em;
-    padding: 0.5em 0.7em;
-  }
-  
-  .slide-container {
-    gap: 0.5em;
+    font-size: 1.2em;
+    padding: 0.3em 0.5em;
+    min-width: 35px;
   }
   
   .slide-wrapper {
     min-height: 400px;
+  }
+  
+  .slide-container {
+    gap: 0.3em;
   }
 }
 
@@ -186,4 +185,3 @@ order: 0
   font-size: 0.95em;
 }
 </style>
-
