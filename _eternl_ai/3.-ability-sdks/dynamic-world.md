@@ -1,3 +1,12 @@
+---
+title: "Dynamic World"
+permalink: /eternl_ai/3.-ability-sdks/dynamic-world/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # Dynamic World
 
 **Dynamic World** SDKs transform game environments into dynamic, evolving spaces that react in real-time to player actions. These SDKs enable environments that are more meaningful and foster stronger connections with players, enhancing both social and emotional engagement.
