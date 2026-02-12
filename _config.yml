@@ -193,6 +193,7 @@ collections:
   eternl_ai:
     output: true
     permalink: /:collection/:path/
+    sort_by: order
 
 # Defaults
 defaults:
