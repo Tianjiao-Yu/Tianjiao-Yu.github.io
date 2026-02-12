@@ -1,4 +1,5 @@
 ---
+title: ""
 permalink: /eternl_ai/2.-ecosystem/ecosystem-moat/
 layout: single
 author_profile: false

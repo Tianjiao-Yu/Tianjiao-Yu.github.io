@@ -1,4 +1,5 @@
 ---
+title: ""
 permalink: /eternl_ai/6.-gamer-rollup/
 layout: single
 author_profile: false

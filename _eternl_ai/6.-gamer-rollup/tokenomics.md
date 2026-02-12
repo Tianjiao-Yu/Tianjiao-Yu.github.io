@@ -1,4 +1,5 @@
 ---
+title: ""
 permalink: /eternl_ai/6.-gamer-rollup/tokenomics/
 layout: single
 author_profile: false

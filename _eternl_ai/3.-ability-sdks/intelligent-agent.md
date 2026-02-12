@@ -1,4 +1,5 @@
 ---
+title: ""
 permalink: /eternl_ai/3.-ability-sdks/intelligent-agent/
 layout: single
 author_profile: false

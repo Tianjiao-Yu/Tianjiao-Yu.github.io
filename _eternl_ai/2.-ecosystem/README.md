@@ -1,9 +1,11 @@
 ---
+title: ""
 permalink: /eternl_ai/2.-ecosystem/
 layout: single
 author_profile: false
 sidebar:
   nav: "eternl_ai"
+order: 4
 ---
 
 # 2. Ecosystem

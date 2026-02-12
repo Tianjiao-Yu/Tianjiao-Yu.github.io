@@ -1,4 +1,5 @@
 ---
+title: ""
 permalink: /eternl_ai/5.-compute-network/
 layout: single
 author_profile: false
