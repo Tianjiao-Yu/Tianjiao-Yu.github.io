@@ -249,7 +249,15 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-
+  # _eternl_ai
+  - scope:
+      path: ""
+      type: eternl_ai
+    values:
+      layout: single
+      author_profile: false
+      sidebar:
+        nav: "eternl_ai"
 # Sass/SCSS
 sass:
   sass_dir: _sass
