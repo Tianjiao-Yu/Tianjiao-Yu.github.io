@@ -16,7 +16,7 @@ Our Gaming AGI empowers game developers to produce AI game experiences at low te
 
 ### 1. Flow Chart
 
-<figure><img src="/assets/eternl/flow_chart.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/eternl/flow_chart.png" alt=""><figcaption></figcaption></figure>
 
 The workflow starts with developers supplying game backend data to the Ability SDKs in the game engine. The SDK translates the data into requests, consolidates on-chain data about an AI agent, and delivers them to our Gaming AGI. Our Gaming AGI processes these requests to generate responses and revert back to the SDK for execution, providing immersive and dynamic player experiences.
 

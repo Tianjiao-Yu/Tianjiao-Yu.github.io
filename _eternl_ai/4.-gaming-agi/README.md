@@ -27,7 +27,7 @@ As the era of AGI approaches and as MLLMs continue to advance, we aim to ground 
 
 ## **Technology Overview**
 
-<figure><img src="/assets/eternl/overview.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="/images/eternl/overview.png" alt=""><figcaption></figcaption></figure>
 
 ### **1. Framework Design**
 
