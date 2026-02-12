@@ -1,5 +1,4 @@
 ---
-title: "Overview & Propositions"
 permalink: /eternl_ai/
 layout: single
 author_profile: false

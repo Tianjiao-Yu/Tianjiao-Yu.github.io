@@ -1,5 +1,4 @@
 ---
-title: "Ecosystem"
 permalink: /eternl_ai/2.-ecosystem/
 layout: single
 author_profile: false

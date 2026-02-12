@@ -1,5 +1,4 @@
 ---
-title: "x"
 permalink: /eternl_ai/4.-gaming-agi/
 layout: single
 author_profile: false

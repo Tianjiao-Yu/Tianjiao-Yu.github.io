@@ -1,5 +1,4 @@
 ---
-title: "RL Model Library"
 permalink: /eternl_ai/4.-gaming-agi/rl-model-library/
 layout: single
 author_profile: false

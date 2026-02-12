@@ -1,5 +1,4 @@
 ---
-title: "xxx"
 permalink: /eternl_ai/3.-ability-sdks/
 layout: single
 author_profile: false

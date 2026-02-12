@@ -1,5 +1,4 @@
 ---
-title: "Future of Gaming"
 permalink: /eternl_ai/1.-overview-and-propositions/future-of-gaming/
 layout: single
 author_profile: false

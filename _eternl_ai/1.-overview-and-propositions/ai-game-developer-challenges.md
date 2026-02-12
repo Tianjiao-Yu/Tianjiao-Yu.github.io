@@ -1,3 +1,12 @@
+---
+permalink: /eternl_ai/1.-overview-and-propositions/ai-game-developer-challenges/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # AI Game Developer Challenges
 
 Producing an AI game requires expertise and resources distinct from conventional game production, and for most game developers, developing an AI game is challenging.&#x20;

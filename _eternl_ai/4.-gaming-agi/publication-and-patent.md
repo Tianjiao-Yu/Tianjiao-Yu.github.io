@@ -1,5 +1,4 @@
 ---
-title: "Publication & Patent"
 permalink: /eternl_ai/4.-gaming-agi/publication-and-patent/
 layout: single
 author_profile: false

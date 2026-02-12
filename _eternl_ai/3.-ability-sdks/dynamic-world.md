@@ -1,5 +1,4 @@
 ---
-title: "Dynamic World"
 permalink: /eternl_ai/3.-ability-sdks/dynamic-world/
 layout: single
 author_profile: false

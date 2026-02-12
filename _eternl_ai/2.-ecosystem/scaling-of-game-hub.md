@@ -1,5 +1,4 @@
 ---
-title: "Scaling of Game Hub"
 permalink: /eternl_ai/2.-ecosystem/scaling-of-game-hub/
 layout: single
 author_profile: false
