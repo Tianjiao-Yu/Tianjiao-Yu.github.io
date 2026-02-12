@@ -1,3 +1,12 @@
+---
+title: "Overview & Propositions"
+permalink: /eternl_ai/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # 1. Overview & Propositions
 
 Eternl.ai is developing infrastructure that enables simple and economical implementation of AGI gaming, where AI participates as companions, adversaries, or elements of dynamic environments.&#x20;
