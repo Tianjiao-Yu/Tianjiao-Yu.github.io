@@ -5,7 +5,6 @@ layout: single
 author_profile: false
 sidebar:
   nav: "eternl_ai"
-order: 1
 ---
 
 # 1. Overview & Propositions
