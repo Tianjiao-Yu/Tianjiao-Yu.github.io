@@ -1,3 +1,13 @@
+---
+title: "Breakthrough"
+permalink: /eternl_ai/5.-compute-network/breakthrough/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # Breakthrough
 
 ## Model Distillation
