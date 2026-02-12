@@ -1,3 +1,13 @@
+---
+title: "Gamer Rollup"
+permalink: /eternl_ai/6.-gamer-rollup/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # 6. Gamer Rollup
 
 Our Gamer Rollup ("Rollup") is the foundational layer that hosts our entire ecosystem and provides value in the following aspects:&#x20;
