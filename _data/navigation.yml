@@ -23,6 +23,9 @@ main:
 #     url: /markdown/
 # Eternl.AI sidebar navigation
 eternl_ai:
+  - title: "Eternl Deck"
+    url: /eternl_ai/eternl-deck/
+
   - title: "1. Overview & Propositions"
     url: /eternl_ai/
     children:
