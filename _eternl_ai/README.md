@@ -25,7 +25,7 @@ Our value propositions are to meet the vast unmet demand in producing AI games, 
 
 ## Our Value Propositions
 
-### 1. [Solve Challenges in Developing AI Games](1.-overview-and-propositions/ai-game-developer-challenges.md)&#x20;
+### 1. [Solve Challenges in Developing AI Games](/1.-overview-and-propositions/ai-game-developer-challenges/)&#x20;
 
 <table><thead><tr><th width="228">Challenges</th><th>Propositions—Infra to Produce, Operate, and Monetize AI Games</th></tr></thead><tbody><tr><td>Hard to produce with tech and cost barriers </td><td><a href="2.-ecosystem/#id-1.-gaming-agi">Gaming AGI</a> empowers developers to build AI game experiences at drastically low technical barriers and costs. </td></tr><tr><td>Hard to operate with the inferencing backend</td><td><a href="2.-ecosystem/#id-2.-compute-network">Compute Network</a> provides developers with reliable and affordable game inferencing computes with no infrastructure management.</td></tr><tr><td>Hard to monetize with unproven PMF and cost </td><td><a href="2.-ecosystem/#id-3.-ai-gamer-rollup">Gaming AGI Rollup</a> enables developers to monetize from a global player base with additional channels such as AI assets NFTs.  </td></tr></tbody></table>
 
