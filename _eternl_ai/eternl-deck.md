@@ -12,7 +12,7 @@ order: 0
 
 <div class="slide-viewer">
   <div class="slide-container">
-    <button class="slide-nav prev" onclick="changeSlide(-1)">❮</button>
+    <button class="slide-nav prev" id="prevBtn">❮</button>
     
     <div class="slide-wrapper">
       <img src="/images/eternl/Full_0430/ba55bb5d-01.png" alt="Slide 1" class="slide active">
@@ -20,29 +20,30 @@ order: 0
       <img src="/images/eternl/Full_0430/ba55bb5d-03.png" alt="Slide 3" class="slide">
       <img src="/images/eternl/Full_0430/ba55bb5d-04.png" alt="Slide 4" class="slide">
       <img src="/images/eternl/Full_0430/ba55bb5d-05.png" alt="Slide 5" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-06.png" alt="Slide 6" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-07.png" alt="Slide 7" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-08.png" alt="Slide 8" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-09.png" alt="Slide 9" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-10.png" alt="Slide 10" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-11.png" alt="Slide 11" class="slide">
-    <img src="/images/eternl/Full_0430/ba55bb5d-12.png" alt="Slide 12" class="slide">
-      <!-- Add all your slide images here -->
+      <img src="/images/eternl/Full_0430/ba55bb5d-06.png" alt="Slide 6" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-07.png" alt="Slide 7" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-08.png" alt="Slide 8" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-09.png" alt="Slide 9" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-10.png" alt="Slide 10" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-11.png" alt="Slide 11" class="slide">
+      <img src="/images/eternl/Full_0430/ba55bb5d-12.png" alt="Slide 12" class="slide">
     </div>
     
-    <button class="slide-nav next" onclick="changeSlide(1)">❯</button>
+    <button class="slide-nav next" id="nextBtn">❯</button>
   </div>
   
   <div class="slide-counter">
-    <span class="current-slide">1</span> / <span class="total-slides">5</span>
+    <span class="current-slide">1</span> / <span class="total-slides">12</span>
   </div>
   
   <div class="slide-dots"></div>
 </div>
 
+<p class="keyboard-hint">💡 Use ← → arrow keys or swipe to navigate</p>
+
 <style>
 .slide-viewer {
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 2em auto;
   background: #f8f9fa;
   padding: 2em;
@@ -60,14 +61,19 @@ order: 0
 .slide-wrapper {
   position: relative;
   width: 100%;
+  min-height: 700px;
   overflow: hidden;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide {
   width: 100%;
+  height: auto;
   display: none;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -85,13 +91,14 @@ order: 0
   background: #667eea;
   color: white;
   border: none;
-  font-size: 2em;
-  padding: 0.5em 0.75em;
+  font-size: 2.5em;
+  padding: 0.6em 0.85em;
   cursor: pointer;
   border-radius: 8px;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
   user-select: none;
+  flex-shrink: 0;
 }
 
 .slide-nav:hover {
@@ -113,14 +120,14 @@ order: 0
 .slide-counter {
   text-align: center;
   margin-top: 1em;
-  font-size: 1.1em;
+  font-size: 1.2em;
   font-weight: 600;
   color: #2d3748;
 }
 
 .current-slide {
   color: #667eea;
-  font-size: 1.3em;
+  font-size: 1.4em;
 }
 
 .slide-dots {
@@ -132,8 +139,8 @@ order: 0
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   background: #cbd5e0;
   cursor: pointer;
@@ -157,12 +164,16 @@ order: 0
   }
   
   .slide-nav {
-    font-size: 1.5em;
-    padding: 0.4em 0.6em;
+    font-size: 1.8em;
+    padding: 0.5em 0.7em;
   }
   
   .slide-container {
     gap: 0.5em;
+  }
+  
+  .slide-wrapper {
+    min-height: 400px;
   }
 }
 
@@ -170,82 +181,106 @@ order: 0
   text-align: center;
   margin-top: 1em;
   color: #718096;
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 </style>
 
 <script>
-let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
+(function() {
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide-viewer .slide');
+  const totalSlides = slides.length;
 
-// Initialize dots
-const dotsContainer = document.querySelector('.slide-dots');
-for (let i = 0; i < totalSlides; i++) {
-  const dot = document.createElement('span');
-  dot.classList.add('dot');
-  if (i === 0) dot.classList.add('active');
-  dot.onclick = () => goToSlide(i);
-  dotsContainer.appendChild(dot);
-}
+  // Initialize dots
+  const dotsContainer = document.querySelector('.slide-viewer .slide-dots');
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('span');
+    dot.classList.add('dot');
+    if (i === 0) dot.classList.add('active');
+    dot.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(dot);
+  }
 
-const dots = document.querySelectorAll('.dot');
-document.querySelector('.total-slides').textContent = totalSlides;
+  const dots = document.querySelectorAll('.slide-viewer .dot');
+  document.querySelector('.slide-viewer .total-slides').textContent = totalSlides;
 
-function showSlide(n) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  dots.forEach(dot => dot.classList.remove('active'));
+  function showSlide(n) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    slides[n].classList.add('active');
+    dots[n].classList.add('active');
+    
+    document.querySelector('.slide-viewer .current-slide').textContent = n + 1;
+    
+    // Update button states
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    if (prevBtn) prevBtn.disabled = (n === 0);
+    if (nextBtn) nextBtn.disabled = (n === totalSlides - 1);
+  }
+
+  function changeSlide(direction) {
+    currentSlide += direction;
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+    showSlide(currentSlide);
+  }
+
+  function goToSlide(n) {
+    currentSlide = n;
+    showSlide(currentSlide);
+  }
+
+  // Button click events
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
   
-  slides[n].classList.add('active');
-  dots[n].classList.add('active');
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      changeSlide(-1);
+    });
+  }
   
-  document.querySelector('.current-slide').textContent = n + 1;
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      changeSlide(1);
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') changeSlide(-1);
+    if (e.key === 'ArrowRight') changeSlide(1);
+    if (e.key === 'Home') goToSlide(0);
+    if (e.key === 'End') goToSlide(totalSlides - 1);
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const slideWrapper = document.querySelector('.slide-viewer .slide-wrapper');
   
-  // Update button states
-  document.querySelector('.prev').disabled = (n === 0);
-  document.querySelector('.next').disabled = (n === totalSlides - 1);
-}
+  if (slideWrapper) {
+    slideWrapper.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
 
-function changeSlide(direction) {
-  currentSlide += direction;
-  if (currentSlide < 0) currentSlide = 0;
-  if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
-  showSlide(currentSlide);
-}
+    slideWrapper.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+  }
 
-function goToSlide(n) {
-  currentSlide = n;
-  showSlide(currentSlide);
-}
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) changeSlide(1);
+    if (touchEndX > touchStartX + 50) changeSlide(-1);
+  }
 
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowLeft') changeSlide(-1);
-  if (e.key === 'ArrowRight') changeSlide(1);
-  if (e.key === 'Home') goToSlide(0);
-  if (e.key === 'End') goToSlide(totalSlides - 1);
-});
-
-// Touch swipe support
-let touchStartX = 0;
-let touchEndX = 0;
-
-document.querySelector('.slide-wrapper').addEventListener('touchstart', (e) => {
-  touchStartX = e.changedTouches[0].screenX;
-});
-
-document.querySelector('.slide-wrapper').addEventListener('touchend', (e) => {
-  touchEndX = e.changedTouches[0].screenX;
-  handleSwipe();
-});
-
-function handleSwipe() {
-  if (touchEndX < touchStartX - 50) changeSlide(1);
-  if (touchEndX > touchStartX + 50) changeSlide(-1);
-}
-
-// Initialize
-showSlide(0);
+  // Initialize
+  showSlide(0);
+})();
 </script>
-
-<p class="keyboard-hint">💡 Use ← → arrow keys or swipe to navigate</p>
