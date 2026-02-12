@@ -5,6 +5,7 @@ layout: single
 author_profile: false
 sidebar:
   nav: "eternl_ai"
+order: 4
 ---
 
 # 2. Ecosystem
