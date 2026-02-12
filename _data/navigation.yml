@@ -21,3 +21,55 @@ main:
 
 #   - title: "Guide"
 #     url: /markdown/
+# Eternl.AI sidebar navigation
+eternl_ai:
+  - title: "1. Overview & Propositions"
+    url: /eternl_ai/
+    children:
+      - title: "Future of Gaming"
+        url: /eternl_ai/1.-overview-and-propositions/future-of-gaming/
+      - title: "AI Game Developer Challenges"
+        url: /eternl_ai/1.-overview-and-propositions/ai-game-developer-challenges/
+  
+  - title: "2. Ecosystem"
+    url: /eternl_ai/2.-ecosystem/
+    children:
+      - title: "Scaling of Game Hub"
+        url: /eternl_ai/2.-ecosystem/scaling-of-game-hub/
+      - title: "Ecosystem Moat"
+        url: /eternl_ai/2.-ecosystem/ecosystem-moat/
+  
+  - title: "3. Ability SDKs"
+    url: /eternl_ai/3.-ability-sdks/
+    children:
+      - title: "Intelligent Agent"
+        url: /eternl_ai/3.-ability-sdks/intelligent-agent/
+      - title: "Dynamic World"
+        url: /eternl_ai/3.-ability-sdks/dynamic-world/
+  
+  - title: "4. Gaming AGI"
+    url: /eternl_ai/4.-gaming-agi/
+    children:
+      - title: "Foundation Models"
+        url: /eternl_ai/4.-gaming-agi/foundation-models/
+      - title: "RL Model Library"
+        url: /eternl_ai/4.-gaming-agi/rl-model-library/
+      - title: "Publication & Patent"
+        url: /eternl_ai/4.-gaming-agi/publication-and-patent/
+  
+  - title: "5. Compute Network"
+    url: /eternl_ai/5.-compute-network/
+    children:
+      - title: "Architecture"
+        url: /eternl_ai/5.-compute-network/architecture/
+      - title: "Breakthrough"
+        url: /eternl_ai/5.-compute-network/breakthrough/
+  
+  - title: "6. Gamer Rollup"
+    url: /eternl_ai/6.-gamer-rollup/
+    children:
+      - title: "Tokenomics"
+        url: /eternl_ai/6.-gamer-rollup/tokenomics/
+  
+  - title: "7. AI-Native Game Concepts"
+    url: /eternl_ai/7.-ai-native-game-concepts/
