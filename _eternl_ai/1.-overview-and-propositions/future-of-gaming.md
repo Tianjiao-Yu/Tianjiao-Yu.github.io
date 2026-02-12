@@ -1,3 +1,12 @@
+---
+title: "Future of Gaming"
+permalink: /eternl_ai/1.-overview-and-propositions/future-of-gaming/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # Future of Gaming
 
 Our core belief is that AI will transform the game experience by expanding the current boundary for game design and that blockchain facilitates cross-game AI assets—the identity, personality, and special abilities of AI avatars, collectibles, pets, and more—and social network ownership.&#x20;

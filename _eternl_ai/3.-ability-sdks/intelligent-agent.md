@@ -1,3 +1,13 @@
+---
+title: "Intelligent Agent"
+permalink: /eternl_ai/3.-ability-sdks/intelligent-agent/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # Intelligent Agent
 
 **Intelligent Agent** SDKs ignite any avatar, NPC, monster, or collectible to be an agent possessing AI-elevated interactive ability and gameplay intelligence. They enable human-like agents that form more immersive, dynamic, and sophisticated relationships with players. &#x20;

@@ -1,3 +1,12 @@
+---
+title: "Compute Network"
+permalink: /eternl_ai/5.-compute-network/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # 5. Compute Network
 
 Our Compute Network provides reliable and affordable computing resources for AI game inferencing. It optimizes aggregation, distribution, and verification of game compute supply provided by decentralized physical infrastructure networks (DePINs), centralized GPU services, miners, and players equipped with high-end gaming GPUs.

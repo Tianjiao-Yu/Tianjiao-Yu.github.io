@@ -1,3 +1,12 @@
+---
+title: "Scaling of Game Hub"
+permalink: /eternl_ai/2.-ecosystem/scaling-of-game-hub/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # Scaling of Game Hub
 
 Leveraging our infrastructure offerings, Eternal.ai aims to build a Game Hub that houses an extensive collection of games with AI assets and social network ownership. We aim to build a pipeline of 100 games and launch 18 of them within the first 12 months. &#x20;

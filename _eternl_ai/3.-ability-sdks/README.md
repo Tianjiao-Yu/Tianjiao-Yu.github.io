@@ -1,3 +1,12 @@
+---
+title: "xxx"
+permalink: /eternl_ai/3.-ability-sdks/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # 3. Ability SDKs
 
 Our Gaming AGI empowers game developers to produce AI game experiences at low technical barriers and costs. Game developers incorporate ability SDKs into their game code base, which interact with our Gaming AGI to generate AI game experiences for players. &#x20;

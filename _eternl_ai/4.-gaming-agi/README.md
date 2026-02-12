@@ -1,3 +1,13 @@
+---
+title: "x"
+permalink: /eternl_ai/4.-gaming-agi/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
+
 # 4. Gaming AGI
 
 Our Gaming AGI starts with a model framework that deeply integrates multimodal large language models ("MLLMs") with a Reinforcement Learning Model Library ("RLML"). This approach produces immersive, dynamic, and sophisticated AI game experiences through AI agents or game worlds. &#x20;

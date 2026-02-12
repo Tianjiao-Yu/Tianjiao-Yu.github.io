@@ -1,3 +1,12 @@
+---
+title: "Ecosystem"
+permalink: /eternl_ai/2.-ecosystem/
+layout: single
+author_profile: false
+sidebar:
+  nav: "eternl_ai"
+---
+
 # 2. Ecosystem
 
 Our AGI Gaming Ecosystem consists of three infrastructure components—Gaming AGI, Compute Network, and Gaming AGI Rollup, each of which aims to empower game developers to build, operate, and monetize AI games respectively. The goal is to serve the unmet need of game developers and onboard AI games to [scale our Game Hub](scaling-of-game-hub.md).
