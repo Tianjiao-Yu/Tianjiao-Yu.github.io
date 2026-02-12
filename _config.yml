@@ -190,7 +190,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-
+  eternl_ai:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
