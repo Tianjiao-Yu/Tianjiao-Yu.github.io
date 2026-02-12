@@ -10,9 +10,9 @@ order: 0
 
 # Eternl Deck
 
-<div class="slide-viewer">
+<div class="slide-viewer" id="slideViewer">
   <div class="slide-container">
-    <button class="slide-nav prev">❮</button>
+    <button class="slide-nav prev" id="prevSlide" type="button">❮</button>
     
     <div class="slide-wrapper">
       <img src="/images/eternl/Full_0430/ba55bb5d-01.png" alt="Slide 1" class="slide active">
@@ -29,19 +29,22 @@ order: 0
       <img src="/images/eternl/Full_0430/ba55bb5d-12.png" alt="Slide 12" class="slide">
     </div>
     
-    <button class="slide-nav next">❯</button>
+    <button class="slide-nav next" id="nextSlide" type="button">❯</button>
   </div>
   
   <div class="slide-counter">
-    <span class="current-slide">1</span> / <span class="total-slides">12</span>
+    <span class="current-slide" id="currentSlide">1</span> / <span class="total-slides" id="totalSlides">12</span>
   </div>
   
-  <div class="slide-dots"></div>
+  <div class="slide-dots" id="slideDots"></div>
 </div>
 
 <p class="keyboard-hint">💡 Use ← → arrow keys or swipe to navigate</p>
 
+<script src="/assets/js/slide-viewer.js"></script>
+
 <style>
+/* Keep all your CSS here - same as before */
 .slide-viewer {
   max-width: 1200px;
   margin: 2em auto;
@@ -184,110 +187,3 @@ order: 0
 }
 </style>
 
-<script>
-(function () {
-  // If you ever have multiple viewers, this supports all of them.
-  document.querySelectorAll('.slide-viewer').forEach((viewer) => {
-    let currentSlide = 0;
-
-    const slides = viewer.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-
-    const prevBtn = viewer.querySelector('.slide-nav.prev');
-    const nextBtn = viewer.querySelector('.slide-nav.next');
-    const currentEl = viewer.querySelector('.current-slide');
-    const totalEl = viewer.querySelector('.total-slides');
-    const dotsContainer = viewer.querySelector('.slide-dots');
-    const slideWrapper = viewer.querySelector('.slide-wrapper');
-
-    if (!slides.length) return;
-
-    // Set total
-    if (totalEl) totalEl.textContent = totalSlides;
-
-    // Build dots
-    if (dotsContainer) {
-      dotsContainer.innerHTML = '';
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('span');
-        dot.className = 'dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-      }
-    }
-
-    const dots = viewer.querySelectorAll('.dot');
-
-    function showSlide(n) {
-      slides.forEach((s) => s.classList.remove('active'));
-      dots.forEach((d) => d.classList.remove('active'));
-
-      slides[n].classList.add('active');
-      if (dots[n]) dots[n].classList.add('active');
-
-      if (currentEl) currentEl.textContent = String(n + 1);
-
-      if (prevBtn) prevBtn.disabled = (n === 0);
-      if (nextBtn) nextBtn.disabled = (n === totalSlides - 1);
-    }
-
-    function changeSlide(delta) {
-      currentSlide = Math.min(totalSlides - 1, Math.max(0, currentSlide + delta));
-      showSlide(currentSlide);
-    }
-
-    function goToSlide(n) {
-      currentSlide = Math.min(totalSlides - 1, Math.max(0, n));
-      showSlide(currentSlide);
-    }
-
-    // Buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        changeSlide(-1);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        changeSlide(1);
-      });
-    }
-
-    // Keyboard: only respond when viewer is "active" (clicked/hovered)
-    let isActive = false;
-    viewer.addEventListener('mouseenter', () => (isActive = true));
-    viewer.addEventListener('mouseleave', () => (isActive = false));
-    viewer.addEventListener('click', () => (isActive = true));
-
-    document.addEventListener('keydown', (e) => {
-      if (!isActive) return;
-      if (e.key === 'ArrowLeft') changeSlide(-1);
-      if (e.key === 'ArrowRight') changeSlide(1);
-      if (e.key === 'Home') goToSlide(0);
-      if (e.key === 'End') goToSlide(totalSlides - 1);
-    });
-
-    // Touch swipe
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    if (slideWrapper) {
-      slideWrapper.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-      });
-
-      slideWrapper.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        if (touchEndX < touchStartX - 50) changeSlide(1);
-        if (touchEndX > touchStartX + 50) changeSlide(-1);
-      });
-    }
-
-    // Init
-    showSlide(0);
-  });
-})();
-</script>
