@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 <!-- ✨ Minimal & Beautiful Quote -->
-<div style="
+<!-- <div style="
   max-width: 700px;
   margin: 3em auto 2em auto;
   text-align: center;
@@ -26,7 +26,7 @@ redirect_from:
   <p style="font-size: 0.95em; font-weight: bold; color: #777; margin-top: 0.5em;">
     — Noam Chomsky
   </p>
-</div>
+</div> -->
 
 <!-- 🧠 Title as heading --> 
 <!-- <h1 style="text-align: center; margin-top: 2em;">About Me</h1> -->
