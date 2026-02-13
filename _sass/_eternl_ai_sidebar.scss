@@ -1,103 +1,106 @@
-/* Eternl AI Sidebar — Compact (keeps current font sizes) */
+/* Eternl AI Sidebar — Ultra-compact (no padding/margins) + active section highlight */
 
 .eternl-ai-sidebar {
   .nav__list {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
-
-    /* tighter container padding */
-    padding: 0.5rem;
+    padding: 0 !important;  /* remove all container padding */
+    margin: 0 !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
     .nav__title {
       color: #fff;
-      font-size: 1.1rem;          /* keep */
-      margin: 0 0 0.6rem 0;       /* tighter */
-      padding: 0;
+      font-size: 1.1rem;     /* keep font size */
+      margin: 0 !important;  /* no margin */
+      padding: 0 !important; /* no padding */
       text-align: center;
       letter-spacing: 1px;
     }
 
-    /* remove theme default spacing */
+    /* Hard reset theme spacing */
     ul, li {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      margin: 0 !important;
+      padding: 0 !important;
+      list-style: none !important;
     }
 
     > ul > li {
-      margin-bottom: 0.1rem;      /* tighter */
-      &:last-child { margin-bottom: 0; }
+      margin: 0 !important;
+      padding: 0 !important;
     }
 
+    /* SECTION (top-level) */
     .nav__sub-title {
       color: #fff;
-      font-size: 0.9rem;          /* keep */
+      font-size: 0.9rem;      /* keep */
       font-weight: 600;
-
-      /* tighter button padding */
-      padding: 0.25rem 0.45rem;
-      margin: 0;
-
-      background: rgba(255, 255, 255, 0.15);
+      margin: 0 !important;
+      padding: 0 !important;  /* remove all padding */
+      background: transparent;
       border-radius: 8px;
       border: none;
       text-transform: none;
-      transition: all 0.2s ease;
+      transition: all 0.15s ease;
       cursor: pointer;
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.25);
-        transform: translateX(4px); /* slightly reduced */
-      }
+      display: block;         /* make highlight span full width */
     }
 
+    /* Make the section clickable look consistent */
     a .nav__sub-title {
       text-decoration: none;
+      display: block;
     }
 
-    /* Child items (subsections) — tighter to section title */
+    /* Subsections container: remove spacing/indentation */
     ul ul {
-      margin-top: 0.15rem;        /* key: reduce section→subsection gap */
-      margin-left: 0.4rem;
-      padding-left: 0.8rem;
-      border-left: 2px solid rgba(255, 255, 255, 0.2);
+      margin: 0 !important;
+      padding: 0 !important;
+      border-left: none !important;
+    }
 
-      li {
-        margin-bottom: 0.18rem;   /* tighter */
-        &:last-child { margin-bottom: 0; }
+    /* Subsection items: remove spacing */
+    ul ul li {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
 
-        a {
-          color: rgba(255, 255, 255, 0.9);
-          font-size: 0.85rem;     /* keep */
-          text-decoration: none;
+    /* Subsection links: no padding */
+    ul ul li a {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.85rem;     /* keep */
+      margin: 0 !important;
+      padding: 0 !important;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+      display: block;         /* allow active bg to fill */
+    }
 
-          /* tighter link padding */
-          padding: 0.22rem 0.45rem;
-          border-radius: 6px;
-          transition: all 0.15s ease;
+    /* Hover (minimal, no padding shifts) */
+    .nav__sub-title:hover,
+    ul ul li a:hover {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+    }
 
-          &:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding-left: 0.85rem; /* smaller slide */
-          }
-        }
+    /* ACTIVE SUBSECTION (theme usually adds .active on <a>) */
+    ul ul li a.active,
+    ul ul li .active {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-weight: 600;
+    }
 
-        .active {
-          background: rgba(255, 255, 255, 0.25);
-          color: #fff;
-          font-weight: 600;
-          border-left: 3px solid #fff;
-
-          /* tighter active padding */
-          padding-left: 0.7rem;
-
-          &:hover {
-            color: #fff;
-          }
-        }
-      }
+    /* ACTIVE SECTION:
+       Minimal Mistakes marks the current page on the <a> for the child item.
+       We highlight the parent SECTION when ANY child in that section is active. */
+    li:has(ul ul a.active) > a .nav__sub-title,
+    li:has(ul ul a.active) > .nav__sub-title,
+    li:has(ul ul .active) > a .nav__sub-title,
+    li:has(ul ul .active) > .nav__sub-title {
+      background: rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-weight: 700;
     }
   }
 }
