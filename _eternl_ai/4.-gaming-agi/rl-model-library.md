@@ -18,7 +18,7 @@ order: 12
 
 The benefit is that RL agents have high capability to execute highly fine-grained actions, making them adept at handling complex tasks with precise control—for example, DeepMind dominates GO World Champion. However, a significant limitation is the lack of adaptability of RL agents. Each RL model is typically tailored to a specific set of tasks and environments, meaning that the skills and strategies they develop are not easily transferable to other contexts.&#x20;
 
-## Our R\&D Focus
+## Our R&D Focus
 
 We aim to mitigate this unadaptability issue by:&#x20;
 
