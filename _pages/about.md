@@ -31,7 +31,8 @@ redirect_from:
 <!-- 🧠 Title as heading --> 
 <!-- <h1 style="text-align: center; margin-top: 2em;">About Me</h1> -->
 
-
+About Me
+---
 
 I am currently a **Ph.D. candidate in Computer Science** at **UIUC**, advised by [Dr. Ismini Lourentzou](https://isminoula.github.io/). I began my doctoral studies at Virginia Tech, where I had also worked under [Dr. Kurt Luther](https://crowd.cs.vt.edu/kurt-luther/). Prior to my Ph.D., I earned an M.S. in Computer Science from **Georgetown University** and a B.A. in Computer Science (Linguistics concentration) from **University of Minnesota, Twin Cities.**
 
