@@ -1,5 +1,17 @@
+<style>
+/* Minimal Mistakes page title */
+.page__title {
+  background: linear-gradient(90deg, #ff4fd8, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  display: inline-block;
+}
+</style>
+
+
 ---
-title: "Eternl.AI Whitepaper:"
+title: "Eternl.AI Whitepaper"
 permalink: /eternl_ai/
 layout: single
 author_profile: false
