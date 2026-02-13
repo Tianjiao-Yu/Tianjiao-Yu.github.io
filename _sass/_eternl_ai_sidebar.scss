@@ -1,51 +1,54 @@
-/* Eternl AI Sidebar Enhancements */
+/* Eternl AI Sidebar — Compact (keeps current font sizes) */
 
 .eternl-ai-sidebar {
   .nav__list {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
-    padding: 0.75rem;
+
+    /* tighter container padding */
+    padding: 0.5rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    
+
     .nav__title {
       color: #fff;
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
+      font-size: 1.1rem;          /* keep */
+      margin: 0 0 0.6rem 0;       /* tighter */
       padding: 0;
       text-align: center;
       letter-spacing: 1px;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    /* remove theme default spacing */
+    ul, li {
       margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     > ul > li {
-      margin-bottom: 0.15rem;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin-bottom: 0.1rem;      /* tighter */
+      &:last-child { margin-bottom: 0; }
     }
 
     .nav__sub-title {
       color: #fff;
-      font-size: 0.9rem;
+      font-size: 0.9rem;          /* keep */
       font-weight: 600;
-      padding: 0.35rem 0.5rem;
+
+      /* tighter button padding */
+      padding: 0.25rem 0.45rem;
       margin: 0;
+
       background: rgba(255, 255, 255, 0.15);
       border-radius: 8px;
       border: none;
       text-transform: none;
-      transition: all 0.3s ease;
+      transition: all 0.2s ease;
       cursor: pointer;
 
       &:hover {
         background: rgba(255, 255, 255, 0.25);
-        transform: translateX(5px);
+        transform: translateX(4px); /* slightly reduced */
       }
     }
 
@@ -53,28 +56,31 @@
       text-decoration: none;
     }
 
-    // Child items
+    /* Child items (subsections) — tighter to section title */
     ul ul {
-      margin-top: 0.5rem;
-      margin-left: 0.5rem;
-      padding-left: 1rem;
+      margin-top: 0.15rem;        /* key: reduce section→subsection gap */
+      margin-left: 0.4rem;
+      padding-left: 0.8rem;
       border-left: 2px solid rgba(255, 255, 255, 0.2);
 
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.18rem;   /* tighter */
+        &:last-child { margin-bottom: 0; }
 
         a {
           color: rgba(255, 255, 255, 0.9);
-          font-size: 0.85rem;
-          padding: 0.3rem 0.5rem;
-          border-radius: 6px;
-          transition: all 0.2s ease;
+          font-size: 0.85rem;     /* keep */
           text-decoration: none;
+
+          /* tighter link padding */
+          padding: 0.22rem 0.45rem;
+          border-radius: 6px;
+          transition: all 0.15s ease;
 
           &:hover {
             background: rgba(255, 255, 255, 0.1);
             color: #fff;
-            padding-left: 1rem;
+            padding-left: 0.85rem; /* smaller slide */
           }
         }
 
@@ -82,9 +88,10 @@
           background: rgba(255, 255, 255, 0.25);
           color: #fff;
           font-weight: 600;
-          margin-left: 0;
           border-left: 3px solid #fff;
-          padding-left: 0.75rem;
+
+          /* tighter active padding */
+          padding-left: 0.7rem;
 
           &:hover {
             color: #fff;
