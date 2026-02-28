@@ -39,3 +39,10 @@
 @import "vendor/font-awesome/brands";
 @import "vendor/magnific-popup/magnific-popup";
 @import "print";
+
+/* Homepage: remove extra top whitespace above first section */
+body.home #main,
+body.page--home #main,
+body.page--index #main {
+  margin-top: 0; /* try 0; or 0.5em if you want a little breathing room */
+}
