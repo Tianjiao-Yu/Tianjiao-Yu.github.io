@@ -54,40 +54,50 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 
 Publications
 ---
-⭐⭐⭐ **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, **CVPR**, 2026 <br>
+⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, **CVPR**, 2026 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/part2gs/) · [Paper Link](https://arxiv.org/pdf/2506.17212v1) <br>
-⭐⭐⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, under review, 2025 <br>
+⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, under review, 2026 <br>
 **Tianjiao Yu**, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou. <br>
-⭐⭐⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, Arxiv, 2025 <br>
+⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, Arxiv, 2025 <br>
 **Tianjiao Yu**, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/core3d/) · [Paper Link](https://arxiv.org/abs/2512.12768) <br>
-⭐⭐⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
+⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628) <br>
-⭐ **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**, EMNLP, 2025 <br>
+🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**, **CVPR**, 2026 <br>
+Ying Shen, Jerry Xiong, **Tianjiao Yu**, Ismini Lourentzou.
+[Paper Link](coming soon) <br>
+🔥 **PALM: Progress‑Aware Policy Learning via Affordance Reasoning for Long‑Horizon Robotic Manipulation**,  **CVPR**, 2026. <br>
+Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, **Tianjiao Yu**, Wenzhen Yuan,
+Fangqiang Ding, Ismini Lourentzou.
+[Paper Link](https://arxiv.org/abs/2601.07060) <br>
+📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  **CVPR Findings**, 2026. <br>
+Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, **Tianjiao Yu**,
+Ismini Lourentzou.
+[Paper Link](https://arxiv.org/abs/2506.21546) <br>
+📄 **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**  **EMNLP Findings**, 2025 <br>
 Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2507.19598) <br>
-⭐ **PurpCode: Reasoning for Safer Code Generation**, Arxiv, 2025 <br>
+🔥 **PurpCode: Reasoning for Safer Code Generation**, **NeurIPS**, 2025 <br>
 Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
 [Paper Link](https://arxiv.org/abs/2507.19060) <br>
-⭐ **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, CVPR, 2025 <br>
+🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, **CVPR**, 2025 <br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331) <br>
-⭐ **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
+📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
 Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, **Tianjiao Yu**, Pinar Yanardag, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/prima/) · [Paper Link](https://arxiv.org/pdf/2412.15209) <br>
-⭐⭐⭐ **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, Proceedings of the ACM Web Conference 2023 <br>
+⭐🔥 **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, **WWW**, 2023 <br>
 **Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther. 
 [Paper Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514) <br>
-⭐ **Sedition Hunters: Countering Extremism through Collective Action**, CSCW 2021 Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
+📄 **Sedition Hunters: Countering Extremism through Collective Action**, **CSCW**, 2021, Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther.
 [Paper Link](https://par.nsf.gov/servlets/purl/10315695) <br>
-⭐ **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, Proceedings of the IEEE/CVF Winter Conference
-on Applications of Computer Vision. 2024. <br>
+📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, **WACV**, 2024. <br>
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 [Paper Link](https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html) <br>
-⭐ **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, In Alexa Prize TaskBot Challenge 2 Proceedings, 2023. <br>
+📄 **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, In Alexa Prize TaskBot Challenge 2 Proceedings, 2023. <br>
 Afrina Tabassum, Muntasir Wahed, **Tianjiao Yu**, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourentzou.
 [Paper Link](https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot) <br>
 
