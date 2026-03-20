@@ -118,37 +118,36 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 
 Publications
 ---
-⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**
-<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/part2gs/) · [Paper Link](https://arxiv.org/pdf/2506.17212v1) <br>
-⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, under review, 2026 <br>
+⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**,  <span class="venue-badge venue-arxiv">Arxiv 2026</span><br>
 **Tianjiao Yu**, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/dreampartgen/) · [Paper Link](https://arxiv.org/abs/2603.19216) <br>
-⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, Arxiv, 2025 <br>
+⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, <span class="venue-badge venue-arxiv">Arxiv 2025</span><br>
 **Tianjiao Yu**, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/core3d/) · [Paper Link](https://arxiv.org/abs/2512.12768) <br>
-⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**, Arxiv, 2024 <br>
+⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**,<span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628) <br>
-🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**, **CVPR**, 2026 <br>
+🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**,<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 Ying Shen, Jerry Xiong, **Tianjiao Yu**, Ismini Lourentzou.
 [Paper Link](coming soon) <br>
-🔥 **PALM: Progress‑Aware Policy Learning via Affordance Reasoning for Long‑Horizon Robotic Manipulation**,  **CVPR**, 2026. <br>
+🔥 **PALM: Progress‑Aware Policy Learning via Affordance Reasoning for Long‑Horizon Robotic Manipulation**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, **Tianjiao Yu**, Wenzhen Yuan,
 Fangqiang Ding, Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2601.07060) <br>
-📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  **CVPR Findings**, 2026. <br>
+📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, **Tianjiao Yu**,
 Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2506.21546) <br>
-📄 **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**  **EMNLP Findings**, 2025 <br>
+📄 **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**  <span class="venue-badge venue-emnlp">EMNLP Findings 2026</span><br>
 Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2507.19598) <br>
-🔥 **PurpCode: Reasoning for Safer Code Generation**, **NeurIPS**, 2025 <br>
+🔥 **PurpCode: Reasoning for Safer Code Generation**, <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
 Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
 [Paper Link](https://arxiv.org/abs/2507.19060) <br>
-🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, **CVPR**, 2025 <br>
+🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**,<span class="venue-badge venue-cvpr">CVPR 2025</span><br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331) <br>
 📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
