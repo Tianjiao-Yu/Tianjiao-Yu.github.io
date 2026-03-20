@@ -150,19 +150,19 @@ Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tia
 🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**,<span class="venue-badge venue-cvpr">CVPR 2025</span><br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331) <br>
-📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, Arxiv, 2024 <br>
+📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, <span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
 Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, **Tianjiao Yu**, Pinar Yanardag, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/prima/) · [Paper Link](https://arxiv.org/pdf/2412.15209) <br>
-⭐🔥 **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**, **WWW**, 2023 <br>
+⭐🔥 **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**,<span class="venue-badge venue-www">WWW 2023</span><br>
 **Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther. 
 [Paper Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514) <br>
-📄 **Sedition Hunters: Countering Extremism through Collective Action**, **CSCW**, 2021, Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
+📄 **Sedition Hunters: Countering Extremism through Collective Action**, <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>, Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther.
 [Paper Link](https://par.nsf.gov/servlets/purl/10315695) <br>
-📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, **WACV**, 2024. <br>
+📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**,<span class="venue-badge venue-wacv">WACV 2024</span><br>
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 [Paper Link](https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html) <br>
-📄 **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, In Alexa Prize TaskBot Challenge 2 Proceedings, 2023. <br>
+📄 **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, <span class="venue-badge venue-arxiv">In Alexa Prize TaskBot Challenge 2 Proceedings 2023</span> <br>
 Afrina Tabassum, Muntasir Wahed, **Tianjiao Yu**, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourentzou.
 [Paper Link](https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot) <br>
 
