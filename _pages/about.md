@@ -7,7 +7,62 @@ redirect_from:
   - /about/
   - /about.html
 ---
+<style>
+.venue-badge {
+  display: inline-block;
+  padding: 0.12em 0.6em;
+  margin-left: 0.35em;
+  border-radius: 999px;
+  font-size: 0.82em;
+  font-weight: 800;
+  line-height: 1.4;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
 
+.venue-badge:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.venue-cvpr {
+  background: linear-gradient(90deg, #ff7a18, #af002d 70%, #6a00ff);
+  color: white;
+}
+
+.venue-neurips {
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+  color: white;
+}
+
+.venue-emnlp {
+  background: linear-gradient(90deg, #3a86ff, #8338ec);
+  color: white;
+}
+
+.venue-arxiv {
+  background: linear-gradient(90deg, #6b7280, #9ca3af);
+  color: white;
+}
+
+.venue-www {
+  background: linear-gradient(90deg, #f7971e, #ffd200);
+  color: #222;
+}
+
+.venue-wacv, .venue-cscw {
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  color: white;
+}
+
+.venue-underreview {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+</style>
 <!-- ✨ Minimal & Beautiful Quote -->
 <!-- <div style="
   max-width: 700px;
@@ -53,7 +108,8 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 
 Publications
 ---
-⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, **CVPR**, 2026 <br>
+⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**
+<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/part2gs/) · [Paper Link](https://arxiv.org/pdf/2506.17212v1) <br>
 ⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, under review, 2026 <br>
