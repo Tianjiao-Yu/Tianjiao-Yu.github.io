@@ -135,55 +135,113 @@ Publications
 <div class="pub-card">
   ⭐🔥 <strong>Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting</strong>
   <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
-  <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
+  <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.<br>
   <a href="https://plan-lab.github.io/projects/part2gs/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
   <a href="https://arxiv.org/pdf/2506.17212v1" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
-⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, <span class="venue-badge venue-arxiv">Arxiv 2026</span><br>
-**Tianjiao Yu**, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou. 
-[Project Page](https://plan-lab.github.io/projects/dreampartgen/) · [Paper Link](https://arxiv.org/abs/2603.19216) <br>
-⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, <span class="venue-badge venue-arxiv">Arxiv 2025</span><br>
-**Tianjiao Yu**, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou.
-[Project Page](https://plan-lab.github.io/projects/core3d/) · [Paper Link](https://arxiv.org/abs/2512.12768) <br>
-⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**,<span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
-**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou. 
-[Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628) <br>
-🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
-Ying Shen, Jerry Xiong, **Tianjiao Yu**, Ismini Lourentzou.
-[Paper Link](coming soon) <br>
-🔥 **PALM: Progress‑Aware Policy Learning via Affordance Reasoning for Long‑Horizon Robotic Manipulation**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
-Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, **Tianjiao Yu**, Wenzhen Yuan,
-Fangqiang Ding, Ismini Lourentzou.
-[Paper Link](https://arxiv.org/abs/2601.07060) <br>
-📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  <span class="venue-badge venue-cvpr">CVPR Findings 2026</span><br>
-Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, **Tianjiao Yu**,
-Ismini Lourentzou.
-[Paper Link](https://arxiv.org/abs/2506.21546) <br>
-📄 **MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?**  <span class="venue-badge venue-emnlp">EMNLP Findings 2026</span><br>
-Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.
-[Paper Link](https://arxiv.org/abs/2507.19598) <br>
-🔥 **PurpCode: Reasoning for Safer Code Generation**, <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
-Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
-[Paper Link](https://arxiv.org/abs/2507.19060) <br>
-🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, <span class="venue-badge venue-cvpr">CVPR 2025</span><br>
-Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou.
-[Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331) <br>
-📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, <span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
-Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, **Tianjiao Yu**, Pinar Yanardag, Ismini Lourentzou.
-[Project Page](https://plan-lab.github.io/projects/prima/) · [Paper Link](https://arxiv.org/pdf/2412.15209) <br>
-⭐🔥 **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**,<span class="venue-badge venue-www">WWW 2023</span><br>
-**Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther. 
-[Paper Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514) <br>
-📄 **Sedition Hunters: Countering Extremism through Collective Action**, <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>
-Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther.
-[Paper Link](https://par.nsf.gov/servlets/purl/10315695) <br>
-📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, <span class="venue-badge venue-wacv">WACV 2024</span><br>
-Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
-[Paper Link](https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html) <br>
-📄 **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, <span class="venue-badge venue-arxiv">In Alexa Prize TaskBot Challenge 2 Proceedings 2023</span> <br>
-Afrina Tabassum, Muntasir Wahed, **Tianjiao Yu**, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourentzou.
-[Paper Link](https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot) <br>
 
+<div class="pub-card">
+  ⭐ <strong>DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</strong>
+  <span class="venue-badge venue-arxiv">arXiv 2026</span><br>
+  <strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou.<br>
+  <a href="https://plan-lab.github.io/projects/dreampartgen/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/abs/2603.19216" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  ⭐ <strong>CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence</strong>
+  <span class="venue-badge venue-arxiv">arXiv 2025</span><br>
+  <strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou.<br>
+  <a href="https://plan-lab.github.io/projects/core3d/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/abs/2512.12768" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  ⭐ <strong>Uncertainty in Action: Confidence Elicitation in Embodied Agents</strong>
+  <span class="venue-badge venue-arxiv">arXiv 2024</span><br>
+  <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou.<br>
+  <a href="https://plan-lab.github.io/projects/ece/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/pdf/2503.10628" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  🔥 <strong>PHANTOM: Physics-Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics</strong>
+  <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+  Ying Shen, Jerry Xiong, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.<br>
+  <a href="#" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  🔥 <strong>PALM: Progress-Aware Policy Learning via Affordance Reasoning for Long-Horizon Robotic Manipulation</strong>
+  <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+  Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, <strong>Tianjiao Yu</strong>, Wenzhen Yuan, Fangqiang Ding, Ismini Lourentzou.<br>
+  <a href="https://arxiv.org/abs/2601.07060" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination</strong>
+  <span class="venue-badge venue-cvpr">CVPR Findings 2026</span><br>
+  Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.<br>
+  <a href="https://arxiv.org/abs/2506.21546" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?</strong>
+  <span class="venue-badge venue-emnlp">EMNLP Findings 2025</span><br>
+  Muntasir Wahed, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.<br>
+  <a href="https://arxiv.org/abs/2507.19598" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  🔥 <strong>PurpCode: Reasoning for Safer Code Generation</strong>
+  <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
+  Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.<br>
+  <a href="https://arxiv.org/abs/2507.19060" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  🔥 <strong>CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models</strong>
+  <span class="venue-badge venue-cvpr">CVPR 2025</span><br>
+  Kiet A. Nguyen, Adheesh Juvekar, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Ismini Lourentzou.<br>
+  <a href="https://plan-lab.github.io/projects/calico/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/pdf/2412.19331" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation</strong>
+  <span class="venue-badge venue-arxiv">arXiv 2024</span><br>
+  Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, <strong>Tianjiao Yu</strong>, Pinar Yanardag, Ismini Lourentzou.<br>
+  <a href="https://plan-lab.github.io/projects/prima/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/pdf/2412.15209" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  ⭐🔥 <strong>Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack</strong>
+  <span class="venue-badge venue-www">WWW 2023</span><br>
+  <strong>Tianjiao Yu</strong>, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther.<br>
+  <a href="https://dl.acm.org/doi/pdf/10.1145/3543507.3583514" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>Sedition Hunters: Countering Extremism through Collective Action</strong>
+  <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>
+  Sukrit Venkatagiri, <strong>Tianjiao Yu</strong>, Vikram Mohanty, Kurt Luther.<br>
+  <a href="https://par.nsf.gov/servlets/purl/10315695" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval</strong>
+  <span class="venue-badge venue-wacv">WACV 2024</span><br>
+  Muntasir Wahed, Xiaona Zhou, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.<br>
+  <a href="https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
+  📄 <strong>PLAB‐Bot: Contextualized &amp; Knowledge‐grounded Multimodal Taskbot</strong>
+  <span class="venue-badge venue-arxiv">Alexa Prize 2023</span><br>
+  Afrina Tabassum, Muntasir Wahed, <strong>Tianjiao Yu</strong>, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourentzou.<br>
+  <a href="https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
 
 <!-- {% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
