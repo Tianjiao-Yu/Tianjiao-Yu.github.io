@@ -10,59 +10,69 @@ redirect_from:
 <style>
 .venue-badge {
   display: inline-block;
-  padding: 0.12em 0.6em;
+  padding: 0.12em 0.55em;
   margin-left: 0.35em;
   border-radius: 999px;
-  font-size: 0.82em;
-  font-weight: 800;
+  font-size: 0.8em;
+  font-weight: 500;
   line-height: 1.4;
   vertical-align: middle;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+  border: 1px solid transparent;
+  white-space: nowrap;
 }
 
-.venue-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
+/* soft pastel styles */
 .venue-cvpr {
-  background: linear-gradient(90deg, #ff7a18, #af002d 70%, #6a00ff);
-  color: white;
+  background: #fff1e8;
+  color: #c96a28;
+  border-color: #f6dccb;
 }
 
 .venue-neurips {
-  background: linear-gradient(90deg, #11998e, #38ef7d);
-  color: white;
+  background: #eefaf0;
+  color: #4c8c5a;
+  border-color: #d7eedc;
 }
-
 .venue-emnlp {
-  background: linear-gradient(90deg, #3a86ff, #8338ec);
-  color: white;
+  background: #eef4ff;
+  color: #5f78b7;
+  border-color: #dbe6fb;
 }
 
 .venue-arxiv {
-  background: linear-gradient(90deg, #6b7280, #9ca3af);
-  color: white;
+  background: #f5f5f5;
+  color: #7a7a7a;
+  border-color: #e6e6e6;
 }
 
 .venue-www {
-  background: linear-gradient(90deg, #f7971e, #ffd200);
-  color: #222;
+  background: #fff4db;
+  color: #b07a10;
+  border-color: #f3e3b8;
 }
 
-.venue-wacv, .venue-cscw {
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  color: white;
+.venue-cscw {
+  background: #f3efff;
+  color: #7a68b3;
+  border-color: #e2daf8;
+}
+
+.venue-wacv {
+  background: #eef8ff;
+  color: #5f8aa6;
+  border-color: #dcecf7;
 }
 
 .venue-underreview {
-  background: #f3f4f6;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  background: #faf7f2;
+  color: #9a7b57;
+  border-color: #eee2d3;
 }
 
 </style>
+
+
+
 <!-- ✨ Minimal & Beautiful Quote -->
 <!-- <div style="
   max-width: 700px;
