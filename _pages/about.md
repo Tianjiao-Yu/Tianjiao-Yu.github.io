@@ -156,7 +156,7 @@ Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, V
 ⭐🔥 **Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack**,<span class="venue-badge venue-www">WWW 2023</span><br>
 **Tianjiao Yu**, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther. 
 [Paper Link](https://dl.acm.org/doi/pdf/10.1145/3543507.3583514) <br>
-📄 **Sedition Hunters: Countering Extremism through Collective Action**, <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>, Workshop on Addressing Challenges and Opportunities in Online Extremism Research: An Interdisciplinary Perspective <br>
+📄 **Sedition Hunters: Countering Extremism through Collective Action**, <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther.
 [Paper Link](https://par.nsf.gov/servlets/purl/10315695) <br>
 📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**,<span class="venue-badge venue-wacv">WACV 2024</span><br>
