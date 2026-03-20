@@ -133,10 +133,11 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 Publications
 ---
 <div class="pub-card">
-⭐🔥 **Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting**
-<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
-**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.<br>
-[Project](https://plan-lab.github.io/projects/part2gs/) · [Paper](https://arxiv.org/pdf/2506.17212v1)
+  ⭐🔥 <strong>Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting</strong>
+  <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+  <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
+  <a href="https://plan-lab.github.io/projects/part2gs/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/pdf/2506.17212v1" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
 ⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, <span class="venue-badge venue-arxiv">Arxiv 2026</span><br>
 **Tianjiao Yu**, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou. 
