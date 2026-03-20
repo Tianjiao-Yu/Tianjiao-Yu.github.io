@@ -137,7 +137,7 @@ Ying Shen, Jerry Xiong, **Tianjiao Yu**, Ismini Lourentzou.
 Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, **Tianjiao Yu**, Wenzhen Yuan,
 Fangqiang Ding, Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2601.07060) <br>
-📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+📄 **Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination**,  <span class="venue-badge venue-cvpr">CVPR Findings 2026</span><br>
 Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, **Tianjiao Yu**,
 Ismini Lourentzou.
 [Paper Link](https://arxiv.org/abs/2506.21546) <br>
