@@ -8,6 +8,20 @@ redirect_from:
   - /about.html
 ---
 <style>
+.pub-card {
+  padding: 0.9rem 1rem;
+  margin: 0.85rem 0;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #fcfcfc;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.pub-card:hover {
+  background: #ffffff;
+  border-color: #e3e3e3;
+}
+
 .venue-badge {
   display: inline-block;
   padding: 0.12em 0.55em;
@@ -118,10 +132,13 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 
 Publications
 ---
-⭐🔥 **Part²GS: Part-aware Modeling of articulated Objects using 3D Gaussian Splatting**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
-**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
-[Project Page](https://plan-lab.github.io/projects/part2gs/) · [Paper Link](https://arxiv.org/pdf/2506.17212v1) <br>
-⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**,  <span class="venue-badge venue-arxiv">Arxiv 2026</span><br>
+<div class="pub-card">
+⭐🔥 **Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting**
+<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+**Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.<br>
+[Project](https://plan-lab.github.io/projects/part2gs/) · [Paper](https://arxiv.org/pdf/2506.17212v1)
+</div>
+⭐ **DreamPartGen: 3D Generation with Part‑Level Text Guidance through Collaborative Part‑Latent Denoising**, <span class="venue-badge venue-arxiv">Arxiv 2026</span><br>
 **Tianjiao Yu**, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/dreampartgen/) · [Paper Link](https://arxiv.org/abs/2603.19216) <br>
 ⭐ **CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence**, <span class="venue-badge venue-arxiv">Arxiv 2025</span><br>
@@ -130,7 +147,7 @@ Publications
 ⭐ **Uncertainty in Action: Confidence Elicitation in Embodied Agents**,<span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
 **Tianjiao Yu**, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou. 
 [Project Page](https://plan-lab.github.io/projects/ece/) · [Paper Link](https://arxiv.org/pdf/2503.10628) <br>
-🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**,<span class="venue-badge venue-cvpr">CVPR 2026</span><br>
+🔥 **PHANTOM: Physics‑Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
 Ying Shen, Jerry Xiong, **Tianjiao Yu**, Ismini Lourentzou.
 [Paper Link](coming soon) <br>
 🔥 **PALM: Progress‑Aware Policy Learning via Affordance Reasoning for Long‑Horizon Robotic Manipulation**, <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
@@ -147,7 +164,7 @@ Muntasir Wahed, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Nirav Diwan, Gang W
 🔥 **PurpCode: Reasoning for Safer Code Generation**, <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
 Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A Nguyen, **Tianjiao Yu**, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
 [Paper Link](https://arxiv.org/abs/2507.19060) <br>
-🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**,<span class="venue-badge venue-cvpr">CVPR 2025</span><br>
+🔥 **CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models**, <span class="venue-badge venue-cvpr">CVPR 2025</span><br>
 Kiet A Nguyen, Adheesh Juvekar, **Tianjiao Yu**, Muntasir Wahed, Ismini Lourentzou.
 [Project Page](https://plan-lab.github.io/projects/calico/) · [Paper Link](https://arxiv.org/pdf/2412.19331) <br>
 📄 **PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation**, <span class="venue-badge venue-arxiv">Arxiv 2024</span><br>
@@ -159,7 +176,7 @@ Muntasir Wahed, Kiet A Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, V
 📄 **Sedition Hunters: Countering Extremism through Collective Action**, <span class="venue-badge venue-cscw">CSCW Workshop 2021</span><br>
 Sukrit Venkatagiri, **Tianjiao Yu**, Vikram Mohanty, Kurt Luther.
 [Paper Link](https://par.nsf.gov/servlets/purl/10315695) <br>
-📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**,<span class="venue-badge venue-wacv">WACV 2024</span><br>
+📄 **FARM: Fine‐Grained Alignment for Cross‐Modal Recipe Retrieval**, <span class="venue-badge venue-wacv">WACV 2024</span><br>
 Muntasir Wahed, Xiaona Zhou,**Tianjiao Yu**, Ismini Lourentzou.
 [Paper Link](https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html) <br>
 📄 **PLAB‐Bot: Contextualized & Knowledge‐grounded Multimodal Taskbot**, <span class="venue-badge venue-arxiv">In Alexa Prize TaskBot Challenge 2 Proceedings 2023</span> <br>
