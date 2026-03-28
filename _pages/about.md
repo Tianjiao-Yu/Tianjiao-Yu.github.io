@@ -121,9 +121,9 @@ I study how structured representations - linguistic, spatial, and geometric — 
 
 My recent work explores:
 
-- **Collaborative reasoning frameworks** that unify language and 3D generation  
-- **Part-level 3D generation and articulation** for modeling structured objects  
-- **Uncertainty-aware embodied agents** that adapt reasoning and planning in dynamic environments
+- **Collaborative Reasoning Frameworks** that unify language and 3D generation  
+- **Part-level 3D Generation and Articulation** for modeling structured objects  
+- **Uncertainty-aware Embodied Agents** that adapt reasoning and planning in dynamic environments
 
 Across these directions, I aim to build language-enabled systems that do not merely predict tokens or pixels, but instead reason over **structure, parts, space, and action**. My work draws inspiration from **theoretical linguistics, 3D representation learning, and multimodal world modeling** to develop agents that can understand, construct, and interact with complex 3D worlds.
 
