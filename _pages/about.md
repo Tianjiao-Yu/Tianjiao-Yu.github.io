@@ -82,11 +82,6 @@ redirect_from:
   color: #9a7b57;
   border-color: #eee2d3;
 }
-.venue-challenge {
-  background: #fff6ec;
-  color: #b76a2f;
-  border-color: #f3dfc9;
-}
 </style>
 
 
@@ -199,7 +194,6 @@ Publications
 <div class="pub-card">
   🔥 <strong>PurpCode: Reasoning for Safer Code Generation</strong>
   <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
-  <span class="venue-badge venue-challenge">Amazon Nova AI Challenge. Winner🏆</span><br>
   Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
   <a href="https://arxiv.org/abs/2507.19060" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
@@ -244,7 +238,6 @@ Publications
 <div class="pub-card">
   📄 <strong>PLAB‐Bot: Contextualized &amp; Knowledge‐grounded Multimodal Taskbot</strong>
   <span class="venue-badge venue-arxiv">Alexa Prize 2023</span><br>
-  <span class="venue-badge venue-challenge">Alexa TaskBot Challenge 2, Finalist</span><br>
   Afrina Tabassum, Muntasir Wahed, <strong>Tianjiao Yu</strong>, Amarachi B. Mbakwe, Makanjuola Ogunleye, and Ismini Lourentzou.
   <a href="https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
