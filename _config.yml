@@ -80,7 +80,7 @@ analytics:
 
 # Site Author
 author:
-  name             : "Tianjiao (Joey) Yu<br>于天骄"
+  name             : "Tianjiao (Joey) Yu<br><span style='font-family: STKaiti, KaiTi, Songti SC, Noto Serif SC, serif;'>于天骄</span>"
   avatar           : "tianjiao_yu.jpeg"
   current_status   : "Ph.D. Student"
   current_dept     : "Computer Science"
