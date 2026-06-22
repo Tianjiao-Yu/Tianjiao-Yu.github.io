@@ -23,17 +23,130 @@ redirect_from:
 }
 
 .venue-badge {
+  position: relative;
   display: inline-block;
-  padding: 0.12em 0.55em;
+  overflow: hidden;
+
+  padding: 0.14em 0.68em;
   margin-left: 0.35em;
+
   border-radius: 999px;
-  font-size: 0.8em;
-  font-weight: 500;
-  line-height: 1.4;
-  vertical-align: middle;
   border: 1px solid transparent;
+
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.01em;
+  vertical-align: middle;
   white-space: nowrap;
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
+
+/* animated light sweep */
+.venue-badge::before {
+  content: "";
+  position: absolute;
+
+  top: -35%;
+  left: -35%;
+
+  width: 16%;
+  height: 170%;
+
+  background: rgba(255, 255, 255, 0.65);
+  transform: skewX(-20deg);
+  filter: blur(1px);
+
+  animation: venue-shine 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* subtle sparkle inside the badge */
+.venue-badge::after {
+  content: "✦";
+  position: absolute;
+
+  top: 0.02em;
+  right: 0.18em;
+
+  font-size: 0.62em;
+  line-height: 1;
+
+  color: currentColor;
+  opacity: 0;
+
+  animation: venue-sparkle 3.8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.venue-badge:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 3px 7px rgba(0, 0, 0, 0.11),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+@keyframes venue-shine {
+  0%,
+  62% {
+    left: -35%;
+    opacity: 0;
+  }
+
+  68% {
+    opacity: 0.8;
+  }
+
+  84% {
+    left: 125%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 125%;
+    opacity: 0;
+  }
+}
+
+@keyframes venue-sparkle {
+  0%,
+  67%,
+  87%,
+  100% {
+    opacity: 0;
+    transform: scale(0.65) rotate(0deg);
+  }
+
+  74% {
+    opacity: 0.8;
+    transform: scale(1.05) rotate(15deg);
+  }
+
+  80% {
+    opacity: 0.35;
+    transform: scale(0.82) rotate(25deg);
+  }
+}
+
+/* accessibility: disable animation when reduced motion is requested */
+@media (prefers-reduced-motion: reduce) {
+  .venue-badge,
+  .venue-badge::before,
+  .venue-badge::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+
 
 /* soft pastel styles */
 .venue-cvpr {
