@@ -83,10 +83,10 @@ redirect_from:
   border-color: #eee2d3;
 }
 .venue-eccv {
-  background: linear-gradient(135deg, #f3efff 0%, #eef2ff 100%);
-  color: #6657b8;
-  border-color: #ddd6fa;
-  box-shadow: 0 1px 3px rgba(102, 87, 184, 0.10);
+  background: #fff0f0;
+  color: #c94444;
+  border-color: #f2cccc;
+  box-shadow: 0 1px 3px rgba(201, 68, 68, 0.10);
 }
 </style>
 
