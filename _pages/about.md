@@ -82,6 +82,12 @@ redirect_from:
   color: #9a7b57;
   border-color: #eee2d3;
 }
+.venue-eccv {
+  background: linear-gradient(135deg, #f3efff 0%, #eef2ff 100%);
+  color: #6657b8;
+  border-color: #ddd6fa;
+  box-shadow: 0 1px 3px rgba(102, 87, 184, 0.10);
+}
 </style>
 
 
@@ -132,6 +138,14 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 Publications
 ---
 <div class="pub-card">
+  ⭐ <strong>DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</strong>
+  <span class="venue-badge venue-eccv">ECCV 2026</span><br>
+  <strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou.
+  <a href="https://plan-lab.github.io/projects/dreampartgen/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/abs/2603.19216" target="_blank" rel="noopener noreferrer">Paper</a>
+</div>
+
+<div class="pub-card">
   ⭐🔥 <strong>Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting</strong>
   <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
   <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
@@ -139,13 +153,6 @@ Publications
   <a href="https://arxiv.org/pdf/2506.17212v1" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
 
-<div class="pub-card">
-  ⭐ <strong>DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</strong>
-  <span class="venue-badge venue-arxiv">arXiv 2026</span><br>
-  <strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou.
-  <a href="https://plan-lab.github.io/projects/dreampartgen/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
-  <a href="https://arxiv.org/abs/2603.19216" target="_blank" rel="noopener noreferrer">Paper</a>
-</div>
 
 <div class="pub-card">
   ⭐ <strong>CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence</strong>
