@@ -138,7 +138,7 @@ Beyond my academic work, I co-founded <a href="https://tianjiao-yu.github.io/ete
 Publications
 ---
 <div class="pub-card">
-  ⭐ <strong>DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</strong>
+  ⭐🔥 <strong>DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</strong>
   <span class="venue-badge venue-eccv">ECCV 2026</span><br>
   <strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou.
   <a href="https://plan-lab.github.io/projects/dreampartgen/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
