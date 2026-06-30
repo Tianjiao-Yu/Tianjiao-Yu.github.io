@@ -286,7 +286,7 @@ Publications
 
 <div class="pub-card">
   🔥 <strong>GraphVid: Interactive Graph-Controllable Video Generation</strong>
-  <span class="venue-badge venue-ECCV">ECCV 2026</span><br>
+  <span class="venue-badge venue-eccv">ECCV 2026</span><br>
   Vedant Shah, Onkar Kishor Susladkar, Tushar Prakash, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Adheesh Sunil Juvekar, Muntasir Wahed, Ismini Lourentzou
   <a href="#" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
