@@ -263,7 +263,7 @@ Publications
   <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
   <strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.
   <a href="https://plan-lab.github.io/projects/part2gs/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
-  <a href="https://arxiv.org/pdf/2506.17212v1" target="_blank" rel="noopener noreferrer">Paper</a>
+  <a href="https://arxiv.org/pdf/2506.17212v1" target="_blank" rel="noopener noreferrer">Paper</a> ·
   <a href="https://github.com/PLAN-Lab/Part2GS-CVPR2026" target="_blank" rel="noopener noreferrer">Code</a>
 </div>
 
@@ -301,7 +301,7 @@ Publications
   🔥 <strong>PHANTOM: Physics-Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics</strong>
   <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
   Ying Shen, Jerry Xiong, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.
-  <a href="https://plan-lab.github.io/projects/phantom/" target="_blank" rel="noopener noreferrer">Project Page</a>
+  <a href="https://plan-lab.github.io/projects/phantom/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
   <a href="https://arxiv.org/abs/2604.08503" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
 
@@ -309,8 +309,8 @@ Publications
   🔥 <strong>PALM: Progress-Aware Policy Learning via Affordance Reasoning for Long-Horizon Robotic Manipulation</strong>
   <span class="venue-badge venue-cvpr">CVPR 2026</span><br>
   Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, <strong>Tianjiao Yu</strong>, Wenzhen Yuan, Fangqiang Ding, Ismini Lourentzou.
-  <a href="https://plan-lab.github.io/projects/palm/" target="_blank" rel="noopener noreferrer">Project Page</a>
-  <a href="https://arxiv.org/abs/2601.07060" target="_blank" rel="noopener noreferrer">Paper</a>
+  <a href="https://plan-lab.github.io/projects/palm/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
+  <a href="https://arxiv.org/abs/2601.07060" target="_blank" rel="noopener noreferrer">Paper</a> ·
   <a href="https://github.com/PLAN-Lab/PALM" target="_blank" rel="noopener noreferrer">Code</a>
 </div>
 
@@ -332,7 +332,7 @@ Publications
   🔥 <strong>PurpCode: Reasoning for Safer Code Generation</strong>
   <span class="venue-badge venue-neurips">NeurIPS 2025</span><br>
   Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.
-  <a href="https://arxiv.org/abs/2507.19060" target="_blank" rel="noopener noreferrer">Paper</a> 
+  <a href="https://arxiv.org/abs/2507.19060" target="_blank" rel="noopener noreferrer">Paper</a> ·
   <a href="https://github.com/purpcode-uiuc/purpcode" target="_blank" rel="noopener noreferrer">Code</a>  
 </div>
 
@@ -341,7 +341,7 @@ Publications
   <span class="venue-badge venue-cvpr">CVPR 2025</span><br>
   Kiet A. Nguyen, Adheesh Juvekar, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Ismini Lourentzou.
   <a href="https://plan-lab.github.io/projects/calico/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
-  <a href="https://arxiv.org/pdf/2412.19331" target="_blank" rel="noopener noreferrer">Paper</a>
+  <a href="https://arxiv.org/pdf/2412.19331" target="_blank" rel="noopener noreferrer">Paper</a> ·
   <a href="https://github.com/PLAN-Lab/CALICO" target="_blank" rel="noopener noreferrer">Code</a>
 </div>
 
