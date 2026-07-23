@@ -270,7 +270,7 @@ Publications
 <div class="pub-card">
   ⭐ <strong>ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation</strong>
   <span class="venue-badge venue-arxiv">arXiv 2026</span><br>
-  <strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Onkar Susladkar, Yuanzhe Liu, Xiaona Zhou, Ismini Lourentzou
+  <strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Onkar Susladkar, Yuanzhe Liu, Xiaona Zhou, Ismini Lourentzou.
   <a href="https://plan-lab.github.io/projects/elsa3D/" target="_blank" rel="noopener noreferrer">Project Page</a> ·
   <a href="https://arxiv.org/abs/2607.06565" target="_blank" rel="noopener noreferrer">Paper</a>
 </div>
