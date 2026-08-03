@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tianjiao (Joey) Yu — hero prototype</title>
+<style>
+  /* ---------- light theme (default) ---------- */
+  :root{
+    --bg:#f5f7fa;
+    --bg-2:#ffffff;
+    --wash:#e9eef5;
+    --panel:rgba(255,255,255,.74);
+    --line:rgba(22,42,72,.13);
+    --ink:#16202e;
+    --ink-dim:#5d6b80;
+    --accent:#c2500f;
+    --accent-2:#0f7d92;
+    --shadow:0 26px 60px -32px rgba(20,40,70,.42);
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  }
+  /* ---------- ?dark — kept so the two can be compared side by side ---------- */
+  .theme-dark{
+    --bg:#0b1018;
+    --bg-2:#0e141f;
+    --wash:#101827;
+    --panel:rgba(18,26,40,.62);
+    --line:rgba(140,170,210,.16);
+    --ink:#e6edf7;
+    --ink-dim:#93a4bd;
+    --accent:#ffb26b;
+    --accent-2:#5fd0e6;
+    --shadow:0 30px 80px -30px rgba(0,0,0,.8);
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1100px 620px at 72% 42%, var(--wash), transparent 70%),
+      var(--bg);
+    color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed; inset:0 0 auto 0; z-index:20;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 28px;
+    backdrop-filter:blur(10px);
+    background:linear-gradient(to bottom,var(--bg),transparent);
+  }
+  .brand{font-weight:600; letter-spacing:.01em}
+  nav .links{display:flex; gap:22px; font-family:var(--mono); font-size:12.5px; color:var(--ink-dim)}
+  nav .links a{text-decoration:none}
+  nav .links a:hover{color:var(--accent)}
+
+  /* ---------- hero: one screen, scrolls away like any other section ---------- */
+  .hero{position:relative; height:100vh; overflow:hidden}
+  #pc{position:absolute; inset:0; width:100%; height:100%; display:block}
+
+  .intro{
+    position:absolute; left:6vw; top:50%; transform:translateY(-50%);
+    width:min(460px,86vw); z-index:5;
+    padding:26px 28px 22px;
+    border:1px solid var(--line); border-radius:20px;
+    background:var(--panel);
+    backdrop-filter:blur(14px) saturate(120%);
+    box-shadow:var(--shadow);
+  }
+  .idrow{display:flex; align-items:center; gap:18px; margin-bottom:18px}
+  .hs-halo{
+    position:relative; flex:0 0 auto; width:88px; height:88px; border-radius:50%;
+    padding:3px;
+    background:conic-gradient(from 200deg,var(--accent-2),#8fb0c4,var(--accent),#8fb0c4,var(--accent-2));
+  }
+  .hs{width:100%; height:100%; border-radius:50%; object-fit:cover; display:block;
+      border:3px solid var(--bg-2)}
+  .kicker{font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+          text-transform:uppercase; color:var(--accent); margin-bottom:6px}
+  h1{font-family:var(--serif); font-size:34px; line-height:1.1; margin:0; font-weight:500}
+  .role{color:var(--ink-dim); font-size:14.5px; margin:2px 0}
+  .role b{color:var(--ink); font-weight:600}
+  .role a{color:var(--ink)}
+  .cta{display:flex; gap:10px; margin:20px 0 14px; flex-wrap:wrap}
+  .btn{
+    font-family:var(--mono); font-size:12.5px; padding:9px 16px; border-radius:10px;
+    text-decoration:none; border:1px solid transparent; transition:.18s;
+  }
+  .btn.primary{background:var(--accent); color:#fff; font-weight:600}
+  .theme-dark .btn.primary{color:#241203}
+  .btn.primary:hover{filter:brightness(1.08)}
+  .btn.ghost{border-color:var(--line); color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--accent-2); color:var(--accent-2)}
+  .socials{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{
+    font-family:var(--mono); font-size:11.5px; text-decoration:none;
+    padding:6px 11px; border-radius:999px;
+    border:1px solid var(--line); color:var(--ink-dim); transition:.18s;
+  }
+  .chip:hover{color:var(--accent-2); border-color:var(--accent-2)}
+
+  .readout{
+    position:absolute; left:6vw; bottom:26px; z-index:5;
+    font-family:var(--mono); font-size:11px; color:var(--ink-dim); letter-spacing:.04em;
+  }
+  .readout b{color:var(--accent-2); font-weight:500}
+  .scrollhint{
+    position:absolute; right:6vw; bottom:26px; z-index:5;
+    font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--ink-dim);
+  }
+
+  /* ---------- page sections ---------- */
+  .wrap{max-width:900px; margin:0 auto; padding:0 6vw}
+  section{padding:9vh 0}
+  .sec-head{display:flex; align-items:baseline; gap:14px; margin:0 0 22px}
+  .sec-head h2{font-family:var(--serif); font-weight:500; font-size:28px; margin:0}
+  .sec-head .rule{flex:1; height:1px; background:var(--line)}
+  .sec-head .count{font-family:var(--mono); font-size:11.5px; color:var(--ink-dim)}
+
+  /* ---------- about ---------- */
+  .about{
+    padding:30px 32px;
+    border:1px solid var(--line); border-radius:20px;
+    background:var(--bg-2); box-shadow:var(--shadow);
+  }
+  .about p{margin:0 0 15px; color:var(--ink-dim); max-width:64ch}
+  .about p strong{color:var(--ink); font-weight:600}
+  .about a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid transparent}
+  .about a:hover{border-bottom-color:var(--accent-2)}
+  /* Must out-specify `.about a` (0,1,1) or its colour wins and the clipped
+     background has nothing to show through. */
+  .about a.eternl{
+    display:inline-block;
+    font-weight:800; text-decoration:none; border-bottom:none;
+    background:linear-gradient(90deg,#ff4fd8,#3b82f6);
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent; color:transparent;
+  }
+  .about a.eternl:hover{border-bottom:none; filter:brightness(1.12) saturate(1.1)}
+
+  .dirs{display:grid; gap:12px; grid-template-columns:repeat(3,1fr); margin:22px 0 6px}
+  .dir{
+    padding:14px 15px; border:1px solid var(--line); border-radius:14px;
+    background:var(--bg); transition:.2s;
+  }
+  .dir:hover{border-color:var(--accent-2); transform:translateY(-2px)}
+  .dir b{display:block; font-size:13.5px; margin-bottom:5px}
+  .dir span{font-size:12.5px; color:var(--ink-dim); line-height:1.5}
+
+  .edu{display:flex; flex-wrap:wrap; gap:8px; margin-top:22px;
+       padding-top:20px; border-top:1px solid var(--line)}
+  .edu span{
+    font-family:var(--mono); font-size:11.5px; color:var(--ink-dim);
+    padding:6px 11px; border-radius:8px; background:var(--bg); border:1px solid var(--line);
+  }
+  .edu span b{color:var(--ink); font-weight:600}
+
+  /* ---------- publications ---------- */
+  .pub-card{
+    padding:15px 17px; margin:11px 0;
+    border:1px solid var(--line); border-radius:14px;
+    background:var(--bg-2);
+    box-shadow:0 1px 2px rgba(20,40,70,.04);
+    font-size:14.2px; line-height:1.62;
+    transition:opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1),
+               border-color .2s ease, box-shadow .2s ease;
+  }
+  /* Entrance is opt-in: only hide cards once JS is confirmed running, so a
+     script error or a no-JS reader never ends up with an empty page. */
+  .js .pub-card{opacity:0; transform:translateY(12px)}
+  .js .pub-card.in{opacity:1; transform:none}
+  .pub-card:hover{border-color:rgba(22,42,72,.22); box-shadow:0 6px 18px -8px rgba(20,40,70,.22)}
+  .pub-card .title{font-weight:600; color:var(--ink)}
+  .pub-card .authors{color:var(--ink-dim); font-size:13.4px}
+  .pub-card .authors strong{color:var(--ink); font-weight:600}
+  .pub-card .links{margin-top:5px; font-family:var(--mono); font-size:12px}
+  .pub-card .links a{color:var(--accent-2); text-decoration:none}
+  .pub-card .links a:hover{text-decoration:underline}
+  .pub-card .links .sep{color:var(--ink-dim); opacity:.45; margin:0 6px}
+  .mark{font-size:13px; margin-right:2px}
+
+  /* ---------- venue badge ---------- */
+  .venue-badge{
+    position:relative; display:inline-flex; align-items:center; justify-content:center;
+    overflow:hidden; isolation:isolate;
+    /* Top padding is deliberately larger than bottom. These labels have no
+       descenders, so the font's reserved descender space sits unused at the
+       bottom and the glyphs read high; the bias puts them back on centre. */
+    padding:.42em .66em .3em; margin-left:.35em;
+    border-radius:7px; border:1px solid transparent;
+    font-family:var(--mono);
+    font-size:.78em; font-weight:600; line-height:1;
+    letter-spacing:.01em; vertical-align:middle; white-space:nowrap;
+    box-shadow:0 1px 3px rgba(0,0,0,.07), inset 0 1px 0 rgba(255,255,255,.45);
+    transition:transform 160ms ease, box-shadow 160ms ease;
+  }
+  .pub-card:hover .venue-badge{
+    transform:translateY(-1px);
+    box-shadow:0 3px 7px rgba(0,0,0,.11), inset 0 1px 0 rgba(255,255,255,.55);
+  }
+
+  /* Light sweep. Animating transform (not `left`) keeps this on the
+     compositor — with 16 badges looping forever, animating a layout
+     property would mean 16 layout passes every frame. */
+  /* the label is lifted above the sweep so the shine glosses the badge
+     without washing out the venue name as it passes */
+  .venue-badge .v{position:relative; z-index:2}
+  .venue-badge::before{
+    content:""; position:absolute; z-index:1;
+    top:-40%; left:0; width:24%; height:180%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);
+    transform:translateX(-280%) skewX(-18deg);
+    pointer-events:none;
+  }
+  /* .live is added only while the badge is on screen, so nothing animates
+     in a section the reader has not reached (or has already passed) */
+  .venue-badge.live::before{
+    animation:venue-shine 6s var(--shine-delay,0s) ease-in-out infinite;
+  }
+  @keyframes venue-shine{
+    0%,58%{transform:translateX(-280%) skewX(-18deg); opacity:0}
+    61%   {opacity:1}
+    76%   {transform:translateX(540%) skewX(-18deg); opacity:0}
+    100%  {transform:translateX(540%) skewX(-18deg); opacity:0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .pub-card{opacity:1; transform:none; transition:none}
+    .venue-badge,.venue-badge::before{animation:none; transition:none}
+  }
+
+  /* venue palettes */
+  .venue-cvpr       {background:#fff1e8; color:#c96a28; border-color:#f6dccb}
+  .venue-neurips    {background:#eefaf0; color:#4c8c5a; border-color:#d7eedc}
+  .venue-emnlp      {background:#eef4ff; color:#5f78b7; border-color:#dbe6fb}
+  .venue-arxiv      {background:#f5f5f5; color:#7a7a7a; border-color:#e6e6e6}
+  .venue-www        {background:#fff4db; color:#b07a10; border-color:#f3e3b8}
+  .venue-cscw       {background:#f3efff; color:#7a68b3; border-color:#e2daf8}
+  .venue-wacv       {background:#eef8ff; color:#5f8aa6; border-color:#dcecf7}
+  .venue-underreview{background:#faf7f2; color:#9a7b57; border-color:#eee2d3}
+  .venue-eccv       {background:#fff0f0; color:#c94444; border-color:#f2cccc;
+                     box-shadow:0 1px 3px rgba(201,68,68,.10)}
+
+  /* ?inspect — head alone, for checking mesh orientation and framing */
+  .inspect .intro,.inspect nav,.inspect .scrollhint,.inspect .wrap{display:none}
+
+  @media (max-width:860px){
+    .intro{left:50%; top:auto; bottom:5vh; transform:translateX(-50%); width:88vw}
+    h1{font-size:27px}
+    .readout,.scrollhint{display:none}
+    .dirs{grid-template-columns:1fr}
+    .about{padding:24px 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">Tianjiao (Joey) Yu</div>
+  <div class="links">
+    <a href="#">about</a><a href="#">research</a><a href="#">publications</a><a href="#">cv</a>
+  </div>
+</nav>
+
+<div class="hero" id="hero">
+  <canvas id="pc"></canvas>
+
+  <div class="intro">
+    <div class="idrow">
+      <div class="hs-halo">
+        <img class="hs" src="../../images/tianjiao_yu.jpeg" alt="Tianjiao (Joey) Yu">
+      </div>
+      <div>
+        <div class="kicker">University of Illinois Urbana-Champaign</div>
+        <h1>Tianjiao&nbsp;(Joey)&nbsp;Yu</h1>
+      </div>
+    </div>
+
+    <p class="role"><b>Ph.D. Candidate</b>, Computer Science</p>
+    <p class="role">Advised by <a href="https://isminoula.github.io/">Ismini Lourentzou</a>, PLAN Lab</p>
+    <p class="role">Reasoning in 3D &amp; embodied settings · NLP · multimodal learning</p>
+
+    <div class="cta">
+      <a class="btn primary" href="#">Publications</a>
+      <a class="btn ghost" href="#">CV</a>
+    </div>
+
+    <div class="socials">
+      <a class="chip" href="mailto:ty41@illinois.edu">Email</a>
+      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">Google Scholar</a>
+      <a class="chip" href="https://github.com/Tianjiao-Yu">GitHub</a>
+      <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">LinkedIn</a>
+    </div>
+  </div>
+
+  <div class="readout"><span id="src">placeholder mesh</span> · <b id="pcount">0</b> points · <span id="merged">0</span> merged</div>
+  <div class="scrollhint">SCROLL</div>
+</div>
+
+<div class="wrap">
+
+<section id="about">
+  <div class="sec-head"><h2>About</h2><span class="rule"></span></div>
+
+  <div class="about">
+    <p>I am a <strong>Ph.D. candidate in Computer Science</strong> at <strong>UIUC</strong>,
+       advised by <a href="https://isminoula.github.io/">Ismini Lourentzou</a>. I began my
+       doctoral studies at Virginia Tech, where I also worked under
+       <a href="https://crowd.cs.vt.edu/kurt-luther/">Kurt Luther</a>.</p>
+
+    <p>My research centers on <strong>reasoning in 3D and embodied settings</strong>, grounded
+       in a broader foundation of <strong>natural language processing and multimodal
+       learning</strong>. I study how structured representations — linguistic, spatial, and
+       geometric — can be integrated to let machines reason about the world in a grounded,
+       interpretable, and generative way.</p>
+
+    <div class="dirs">
+      <div class="dir"><b>Collaborative Reasoning</b><span>Frameworks that unify language and 3D generation</span></div>
+      <div class="dir"><b>Part-Level 3D</b><span>Generation and articulation for structured objects</span></div>
+      <div class="dir"><b>Embodied Uncertainty</b><span>Agents that adapt reasoning and planning in dynamic environments</span></div>
+    </div>
+
+    <p style="margin-top:20px">Across these directions I aim to build language-enabled systems
+       that do not merely predict tokens or pixels, but reason over
+       <strong>structure, parts, space, and action</strong> — drawing on theoretical
+       linguistics, 3D representation learning, and multimodal world modeling.</p>
+
+    <p>Beyond academia I co-founded <a class="eternl" href="https://tianjiao-yu.github.io/eternl_ai/">Eternl.AI</a>,
+       where I architect AI infrastructure for embodied intelligence in interactive gaming —
+       spanning <strong>agentic AI</strong>, <strong>long-horizon personalization</strong>, and
+       <strong>3D-world generation</strong>. We raised $400K at a $40M valuation.</p>
+
+    <div class="edu">
+      <span><b>Ph.D.</b> Computer Science · UIUC</span>
+      <span><b>M.S.</b> Computer Science · Georgetown</span>
+      <span><b>B.A.</b> Computer Science, Linguistics · UMN Twin Cities</span>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="sec-head"><h2>Publications</h2><span class="rule"></span><span class="count" id="pubcount"></span></div>
+
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</span>
+    <span class="venue-badge venue-eccv">ECCV 2026</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Xinzhuo Li, Yifan Shen, Ying Shen, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/dreampartgen/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/abs/2603.19216">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">Part²GS: Part-aware Modeling of Articulated Objects using 3D Gaussian Splatting</span>
+    <span class="venue-badge venue-cvpr">CVPR 2026</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Ying Shen, Kiet A. Nguyen, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/part2gs/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2506.17212v1">Paper</a><span class="sep">·</span><a href="https://github.com/PLAN-Lab/Part2GS-CVPR2026">Code</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">⭐</span><span class="title">ELSA3D: Elastic Semantic Anchoring for Unified 3D Understanding and Generation</span>
+    <span class="venue-badge venue-arxiv">arXiv 2026</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Onkar Susladkar, Yuanzhe Liu, Xiaona Zhou, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/elsa3D/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/abs/2607.06565">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">⭐</span><span class="title">CoRe3D: Collaborative Reasoning as a Foundation for 3D Intelligence</span>
+    <span class="venue-badge venue-arxiv">arXiv 2025</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Yuanzhe Liu, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/core3d/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/abs/2512.12768">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">⭐</span><span class="title">Uncertainty in Action: Confidence Elicitation in Embodied Agents</span>
+    <span class="venue-badge venue-arxiv">arXiv 2024</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Vedant Shah, Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Tal August, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/ece/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2503.10628">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">GraphVid: Interactive Graph-Controllable Video Generation</span>
+    <span class="venue-badge venue-eccv">ECCV 2026</span>
+    <div class="authors">Vedant Shah, Onkar Kishor Susladkar, Tushar Prakash, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Adheesh Sunil Juvekar, Muntasir Wahed, Ismini Lourentzou.</div>
+    <div class="links"><a href="#">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">PHANTOM: Physics-Infused Video Generation via Joint Modeling of Visual and Latent Physical Dynamics</span>
+    <span class="venue-badge venue-cvpr">CVPR 2026</span>
+    <div class="authors">Ying Shen, Jerry Xiong, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/phantom/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/abs/2604.08503">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">PALM: Progress-Aware Policy Learning via Affordance Reasoning for Long-Horizon Robotic Manipulation</span>
+    <span class="venue-badge venue-cvpr">CVPR 2026</span>
+    <div class="authors">Yuanzhe Liu, Jingyuan Zhu, Yuchen Mo, Gen Li, Xu Cao, Jin Jin, Yifan Shen, Zhengyuan Li, <strong>Tianjiao Yu</strong>, Wenzhen Yuan, Fangqiang Ding, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/palm/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/abs/2601.07060">Paper</a><span class="sep">·</span><a href="https://github.com/PLAN-Lab/PALM">Code</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">Counterfactual Segmentation Reasoning: Diagnosing and Mitigating Pixel-Grounding Hallucination</span>
+    <span class="venue-badge venue-cvpr">CVPR Findings 2026</span>
+    <div class="authors">Xinzhuo Li, Adheesh Sunil Juvekar, Jiaxun Zhang, Xingyou Liu, Muntasir Wahed, Kiet A. Nguyen, Yifan Shen, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://arxiv.org/abs/2506.21546">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">MOCHA: Are Code Language Models Robust Against Multi-Turn Malicious Coding Prompts?</span>
+    <span class="venue-badge venue-emnlp">EMNLP Findings 2025</span>
+    <div class="authors">Muntasir Wahed, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Nirav Diwan, Gang Wang, Dilek Hakkani-Tür, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://arxiv.org/abs/2507.19598">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">PurpCode: Reasoning for Safer Code Generation</span>
+    <span class="venue-badge venue-neurips">NeurIPS 2025</span>
+    <div class="authors">Jiawei Liu, Nirav Diwan, Zhe Wang, Haoyu Zhai, Xiaona Zhou, Kiet A. Nguyen, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Yinlin Deng, Hadjer Benkraouda, Yuxiang Wei, Lingming Zhang, Ismini Lourentzou, Gang Wang.</div>
+    <div class="links"><a href="https://arxiv.org/abs/2507.19060">Paper</a><span class="sep">·</span><a href="https://github.com/purpcode-uiuc/purpcode">Code</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">CALICO: Part-Focused Semantic Co-Segmentation with Large Vision-Language Models</span>
+    <span class="venue-badge venue-cvpr">CVPR 2025</span>
+    <div class="authors">Kiet A. Nguyen, Adheesh Juvekar, <strong>Tianjiao Yu</strong>, Muntasir Wahed, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/calico/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2412.19331">Paper</a><span class="sep">·</span><a href="https://github.com/PLAN-Lab/CALICO">Code</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">PRIMA: Multi-Image Vision-Language Models for Reasoning Segmentation</span>
+    <span class="venue-badge venue-arxiv">arXiv 2024</span>
+    <div class="authors">Muntasir Wahed, Kiet A. Nguyen, Adheesh Sunil Juvekar, Xinzhuo Li, Xiaona Zhou, Vedant Shah, <strong>Tianjiao Yu</strong>, Pinar Yanardag, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://plan-lab.github.io/projects/prima/">Project Page</a><span class="sep">·</span><a href="https://arxiv.org/pdf/2412.15209">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">Sedition Hunters: A Quantitative Study of the Crowdsourced Investigation into the 2021 US Capitol Attack</span>
+    <span class="venue-badge venue-www">WWW 2023</span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Sukrit Venkatagiri, Ismini Lourentzou, Kurt Luther.</div>
+    <div class="links"><a href="https://dl.acm.org/doi/pdf/10.1145/3543507.3583514">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">Sedition Hunters: Countering Extremism through Collective Action</span>
+    <span class="venue-badge venue-cscw">CSCW Workshop 2021</span>
+    <div class="authors">Sukrit Venkatagiri, <strong>Tianjiao Yu</strong>, Vikram Mohanty, Kurt Luther.</div>
+    <div class="links"><a href="https://par.nsf.gov/servlets/purl/10315695">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">FARM: Fine-Grained Alignment for Cross-Modal Recipe Retrieval</span>
+    <span class="venue-badge venue-wacv">WACV 2024</span>
+    <div class="authors">Muntasir Wahed, Xiaona Zhou, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://openaccess.thecvf.com/content/WACV2024/html/Wahed_Fine-Grained_Alignment_for_Cross-Modal_Recipe_Retrieval_WACV_2024_paper.html">Paper</a></div>
+  </div>
+
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">PLAB-Bot: Contextualized &amp; Knowledge-grounded Multimodal Taskbot</span>
+    <span class="venue-badge venue-arxiv">Alexa Prize 2023</span>
+    <div class="authors">Afrina Tabassum, Muntasir Wahed, <strong>Tianjiao Yu</strong>, Amarachi B. Mbakwe, Makanjuola Ogunleye, Ismini Lourentzou.</div>
+    <div class="links"><a href="https://www.amazon.science/alexa-prize/proceedings/plan-bot-contextualized-and-knowledge-grounded-multimodal-taskbot">Paper</a></div>
+  </div>
+</section>
+
+</div>
+
+<script src="hero.js"></script>
+<script>
+/* Cards settle in as they scroll into view, and the badge sweep only runs
+   while a badge is actually on screen — 16 infinite animations looping in
+   sections nobody is looking at is wasted compositor work. */
+(function () {
+  const cards = [...document.querySelectorAll('.pub-card')];
+  document.getElementById('pubcount').textContent = cards.length + ' entries';
+  document.documentElement.classList.add('js');
+  const revealAll = () => cards.forEach(c => c.classList.add('in'));
+  /* failsafe: whatever happens to the observer, nothing stays hidden */
+  setTimeout(revealAll, 1500);
+
+  document.querySelectorAll('.venue-badge').forEach((b, i) => {
+    /* wrap the label so it can be stacked above the sweep; done here rather
+       than in the markup so the badges stay plain text without JS */
+    b.innerHTML = '<span class="v">' + b.textContent.trim() + '</span>';
+    /* de-sync the sweeps so they don't all flash on the same beat */
+    b.style.setProperty('--shine-delay', ((i % 7) * 0.62).toFixed(2) + 's');
+  });
+
+  if (!('IntersectionObserver' in window)) {
+    revealAll();
+    document.querySelectorAll('.venue-badge').forEach(b => b.classList.add('live'));
+    return;
+  }
+
+  const reveal = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const i = cards.indexOf(e.target);
+      e.target.style.transitionDelay = ((i % 6) * 55) + 'ms';
+      e.target.classList.add('in');
+      obs.unobserve(e.target);                       // entrance plays once
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
+  cards.forEach(c => reveal.observe(c));
+
+  const shine = new IntersectionObserver(entries => {
+    entries.forEach(e => e.target.classList.toggle('live', e.isIntersecting));
+  }, { threshold: 0 });
+  document.querySelectorAll('.venue-badge').forEach(b => shine.observe(b));
+})();
+</script>
+</body>
+</html>
