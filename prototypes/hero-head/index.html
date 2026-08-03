@@ -20,7 +20,12 @@
     --shadow:0 26px 60px -32px rgba(20,40,70,.42);
     --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
     --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    /* left rail: width of the floating intro card, and the gutter beside it */
+    --rail:400px;
+    --gutter:6vw;
+    --col:calc(var(--gutter) + var(--rail) + 56px);   /* where content begins */
   }
+  @media (min-width:1440px){ :root{--rail:440px} }
   /* ---------- ?dark — kept so the two can be compared side by side ---------- */
   .theme-dark{
     --bg:#0b1018;
@@ -61,12 +66,16 @@
   nav .links a:hover{color:var(--accent)}
 
   /* ---------- hero: one screen, scrolls away like any other section ---------- */
+  /* NOTE: .intro lives inside .hero but is position:fixed on wide screens.
+     That escapes this overflow:hidden only because .hero creates no
+     containing block for fixed descendants — do not add transform, filter,
+     backdrop-filter or will-change here, or the rail gets trapped and clipped. */
   .hero{position:relative; height:100vh; overflow:hidden}
   #pc{position:absolute; inset:0; width:100%; height:100%; display:block}
 
   .intro{
-    position:absolute; left:6vw; top:50%; transform:translateY(-50%);
-    width:min(460px,86vw); z-index:5;
+    position:absolute; left:var(--gutter); top:50%; transform:translateY(-50%);
+    width:min(460px,86vw); z-index:8;
     padding:26px 28px 22px;
     border:1px solid var(--line); border-radius:20px;
     background:var(--panel);
@@ -106,17 +115,106 @@
   .chip:hover{color:var(--accent-2); border-color:var(--accent-2)}
 
   .readout{
-    position:absolute; left:6vw; bottom:26px; z-index:5;
+    position:absolute; left:var(--gutter); bottom:26px; z-index:5;
     font-family:var(--mono); font-size:11px; color:var(--ink-dim); letter-spacing:.04em;
   }
   .readout b{color:var(--accent-2); font-weight:500}
   .scrollhint{
-    position:absolute; right:6vw; bottom:26px; z-index:5;
+    position:absolute; right:var(--gutter); bottom:26px; z-index:5;
     font-family:var(--mono); font-size:11px; letter-spacing:.22em; color:var(--ink-dim);
   }
 
   /* ---------- page sections ---------- */
-  .wrap{max-width:900px; margin:0 auto; padding:0 6vw}
+  .wrap{max-width:900px; margin:0 auto; padding:0 var(--gutter)}
+
+  /* Wide screens: the intro card leaves the hero and becomes a fixed left
+     rail that stays put for the whole page, with the content column offset
+     to clear it. Below 1024px there isn't room for two columns, so the card
+     stays inside the hero and the content runs full width (see the
+     max-width:860px block at the end). */
+  @media (min-width:1024px){
+    .intro{
+      position:fixed; left:var(--gutter); top:50%; transform:translateY(-50%);
+      width:var(--rail);
+      max-height:86vh; overflow-y:auto;      /* never taller than the viewport */
+      padding:24px 24px 20px;
+    }
+    /* the rail is narrower than the old hero card, so the header scales down
+       and the name is allowed to wrap rather than overflow */
+    .intro h1{font-size:27px}
+    .intro .hs-halo{width:74px; height:74px}
+    .intro .idrow{gap:14px; margin-bottom:16px}
+    /* five chips need ~381px at the default size but the rail gives 350 */
+    .intro .socials{gap:6px}
+    .intro .chip{padding:6px 8px; font-size:11px}
+
+    /* ---- demote once the hero is gone -------------------------------------
+       The card's job changes from "introduce me" to "remind you who's
+       writing", so it sheds its chrome and most of its content rather than
+       just dimming: an opaque panel at hero size stays loud at any opacity. */
+    .intro,.intro .hs-halo,.intro h1,.intro .idrow,
+    .intro .kicker,.intro .role,.intro .cta,.intro .socials{
+      transition:opacity .38s ease, max-height .45s ease, margin .45s ease,
+                 padding .45s ease, width .45s ease, height .45s ease,
+                 font-size .45s ease, background .45s ease, border-color .45s ease,
+                 box-shadow .45s ease, top .5s cubic-bezier(.2,.7,.3,1),
+                 transform .5s cubic-bezier(.2,.7,.3,1);
+    }
+    .intro .kicker,.intro .role,.intro .cta,.intro .socials{max-height:140px}
+
+    .condensed .intro{
+      background:transparent; border-color:transparent; box-shadow:none;
+      backdrop-filter:none;                /* else it still blurs the page behind */
+      padding:0 20px 0 0;
+      top:104px; transform:none;           /* out of the vertical reading zone */
+      max-height:none; overflow:visible;
+    }
+    .condensed .intro .hs-halo{width:40px; height:40px; padding:2px}
+    .condensed .intro .hs{border-width:2px}
+    .condensed .intro .idrow{gap:11px; margin-bottom:0}
+    .condensed .intro h1{font-size:19px}
+    /* keep the name, the first role line and the links; the rest collapses */
+    .condensed .intro .kicker,
+    .condensed .intro .role:nth-of-type(2),
+    .condensed .intro .role:nth-of-type(3),
+    .condensed .intro .cta{
+      opacity:0; max-height:0; margin:0; overflow:hidden; pointer-events:none;
+    }
+    .condensed .intro .role:nth-of-type(1){margin-top:9px; font-size:13px}
+
+    /* ---- the links become a vertical ruled index --------------------------
+       Same anchors as the hero chips, restyled — no duplicate markup, so the
+       links can't drift out of sync between the two states. */
+    .intro .chip{
+      transition:padding .4s ease, background .4s ease, border-color .4s ease,
+                 border-radius .4s ease, color .22s ease;
+    }
+    .condensed .intro .socials{
+      flex-direction:column; gap:2px; margin-top:20px; max-height:none;
+    }
+    .condensed .intro .chip{
+      display:flex; align-items:center; gap:10px;
+      padding:5px 0; border-color:transparent; border-radius:0; background:none;
+      font-family:var(--mono); font-size:11.5px; letter-spacing:.06em;
+      color:var(--ink-dim);
+    }
+    .condensed .intro .chip::before{
+      content:""; flex:0 0 auto; width:14px; height:1px;
+      background:currentColor; opacity:.5;
+      transition:width .28s cubic-bezier(.2,.7,.3,1), opacity .22s ease;
+    }
+    .condensed .intro .chip:hover{color:var(--accent); border-color:transparent}
+    .condensed .intro .chip:hover::before{width:30px; opacity:1}
+
+    /* the rail carries the name now, so the nav brand would just echo it */
+    nav .brand{transition:opacity .38s ease}
+    .condensed nav .brand{opacity:0; pointer-events:none}
+    /* offset with margins, not padding: `*{box-sizing:border-box}` makes
+       max-width include padding, which would shrink the column to nothing */
+    .wrap{margin:0 var(--gutter) 0 var(--col); max-width:760px; padding:0}
+    /* keep the readout out from under the card by aligning it to the column */
+    .readout{left:var(--col)}
+  }
   section{padding:9vh 0}
   .sec-head{display:flex; align-items:baseline; gap:14px; margin:0 0 22px}
   .sec-head h2{font-family:var(--serif); font-weight:500; font-size:28px; margin:0}
@@ -233,6 +331,8 @@
   @media (prefers-reduced-motion:reduce){
     .pub-card{opacity:1; transform:none; transition:none}
     .venue-badge,.venue-badge::before{animation:none; transition:none}
+    /* the rail still demotes, it just snaps instead of morphing */
+    .intro,.intro *,nav .brand{transition:none}
   }
 
   /* venue palettes */
@@ -251,7 +351,8 @@
   .inspect .intro,.inspect nav,.inspect .scrollhint,.inspect .wrap{display:none}
 
   @media (max-width:860px){
-    .intro{left:50%; top:auto; bottom:5vh; transform:translateX(-50%); width:88vw}
+    .intro{position:absolute; left:50%; top:auto; bottom:5vh;
+           transform:translateX(-50%); width:88vw; max-height:none}
     h1{font-size:27px}
     .readout,.scrollhint{display:none}
     .dirs{grid-template-columns:1fr}
@@ -278,7 +379,7 @@
       </div>
       <div>
         <div class="kicker">University of Illinois Urbana-Champaign</div>
-        <h1>Tianjiao&nbsp;(Joey)&nbsp;Yu</h1>
+        <h1>Tianjiao (Joey) Yu</h1>
       </div>
     </div>
 
@@ -293,9 +394,10 @@
 
     <div class="socials">
       <a class="chip" href="mailto:ty41@illinois.edu">Email</a>
-      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">Google Scholar</a>
+      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">Scholar</a>
       <a class="chip" href="https://github.com/Tianjiao-Yu">GitHub</a>
       <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">LinkedIn</a>
+      <a class="chip" href="https://twitter.com/yu_tianjiao">Twitter</a>
     </div>
   </div>
 
@@ -511,6 +613,15 @@
     entries.forEach(e => e.target.classList.toggle('live', e.isIntersecting));
   }, { threshold: 0 });
   document.querySelectorAll('.venue-badge').forEach(b => shine.observe(b));
+
+  /* Demote the left rail once the hero is mostly past. Watching the hero
+     itself rather than a scroll offset keeps this correct at any viewport
+     height. If the observer never runs, the rail simply stays full — the
+     failure mode is "too prominent", never "identity disappears". */
+  const hero = document.getElementById('hero');
+  new IntersectionObserver(([e]) => {
+    document.documentElement.classList.toggle('condensed', e.intersectionRatio < 0.4);
+  }, { threshold: [0, 0.2, 0.4, 0.6, 1] }).observe(hero);
 })();
 </script>
 </body>
