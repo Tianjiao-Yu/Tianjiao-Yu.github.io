@@ -54,32 +54,57 @@
     Prev/next walk the collection in `order`, so a reader can move through
     the paper without returning to the contents each time.
   {%- endcomment -%}
-  {%- assign chapters = site.eternl_ai | sort: 'order' -%}
+  {%- comment -%}
+    Prev/next comes from _data/navigation.yml rather than the collection's
+    `order`, for two reasons: it is the same ordering the contents rail shows,
+    and most chapters carry an empty `title` in front matter (their heading
+    lives in the markdown), so the collection has no usable label to print.
+    Built with loop-matching rather than array[variable] indexing.
+  {%- endcomment -%}
+  {%- assign flat_urls = "" -%}
+  {%- assign flat_titles = "" -%}
+  {%- for item in site.data.navigation.eternl_ai -%}
+    {%- assign flat_urls = flat_urls | append: item.url | append: "|" -%}
+    {%- assign flat_titles = flat_titles | append: item.title | append: "|" -%}
+    {%- for child in item.children -%}
+      {%- assign flat_urls = flat_urls | append: child.url | append: "|" -%}
+      {%- assign flat_titles = flat_titles | append: child.title | append: "|" -%}
+    {%- endfor -%}
+  {%- endfor -%}
+  {%- assign urls = flat_urls | split: "|" -%}
+  {%- assign titles = flat_titles | split: "|" -%}
+
   {%- assign pos = -1 -%}
-  {%- for c in chapters -%}
-    {%- if c.url == page.url -%}{%- assign pos = forloop.index0 -%}{%- endif -%}
+  {%- for u in urls -%}
+    {%- if u == page.url -%}{%- assign pos = forloop.index0 -%}{%- endif -%}
   {%- endfor -%}
-  {%- assign prev_i = pos | minus: 1 -%}
-  {%- assign next_i = pos | plus: 1 -%}
-  {%- assign prevpage = nil -%}
-  {%- assign nextpage = nil -%}
-  {%- comment -%} resolved by walking the list, not arr[var] indexing {%- endcomment -%}
-  {%- for c in chapters -%}
-    {%- if pos >= 0 and forloop.index0 == prev_i -%}{%- assign prevpage = c -%}{%- endif -%}
-    {%- if pos >= 0 and forloop.index0 == next_i -%}{%- assign nextpage = c -%}{%- endif -%}
-  {%- endfor -%}
-  {% if prevpage or nextpage %}
+  {%- assign pi = pos | minus: 1 -%}
+  {%- assign ni = pos | plus: 1 -%}
+  {%- assign prev_url = "" -%}{%- assign next_url = "" -%}
+  {%- assign prev_title = "" -%}{%- assign next_title = "" -%}
+  {%- if pos >= 0 -%}
+    {%- for u in urls -%}
+      {%- if forloop.index0 == pi -%}{%- assign prev_url = u -%}{%- endif -%}
+      {%- if forloop.index0 == ni -%}{%- assign next_url = u -%}{%- endif -%}
+    {%- endfor -%}
+    {%- for t in titles -%}
+      {%- if forloop.index0 == pi -%}{%- assign prev_title = t -%}{%- endif -%}
+      {%- if forloop.index0 == ni -%}{%- assign next_title = t -%}{%- endif -%}
+    {%- endfor -%}
+  {%- endif -%}
+
+  {% if prev_url != "" or next_url != "" %}
     <nav class="pager">
-      {% if prevpage %}
-        <a class="prev" href="{{ prevpage.url | relative_url }}">
+      {% if prev_url != "" %}
+        <a class="prev" href="{{ prev_url | relative_url }}">
           <span class="dir">← Previous</span>
-          <span class="ttl">{{ prevpage.title | default: "Back" }}</span>
+          <span class="ttl">{{ prev_title }}</span>
         </a>
       {% endif %}
-      {% if nextpage %}
-        <a class="next" href="{{ nextpage.url | relative_url }}">
+      {% if next_url != "" %}
+        <a class="next" href="{{ next_url | relative_url }}">
           <span class="dir">Next →</span>
-          <span class="ttl">{{ nextpage.title | default: "Continue" }}</span>
+          <span class="ttl">{{ next_title }}</span>
         </a>
       {% endif %}
     </nav>
