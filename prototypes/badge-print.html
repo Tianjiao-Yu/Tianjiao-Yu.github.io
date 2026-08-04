@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Venue badge — particle print</title>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink); padding:34px 5vw 90px;
+       font:15px/1.6 var(--sans)}
+  h1{font-size:21px; margin:0 0 4px; font-weight:600}
+  .lede{color:var(--ink-dim); font-size:13.5px; margin:0 0 18px; max-width:80ch}
+  .bar{display:flex; gap:10px; margin:0 0 26px}
+  .bar button{font-family:var(--mono); font-size:12px; padding:8px 14px; border-radius:9px;
+              border:1px solid var(--line); background:var(--bg-2); color:var(--ink); cursor:pointer}
+  .bar button:hover{border-color:var(--accent-2); color:var(--accent-2)}
+
+  .list{max-width:660px}
+  .pub-card{
+    padding:15px 17px; margin:11px 0;
+    border:1px solid var(--line); border-radius:14px; background:var(--bg-2);
+    box-shadow:0 1px 2px rgba(20,40,70,.04);
+    font-size:14.2px; line-height:1.62;
+  }
+  .title{font-weight:600}
+  .authors{color:var(--ink-dim); font-size:13.4px}
+  .authors strong{color:var(--ink); font-weight:600}
+  .mark{font-size:13px; margin-right:2px}
+
+  /* wrapper gives the particles room to fly in from outside the pill,
+     which has overflow:hidden and would otherwise clip them */
+  .badge-wrap{position:relative; display:inline-flex; vertical-align:middle}
+  .printfx{position:absolute; pointer-events:none; z-index:4}
+
+  .venue-badge{
+    position:relative; display:inline-flex; align-items:center; justify-content:center;
+    overflow:hidden; isolation:isolate;
+    padding:.42em .66em .3em; margin-left:.35em;
+    border-radius:7px; border:1px solid transparent;
+    font-family:var(--mono); font-size:.78em; font-weight:600; line-height:1;
+    letter-spacing:.01em; white-space:nowrap;
+    box-shadow:0 1px 3px rgba(0,0,0,.07), inset 0 1px 0 rgba(255,255,255,.45);
+  }
+  .venue-badge .v{position:relative; z-index:2; transition:opacity .28s ease}
+  /* While printing the whole badge is particles — the real pill has to go,
+     background, border and shadow, or the swarm just overlays it. Specificity
+     (0,2,0) beats the .venue-* colour classes without !important. */
+  .venue-badge.printing{background:transparent; border-color:transparent; box-shadow:none}
+  .venue-badge.printing .v{opacity:0}
+
+  .venue-cvpr {background:#fff1e8; color:#c96a28; border-color:#f6dccb}
+  .venue-eccv {background:#fff0f0; color:#c94444; border-color:#f2cccc}
+  .venue-neurips{background:#eefaf0; color:#4c8c5a; border-color:#d7eedc}
+  .venue-emnlp{background:#eef4ff; color:#5f78b7; border-color:#dbe6fb}
+  .venue-arxiv{background:#f5f5f5; color:#7a7a7a; border-color:#e6e6e6}
+  .venue-www  {background:#fff4db; color:#b07a10; border-color:#f3e3b8}
+
+  @media (prefers-reduced-motion:reduce){
+    .venue-badge.printing .v{opacity:1}
+    .printfx{display:none}
+  }
+</style>
+</head>
+<body>
+
+<h1>Venue badge — particles print the label</h1>
+<p class="lede">The pill arrives empty, then particles converge out of the margin and settle into the
+   letterforms, which hand off to the real text. Same idea as the hero: sample a target, fly points
+   into it. Here the target is the glyph coverage of the label rather than a mesh surface.</p>
+<div class="bar"><button id="replay">Replay</button></div>
+
+<div class="list" id="list">
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">DreamPartGen: 3D Generation with Part-Level Text Guidance</span>
+    <span class="venue-badge venue-eccv"><span class="v">ECCV 2026</span></span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Muntasir Wahed, Jerry Yuyang Xiong, Ismini Lourentzou.</div>
+  </div>
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">Part²GS: Part-aware Modeling of Articulated Objects</span>
+    <span class="venue-badge venue-cvpr"><span class="v">CVPR 2026</span></span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Vedant Shah, Ying Shen, Ismini Lourentzou.</div>
+  </div>
+  <div class="pub-card">
+    <span class="mark">🔥</span><span class="title">PurpCode: Reasoning for Safer Code Generation</span>
+    <span class="venue-badge venue-neurips"><span class="v">NeurIPS 2025</span></span>
+    <div class="authors">Jiawei Liu, Nirav Diwan, <strong>Tianjiao Yu</strong>, Gang Wang.</div>
+  </div>
+  <div class="pub-card">
+    <span class="mark">📄</span><span class="title">MOCHA: Are Code Language Models Robust?</span>
+    <span class="venue-badge venue-emnlp"><span class="v">EMNLP Findings 2025</span></span>
+    <div class="authors">Muntasir Wahed, Xiaona Zhou, <strong>Tianjiao Yu</strong>, Ismini Lourentzou.</div>
+  </div>
+  <div class="pub-card">
+    <span class="mark">⭐</span><span class="title">ELSA3D: Elastic Semantic Anchoring for Unified 3D</span>
+    <span class="venue-badge venue-arxiv"><span class="v">arXiv 2026</span></span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Xinzhuo Li, Yifan Shen, Ismini Lourentzou.</div>
+  </div>
+  <div class="pub-card">
+    <span class="mark">⭐🔥</span><span class="title">Sedition Hunters: A Quantitative Study</span>
+    <span class="venue-badge venue-www"><span class="v">WWW 2023</span></span>
+    <div class="authors"><strong>Tianjiao Yu</strong>, Sukrit Venkatagiri, Kurt Luther.</div>
+  </div>
+</div>
+
+<script src="/assets/hero/badge-print.js"></script>
+<script>
+document.getElementById('replay').addEventListener('click', () => window.BadgePrint.replayAll());
+</script>
+</body>
+</html>
