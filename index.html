@@ -3,8 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Tianjiao (Joey) Yu — hero prototype</title>
+<title>Tianjiao (Joey) Yu — Reasoning in 3D &amp; Embodied Settings | UIUC</title>
+<link rel="canonical" href="https://tianjiao-yu.github.io/">
+<meta name="description" content="Tianjiao (Joey) Yu is a Ph.D. candidate in Computer Science at UIUC, advised by Ismini Lourentzou. Research on reasoning in 3D and embodied settings, natural language processing and multimodal learning.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Tianjiao (Joey) Yu — Reasoning in 3D &amp; Embodied Settings">
+<meta property="og:description" content="Ph.D. candidate in Computer Science at UIUC, PLAN Lab.">
+<meta property="og:url" content="https://tianjiao-yu.github.io/">
 <style>
   /* ---------- light theme (default) ---------- */
   :root{
@@ -359,6 +364,15 @@
   .venue-eccv       {background:#fff0f0; color:#c94444; border-color:#f2cccc;
                      box-shadow:0 1px 3px rgba(201,68,68,.10)}
 
+  /* ---------- footer ---------- */
+  footer{
+    padding:6vh 0 8vh; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; line-height:1.9; color:var(--ink-dim);
+  }
+  footer p{margin:0}
+  footer a{color:var(--ink-dim); text-decoration:underline; text-underline-offset:2px}
+  footer a:hover{color:var(--accent-2)}
+
   /* ?inspect — head alone, for checking mesh orientation and framing */
   .inspect .intro,.inspect nav,.inspect .scrollhint,.inspect .wrap{display:none}
 
@@ -392,7 +406,7 @@
   <div class="intro">
     <div class="idrow">
       <div class="hs-halo">
-        <img class="hs" src="../../images/tianjiao_yu.jpeg" alt="Tianjiao (Joey) Yu">
+        <img class="hs" src="/images/tianjiao_yu.jpeg" alt="Tianjiao (Joey) Yu">
       </div>
       <div>
         <div class="kicker">University of Illinois Urbana-Champaign</div>
@@ -588,6 +602,16 @@
   </div>
 </section>
 
+<footer>
+  <p>Figures from
+     <a href="https://sketchfab.com/3d-models/wip-lowpoly-people-1-8cfd467af4334ea384d854109865f939"
+        target="_blank" rel="noopener noreferrer">WIP&nbsp;— Lowpoly People&nbsp;1</a>
+     by <a href="https://sketchfab.com/norgeotloic" target="_blank" rel="noopener noreferrer">Loïc Norgeot</a>,
+     licensed <a href="http://creativecommons.org/licenses/by/4.0/"
+        target="_blank" rel="noopener noreferrer">CC&nbsp;BY&nbsp;4.0</a>.</p>
+  <p>Previous version of this site: <a href="/classic/">classic</a>.</p>
+</footer>
+
 </div>
 
 <script>
@@ -598,7 +622,7 @@
 (function () {
   const dev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
   const s = document.createElement('script');
-  s.src = 'hero.js' + (dev ? '?t=' + Date.now() : '');
+  s.src = '/assets/hero/hero.js' + (dev ? '?t=' + Date.now() : '');
   document.body.appendChild(s);
 })();
 </script>

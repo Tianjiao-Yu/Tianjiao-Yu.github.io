@@ -147,6 +147,7 @@ exclude:
   - log
   - node_modules
   - package.json
+  - prototypes          # design sandbox: contact sheet, rail variants, notes
   - tmp
   - vendor
 keep_files:

@@ -14,7 +14,7 @@
    head is built in code instead.
    ========================================================================= */
 
-const POSES = '../../files/lowpoly-people/';   // where the figure library lives
+const POSES = '/files/lowpoly-people/';   // where the figure library lives
 
 const CFG = {
   /* Poses in scroll order, shown one after another as the page scrolls.
