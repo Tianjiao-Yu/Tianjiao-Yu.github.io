@@ -64,12 +64,16 @@
   const mix = (a, b, t) => [a[0] + (b[0] - a[0]) * t,
                            a[1] + (b[1] - a[1]) * t,
                            a[2] + (b[2] - a[2]) * t];
+  /* Alpha climbs steeply across the ramp as well as colour. In the real
+     layout a badge sits inline mid-title, so the swarm forms over the card's
+     own text — nearly transparent at the start, it reads as an approaching
+     trail instead of a blob parked on the words. */
   function ramp(flight, final) {
     const out = [];
     for (let i = 0; i < LEVELS; i++) {
       const t = i / (LEVELS - 1);
       const c = mix(flight, final, t);
-      const a = 0.72 + 0.28 * t;
+      const a = 0.22 + 0.78 * t * t;
       out.push(`rgba(${Math.round(c[0])},${Math.round(c[1])},${Math.round(c[2])},${a.toFixed(2)})`);
     }
     return out;
