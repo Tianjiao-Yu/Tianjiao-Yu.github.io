@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Figurine contact sheet</title>
+<style>
+  :root{--bg:#f5f7fa;--ink:#16202e;--dim:#5d6b80;--line:rgba(22,42,72,.13);--accent:#c2500f;
+        --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);padding:28px 4vw 60px;
+       font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+  h1{font-size:20px;margin:0 0 4px;font-weight:600}
+  p.lede{color:var(--dim);font-size:13px;margin:0 0 24px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:12px;
+         padding:8px 8px 6px;text-align:center}
+  canvas{width:100%;height:auto;display:block}
+  figcaption{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:4px}
+  figcaption b{color:var(--accent)}
+</style>
+</head>
+<body>
+<h1>Lowpoly people — all 14</h1>
+<p class="lede">Front view (left half of each tile) and profile (right half), drawn from raw vertices.
+   Picking for silhouette variety, since the particle cloud only conveys shape.</p>
+<div class="grid" id="grid"></div>
+
+<script>
+const NAMES = Array.from({length:14}, (_,i)=> String(i+1).padStart(2,'0') + '_person');
+
+function parseOBJ(text){
+  const v=[];
+  for(const line of text.split('\n')){
+    if(line[0]==='v' && line[1]===' '){
+      const p=line.split(/\s+/);
+      v.push([+p[1],+p[2],+p[3]]);
+    }
+  }
+  return v;
+}
+
+function draw(cv, verts){
+  const W=cv.width, H=cv.height, ctx=cv.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+  let lo=[1e9,1e9,1e9], hi=[-1e9,-1e9,-1e9];
+  for(const p of verts) for(let a=0;a<3;a++){ if(p[a]<lo[a])lo[a]=p[a]; if(p[a]>hi[a])hi[a]=p[a]; }
+  const c=[0,1,2].map(a=>(lo[a]+hi[a])/2);
+  const span=Math.max(hi[1]-lo[1], 1e-6);
+  const half=W/2;
+  const s=(H*0.88)/span;
+  ctx.fillStyle='rgba(30,50,80,.5)';
+  for(const p of verts){
+    // front view (x,y) in left half
+    ctx.fillRect(half*0.5 + (p[0]-c[0])*s, H*0.94 - (p[1]-lo[1])*s, 1.1, 1.1);
+    // profile (z,y) in right half
+    ctx.fillRect(half*1.5 + (p[2]-c[2])*s, H*0.94 - (p[1]-lo[1])*s, 1.1, 1.1);
+  }
+  ctx.strokeStyle='rgba(22,42,72,.12)';
+  ctx.beginPath(); ctx.moveTo(half,6); ctx.lineTo(half,H-6); ctx.stroke();
+}
+
+(async function(){
+  const grid=document.getElementById('grid');
+  for(const name of NAMES){
+    const fig=document.createElement('figure');
+    const cv=document.createElement('canvas');
+    cv.width=300; cv.height=260;
+    const cap=document.createElement('figcaption');
+    cap.innerHTML='<b>'+name.slice(0,2)+'</b> loading…';
+    fig.append(cv,cap); grid.append(fig);
+    try{
+      const t=await (await fetch('../../files/lowpoly-people/'+name+'.obj')).text();
+      const v=parseOBJ(t);
+      draw(cv,v);
+      let lo=[1e9,1e9,1e9],hi=[-1e9,-1e9,-1e9];
+      for(const p of v) for(let a=0;a<3;a++){ if(p[a]<lo[a])lo[a]=p[a]; if(p[a]>hi[a])hi[a]=p[a]; }
+      cap.innerHTML='<b>'+name.slice(0,2)+'</b> h'+Math.round(hi[1]-lo[1])
+                    +' w'+Math.round(hi[0]-lo[0])+' d'+Math.round(hi[2]-lo[2]);
+    }catch(e){ cap.textContent=name+' — '+e.message; }
+  }
+  document.body.dataset.done='1';
+})();
+</script>
+</body>
+</html>
