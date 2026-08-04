@@ -1,10 +1,8 @@
 ---
 title: ""
 permalink: /eternl_ai/4.-gaming-agi/publication-and-patent/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 13
 ---
 

@@ -1,10 +1,8 @@
 ---
 title: ""
 permalink: /eternl_ai/1.-overview-and-propositions/ai-game-developer-challenges/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 3
 ---
 

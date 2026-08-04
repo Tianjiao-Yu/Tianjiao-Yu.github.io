@@ -1,10 +1,8 @@
 ---
 title: ""
 permalink: /eternl_ai/2.-ecosystem/scaling-of-game-hub/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 5
 ---
 

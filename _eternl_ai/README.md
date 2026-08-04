@@ -1,10 +1,8 @@
 ---
 title: "Eternl.AI Whitepaper"
 permalink: /eternl_ai/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 1
 ---
 

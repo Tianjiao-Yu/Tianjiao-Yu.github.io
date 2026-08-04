@@ -1,10 +1,8 @@
 ---
 title: ""
 permalink: /eternl_ai/6.-gamer-rollup/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 17
 ---
 

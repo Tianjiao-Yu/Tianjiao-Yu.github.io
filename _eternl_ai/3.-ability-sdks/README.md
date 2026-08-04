@@ -1,10 +1,8 @@
 ---
 title: ""
 permalink: /eternl_ai/3.-ability-sdks/
-layout: single
+layout: eternl
 author_profile: false
-sidebar:
-  nav: "eternl_ai"
 order: 7
 ---
 

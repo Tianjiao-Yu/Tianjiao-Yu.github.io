@@ -1,0 +1,165 @@
+/* Eternl.AI whitepaper — same tokens and geometry as the homepage:
+   fixed left rail, offset content column, mono labels, serif headings.
+   Deliberately quieter than the homepage: no canvas, no motion, because
+   this is a document to read rather than a landing page. */
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  background:
+    radial-gradient(1000px 560px at 78% 30%, var(--wash), transparent 70%),
+    var(--bg);
+  color:var(--ink);
+  font:15.5px/1.68 var(--sans);
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+
+/* rail geometry, mirroring the homepage */
+:root{ --rail:280px; --gutter:4vw; --col:calc(var(--gutter) + var(--rail) + 44px); }
+@media (min-width:1440px){ :root{--rail:310px; --gutter:5vw} }
+
+/* ---------- top nav ----------
+   Scoped to the direct child of body on purpose: a bare `nav` selector also
+   matches the prev/next pager inside <main>, which pins it to the top of the
+   viewport over the contents rail. */
+body > nav{
+  position:fixed; inset:0 0 auto 0; z-index:20;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 28px;
+  backdrop-filter:blur(10px);
+  background:linear-gradient(to bottom,var(--bg),transparent);
+}
+body > nav .brand{font-weight:600; letter-spacing:.01em; text-decoration:none}
+body > nav .links{display:flex; gap:22px; font-family:var(--mono); font-size:12.5px; color:var(--ink-dim)}
+body > nav .links a{text-decoration:none}
+body > nav .links a:hover,body > nav .links a.on{color:var(--accent)}
+
+/* ---------- contents rail ---------- */
+.toc{
+  position:fixed; left:var(--gutter); top:96px; bottom:32px; width:var(--rail);
+  overflow-y:auto; z-index:5; padding-right:12px;
+}
+.toc .mark{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin-bottom:14px;
+}
+.toc .mark a{text-decoration:none}
+.toc ul{list-style:none; margin:0; padding:0}
+.toc > ul > li{margin-bottom:9px}
+.toc a{
+  display:block; text-decoration:none; padding:3px 0;
+  font-size:13px; color:var(--ink-dim); transition:color .18s ease;
+}
+.toc a:hover{color:var(--accent)}
+.toc > ul > li > a{font-weight:600; color:var(--ink); font-size:13.2px}
+.toc ul ul{margin:2px 0 0 0; padding-left:12px; border-left:1px solid var(--line)}
+.toc ul ul a{font-family:var(--mono); font-size:11.5px; letter-spacing:.02em}
+/* current page */
+.toc a.here{color:var(--accent)}
+.toc ul ul a.here{color:var(--accent)}
+
+/* ---------- document column ---------- */
+.doc{
+  margin:0 var(--gutter) 0 var(--col);
+  max-width:660px;
+  padding:14vh 0 6vh;
+}
+.eyebrow{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 18px;
+}
+
+.doc h1,.doc h2,.doc h3,.doc h4{
+  font-family:var(--serif); font-weight:500; color:var(--ink);
+  line-height:1.22; scroll-margin-top:90px;
+}
+.doc h1{font-size:33px; margin:0 0 20px; letter-spacing:-.01em}
+.doc h2{font-size:24px; margin:44px 0 12px; padding-top:18px; border-top:1px solid var(--line)}
+.doc h3{font-size:19px; margin:30px 0 8px}
+.doc h4{font-size:16px; margin:24px 0 6px; font-family:var(--sans); font-weight:600}
+
+.doc p{margin:0 0 15px; color:var(--ink-dim)}
+.doc strong{color:var(--ink); font-weight:600}
+.doc em{color:var(--ink)}
+.doc a{color:var(--accent-2); text-decoration:none; border-bottom:1px solid transparent}
+.doc a:hover{border-bottom-color:var(--accent-2)}
+
+.doc ul,.doc ol{margin:0 0 16px; padding-left:20px; color:var(--ink-dim)}
+.doc li{margin:6px 0}
+.doc li::marker{color:var(--accent); font-family:var(--mono); font-size:.9em}
+
+.doc blockquote{
+  margin:18px 0; padding:2px 0 2px 18px;
+  border-left:2px solid var(--accent);
+  color:var(--ink-dim); font-style:italic;
+}
+.doc code{
+  font-family:var(--mono); font-size:.86em;
+  background:var(--bg-2); border:1px solid var(--line);
+  border-radius:5px; padding:.1em .38em; color:var(--ink);
+}
+.doc pre{
+  background:var(--bg-2); border:1px solid var(--line); border-radius:12px;
+  padding:14px 16px; overflow-x:auto; margin:0 0 18px;
+}
+.doc pre code{background:none; border:0; padding:0; font-size:12.5px; line-height:1.6}
+
+.doc img{max-width:100%; height:auto; border-radius:12px; border:1px solid var(--line)}
+.doc hr{border:0; border-top:1px solid var(--line); margin:34px 0}
+
+/* wide content must scroll inside itself, never the page */
+.doc .tablewrap{overflow-x:auto; margin:0 0 18px}
+.doc table{border-collapse:collapse; width:100%; font-size:13.5px}
+.doc th,.doc td{border:1px solid var(--line); padding:8px 11px; text-align:left}
+.doc th{background:var(--bg-2); font-weight:600; color:var(--ink)}
+.doc td{color:var(--ink-dim)}
+
+/* ---------- prev / next ---------- */
+.pager{
+  display:flex; gap:12px; margin-top:44px; padding-top:22px;
+  border-top:1px solid var(--line);
+}
+.pager a{
+  flex:1; text-decoration:none; padding:12px 14px;
+  border:1px solid var(--line); border-radius:12px; background:var(--bg-2);
+  transition:border-color .18s ease, transform .18s ease;
+}
+.pager a:hover{border-color:var(--accent-2); transform:translateY(-2px)}
+.pager .dir{font-family:var(--mono); font-size:10px; letter-spacing:.12em;
+            text-transform:uppercase; color:var(--ink-dim); display:block; margin-bottom:3px}
+.pager .ttl{font-size:13.5px; color:var(--ink); font-weight:600}
+.pager .next{text-align:right}
+
+/* ---------- footer ---------- */
+footer{
+  margin:0 var(--gutter) 0 var(--col); max-width:660px;
+  padding:5vh 0 8vh; border-top:1px solid var(--line);
+  font-family:var(--mono); font-size:11px; line-height:1.9; color:var(--ink-dim);
+}
+footer a{color:var(--ink-dim); text-decoration:underline; text-underline-offset:2px}
+footer a:hover{color:var(--accent-2)}
+
+/* ---------- narrow ---------- */
+@media (max-width:1023px){
+  .toc{
+    position:static; width:auto; height:auto; top:auto; bottom:auto;
+    padding:96px var(--gutter) 0; overflow:visible;
+  }
+  .toc > ul{
+    display:grid; gap:4px 18px; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    padding-bottom:22px; border-bottom:1px solid var(--line);
+  }
+  .doc,footer{margin:0 var(--gutter); max-width:none}
+  .doc{padding-top:5vh}
+  .doc h1{font-size:27px}
+  .pager{flex-direction:column}
+  .pager .next{text-align:left}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .pager a{transition:none}
+}

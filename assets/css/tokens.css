@@ -1,0 +1,32 @@
+/* Design tokens shared by the homepage and the Eternl.AI whitepaper.
+   Single source of truth for the palette — change a colour here and both
+   surfaces follow, rather than drifting apart. */
+
+:root{
+  --bg:#f5f7fa;
+  --bg-2:#ffffff;
+  --wash:#e9eef5;
+  --panel:rgba(255,255,255,.74);
+  --line:rgba(22,42,72,.13);
+  --ink:#16202e;
+  --ink-dim:#5d6b80;
+  --accent:#c2500f;
+  --accent-2:#0f7d92;
+  --shadow:0 26px 60px -32px rgba(20,40,70,.42);
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+}
+
+.theme-dark{
+  --bg:#0b1018;
+  --bg-2:#0e141f;
+  --wash:#101827;
+  --panel:rgba(18,26,40,.62);
+  --line:rgba(140,170,210,.16);
+  --ink:#e6edf7;
+  --ink-dim:#93a4bd;
+  --accent:#ffb26b;
+  --accent-2:#5fd0e6;
+  --shadow:0 30px 80px -30px rgba(0,0,0,.8);
+}

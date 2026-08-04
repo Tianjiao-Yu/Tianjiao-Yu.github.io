@@ -251,15 +251,13 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-  # _eternl_ai
+  # _eternl_ai — custom layout; contents rail is built from _data/navigation.yml
   - scope:
       path: ""
       type: eternl_ai
     values:
-      layout: single
+      layout: eternl
       author_profile: false
-      sidebar:
-        nav: "eternl_ai"
 # Sass/SCSS
 sass:
   sass_dir: _sass

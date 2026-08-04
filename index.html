@@ -10,40 +10,17 @@
 <meta property="og:title" content="Tianjiao (Joey) Yu — Reasoning in 3D &amp; Embodied Settings">
 <meta property="og:description" content="Ph.D. candidate in Computer Science at UIUC, PLAN Lab.">
 <meta property="og:url" content="https://tianjiao-yu.github.io/">
+<link rel="stylesheet" href="/assets/css/tokens.css">
 <style>
-  /* ---------- light theme (default) ---------- */
+  /* Palette and fonts come from assets/css/tokens.css so the homepage and the
+     Eternl.AI whitepaper cannot drift apart. Layout-only vars stay here. */
   :root{
-    --bg:#f5f7fa;
-    --bg-2:#ffffff;
-    --wash:#e9eef5;
-    --panel:rgba(255,255,255,.74);
-    --line:rgba(22,42,72,.13);
-    --ink:#16202e;
-    --ink-dim:#5d6b80;
-    --accent:#c2500f;
-    --accent-2:#0f7d92;
-    --shadow:0 26px 60px -32px rgba(20,40,70,.42);
-    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
     /* left rail: width of the floating intro card, and the gutter beside it */
     --rail:340px;
     --gutter:4vw;
     --col:calc(var(--gutter) + var(--rail) + 44px);   /* where content begins */
   }
   @media (min-width:1440px){ :root{--rail:380px; --gutter:5vw} }
-  /* ---------- ?dark — kept so the two can be compared side by side ---------- */
-  .theme-dark{
-    --bg:#0b1018;
-    --bg-2:#0e141f;
-    --wash:#101827;
-    --panel:rgba(18,26,40,.62);
-    --line:rgba(140,170,210,.16);
-    --ink:#e6edf7;
-    --ink-dim:#93a4bd;
-    --accent:#ffb26b;
-    --accent-2:#5fd0e6;
-    --shadow:0 30px 80px -30px rgba(0,0,0,.8);
-  }
 
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
