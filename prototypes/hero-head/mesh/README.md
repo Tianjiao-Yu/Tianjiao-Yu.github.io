@@ -1,8 +1,19 @@
-# Drop the head mesh here
+# Drop your own mesh here
 
-Save your model as **`head.obj`** in this folder. Nothing else needs to change —
-`hero.js` fetches `mesh/head.obj` on load, and falls back to a procedural
-placeholder head when the file is absent.
+**The figures currently on the page do not live here.** They come from
+`files/lowpoly-people/` and are listed in `CFG.MESH_URLS` at the top of
+`hero.js` — to change which ones are used, edit the numbers there. Open
+`contact-sheet.html` to see all 14 side by side before choosing.
+
+This folder is for a mesh of your own. Save it here, then add its path to
+`CFG.MESH_URLS`:
+
+```js
+MESH_URLS: ['mesh/my-model.obj', POSES + '07_person.obj'],
+```
+
+If none of the listed files load, a procedural placeholder head is built in
+code so the page still animates.
 
 ## What the loader needs
 

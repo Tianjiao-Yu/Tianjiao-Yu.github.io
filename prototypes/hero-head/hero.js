@@ -1,28 +1,42 @@
 /* ============================================================================
-   Particle head hero — plain canvas 2D, zero dependencies.
+   Particle figure — plain canvas 2D, zero dependencies.
 
    A 3D point cloud (sampled off a mesh surface) rotates slowly on its Y axis
-   while loose particles pour out of the intro card and merge into it.
+   while loose particles pour out of the intro card and merge into it. As the
+   page scrolls the figure moves into the right margin and morphs from one
+   pose to the next: the same particles simply re-target, so each change reads
+   as the cloud reassembling rather than a cut.
 
-   DROP YOUR MESH IN:  prototypes/hero-head/mesh/head.obj
-   Until that file exists, a procedural placeholder head is generated in code
-   so the motion can be tuned. Nothing else needs to change when you add it.
+   TO CHANGE THE FIGURES: edit the numbers in MESH_URLS below.
+   All 14 live in files/lowpoly-people/ (01..14); open contact-sheet.html to
+   see them side by side. Anything else can go in mesh/ and be listed here by
+   its own path. If none of the listed files load, a procedural placeholder
+   head is built in code instead.
    ========================================================================= */
 
+const POSES = '../../files/lowpoly-people/';   // where the figure library lives
+
 const CFG = {
-  MESH_URL   : 'mesh/head.obj', // .obj (v / f). Missing file -> placeholder.
-  N_CORE     : 9000,            // points forming the head
+  /* Poses in scroll order, shown one after another as the page scrolls.
+     Picked off the contact sheet for silhouette variety — upright, crouched,
+     arm extended, arm raised — since a point cloud conveys shape and nothing
+     else. Swap a number to swap that pose. */
+  MESH_URLS  : [POSES + '03_person.obj', POSES + '02_person.obj',
+                POSES + '11_person.obj', POSES + '12_person.obj'],
+  N_CORE     : 9000,            // points forming the figure
   N_STREAM   : 2200,            // in-flight particles from the card
   SPIN       : 0.16,            // rad/s — slow Y rotation
   START_ANGLE: -0.55,           // radians; -0.55 ≈ three-quarter view
-  TILT       : 0.06,            // fixed X tilt (chin slightly down)
+  TILT       : 0.06,            // fixed X tilt
   FOV        : 2.6,             // perspective strength (smaller = wider)
-  FILL       : 0.62,            // head size as a fraction of the short side
+  FILL       : 0.62,            // hero size as a fraction of the short side
+  FILL_RAIL  : 0.62,            // size once parked in the right margin
+  MORPH_EASE : 0.055,           // lower = slower, more visible re-forming
 
-  /* Orientation fixes for a supplied mesh — flip if yours loads sideways.
+  /* Orientation fixes for supplied meshes — flip if yours load sideways.
      ROT is applied once at load: [x, y, z] radians. */
   MESH_ROT   : [0, 0, 0],
-  MESH_FLIP_Z: false,           // true if your head faces away from camera
+  MESH_FLIP_Z: false,
 };
 
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -215,37 +229,80 @@ function applyMeshRotation(cloud) {
   return cloud;
 }
 
-/* ------------------------------------------------------------------ boot */
-async function getCloud() {
-  try {
-    const res = await fetch(CFG.MESH_URL, { cache: 'no-cache' });
-    if (!res.ok) throw new Error(res.status);
-    const cloud = normalizeCloud(sampleSurface(parseOBJ(await res.text()), CFG.N_CORE));
-    return { cloud: applyMeshRotation(cloud), label: CFG.MESH_URL.split('/').pop() };
-  } catch (_) {
-    const cloud = normalizeCloud(sampleSurface(buildPlaceholderHead(), CFG.N_CORE));
-    return { cloud, label: 'placeholder mesh' };
-  }
+/* Scale every pose by the SAME factor, so a morph reads as one figure
+   changing pose rather than the camera zooming between differently-sized
+   models. Each is still centred on its own bounding box to stay framed. */
+function normalizeTogether(clouds) {
+  let k = Infinity;
+  const centres = clouds.map(c => {
+    const p = c.pos, n = p.length / 3;
+    const lo = [1e9, 1e9, 1e9], hi = [-1e9, -1e9, -1e9];
+    for (let i = 0; i < n; i++) for (let a = 0; a < 3; a++) {
+      const v = p[i * 3 + a];
+      if (v < lo[a]) lo[a] = v;
+      if (v > hi[a]) hi[a] = v;
+    }
+    k = Math.min(k, 1 / Math.max(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2], 1e-6));
+    return [0, 1, 2].map(a => (lo[a] + hi[a]) / 2);
+  });
+  clouds.forEach((c, ci) => {
+    const p = c.pos, ctr = centres[ci];
+    for (let i = 0; i < p.length / 3; i++)
+      for (let a = 0; a < 3; a++) p[i * 3 + a] = (p[i * 3 + a] - ctr[a]) * k;
+  });
+  return clouds;
 }
 
-getCloud().then(({ cloud, label }) => {
+/* ------------------------------------------------------------------ boot */
+async function getClouds() {
+  const loaded = [];
+  for (const url of CFG.MESH_URLS) {
+    try {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(res.status);
+      loaded.push(applyMeshRotation(sampleSurface(parseOBJ(await res.text()), CFG.N_CORE)));
+    } catch (_) { /* skip a pose that isn't there rather than failing outright */ }
+  }
+  if (!loaded.length) {
+    return { clouds: [sampleSurface(buildPlaceholderHead(), CFG.N_CORE)].map(c =>
+             normalizeTogether([c])[0]), label: 'placeholder mesh' };
+  }
+  return { clouds: normalizeTogether(loaded),
+           label: loaded.length + ' pose' + (loaded.length > 1 ? 's' : '') };
+}
+
+getClouds().then(({ clouds, label }) => {
   document.getElementById('src').textContent = label;
   document.getElementById('pcount').textContent = CFG.N_CORE.toLocaleString();
-  run(cloud);
+  run(clouds);
 });
 
 /* ---------------------------------------------------------------- engine */
-function run(cloud) {
+function run(clouds) {
   const canvas  = document.getElementById('pc');
   const ctx     = canvas.getContext('2d', { alpha: true });
   const hero    = document.getElementById('hero');
   const panel   = document.querySelector('.intro');
+  const column  = document.querySelector('.wrap');
   const mergedEl = document.getElementById('merged');
+  const poseEl  = document.getElementById('pose');
   const DPR = Math.min(2, devicePixelRatio || 1);
 
   const N = CFG.N_CORE;
   const NS = REDUCED ? 0 : CFG.N_STREAM;
-  const P = cloud.pos, NRM = cloud.nrm;
+
+  /* active pose; the particles ease toward whichever cloud is current, so
+     swapping the reference here is the whole morph */
+  let pose = 0;
+  let P = clouds[0].pos, NRM = clouds[0].nrm;
+  let morph = 0;                       // 1 right after a swap, decays to 0
+  function setPose(i) {
+    i = clamp(i, 0, clouds.length - 1) | 0;
+    if (i === pose) return;
+    pose = i; P = clouds[i].pos; NRM = clouds[i].nrm; morph = 1;
+    if (poseEl) poseEl.textContent = (i + 1) + '/' + clouds.length;
+  }
+  if (poseEl) poseEl.textContent = '1/' + clouds.length;
 
   let NARROW = matchMedia('(max-width:860px)').matches;
   const nCore   = () => NARROW ? Math.floor(N * 0.6) : N;
@@ -285,6 +342,7 @@ function run(cloud) {
 
   /* layout */
   let W = 0, H = 0, cx = 0, cy = 0, scale = 1;
+  let railX = 0, railScale = 1;
   let pL = 0, pR = 0, pT = 0, pB = 0, pW = 0, pH = 0;
 
   function layout() {
@@ -295,6 +353,14 @@ function run(cloud) {
     cx = INSPECT ? W * 0.5 : (NARROW ? W * 0.5 : W * 0.68);
     cy = NARROW ? H * 0.30 : H * 0.50;
     scale = Math.min(W, H) * (INSPECT ? 0.92 : (NARROW ? 0.52 : CFG.FILL));
+
+    /* Park position: centred in whatever is left of the viewport to the right
+       of the content column. Measured rather than hard-coded so it tracks the
+       CSS margins instead of duplicating them. */
+    const cr = column ? column.getBoundingClientRect().right : W * 0.7;
+    const stripW = Math.max(0, W - cr);
+    railX = cr + stripW / 2;
+    railScale = Math.min(H * CFG.FILL_RAIL, stripW * 1.45);
     refreshPanel();
   }
   function refreshPanel() {
@@ -364,27 +430,42 @@ function run(cloud) {
     if (canvas.clientWidth !== W || canvas.clientHeight !== H) layout();
     if (!W || !H) { req(); return; }
 
-    /* The hero is one screen tall and scrolls away like any other section.
-       Once it is off-screen there is nothing to draw, so skip the work but
-       keep the loop alive to pick it up on the way back. */
-    const hr = hero.getBoundingClientRect();
-    if (hr.bottom <= 0 || hr.top >= innerHeight) { req(); return; }
-
     if (!REDUCED) theta += CFG.SPIN * dt;
+    morph = Math.max(0, morph - dt * 0.8);
     refreshPanel();
     ctx.clearRect(0, 0, W, H);
 
-    const ccx = cx, ccy = cy, csc = scale;
+    /* Park progress: 0 while the hero fills the screen, 1 once it is gone.
+       The figure slides from the hero position into the right margin and
+       stays there for the rest of the page. */
+    const hr = hero.getBoundingClientRect();
+    const park = INSPECT || NARROW ? 0
+               : smooth(clamp(-hr.top / Math.max(1, hr.height * 0.8), 0, 1));
 
-    /* soft wash behind the head, seating it in the page */
+    /* Poses advance with progress through the whole document, so the figure
+       changes a handful of times over the scroll rather than per section —
+       there are more sections than poses. */
+    if (!INSPECT && clouds.length > 1) {
+      const doc = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+      const prog = clamp(scrollY / doc, 0, 0.9999);
+      setPose(Math.floor(prog * clouds.length));
+    }
+
+    const ccx = cx + (railX - cx) * park;
+    const ccy = cy;
+    const csc = scale + (railScale - scale) * park;
+
+    /* soft wash behind the figure, seating it in the page; it thins out once
+       parked so the margin does not compete with the text column */
+    const wash = 1 - park * 0.7;
     const gr = ctx.createRadialGradient(ccx, ccy, 0, ccx, ccy, csc * 0.75);
     if (LIGHT) {
-      gr.addColorStop(0, 'rgba(150,175,205,0.20)');
-      gr.addColorStop(0.55, 'rgba(170,190,215,0.09)');
+      gr.addColorStop(0, `rgba(150,175,205,${0.20 * wash})`);
+      gr.addColorStop(0.55, `rgba(170,190,215,${0.09 * wash})`);
       gr.addColorStop(1, 'rgba(255,255,255,0)');
     } else {
-      gr.addColorStop(0, 'rgba(60,130,180,0.17)');
-      gr.addColorStop(0.55, 'rgba(40,80,130,0.07)');
+      gr.addColorStop(0, `rgba(60,130,180,${0.17 * wash})`);
+      gr.addColorStop(0.55, `rgba(40,80,130,${0.07 * wash})`);
       gr.addColorStop(1, 'rgba(0,0,0,0)');
     }
     ctx.fillStyle = gr;
@@ -414,7 +495,10 @@ function run(cloud) {
 
       if (REDUCED) { sx[i] = px; sy[i] = py; }
       else {
-        const k = ease[i] * Math.min(1, dt * 60);
+        /* slow the easing right after a pose swap so the cloud is visibly
+           re-forming rather than snapping into the next shape */
+        const e = ease[i] + (CFG.MORPH_EASE - ease[i]) * morph;
+        const k = e * Math.min(1, dt * 60);
         sx[i] += (px - sx[i]) * k;
         sy[i] += (py - sy[i]) * k;
       }
@@ -439,7 +523,9 @@ function run(cloud) {
     }
 
     /* ---- streamers ---- */
-    if (!REDUCED && !INSPECT) {
+    /* streamers belong to the hero moment only — once the figure parks in the
+       margin the card has condensed and there is nothing to pour from */
+    if (!REDUCED && !INSPECT && park < 0.35) {
       const nStr = nStream();
       for (let i = 0; i < nStr; i++) {
         if (!son[i]) continue;
@@ -492,6 +578,7 @@ function run(cloud) {
   /* test hook: lets a frame be stepped by hand when rAF is paused
      (hidden tab / headless capture). Harmless in normal use. */
   let dbg = null;
-  window.__hero = { frame, cfg: CFG, stats: () => ({ merged, theta, ...dbg }) };
+  window.__hero = { frame, cfg: CFG, setPose,
+                    stats: () => ({ merged, theta, pose, poses: clouds.length, ...dbg }) };
   req();
 }
