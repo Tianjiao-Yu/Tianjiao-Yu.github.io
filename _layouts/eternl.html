@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.title and page.title != "" %}{{ page.title }} — {% endif %}Eternl.AI Whitepaper</title>
+{%- comment -%} the index page is itself titled "Eternl.AI Whitepaper" {%- endcomment -%}
+<title>{% if page.title and page.title != "" and page.title != "Eternl.AI Whitepaper" %}{{ page.title }} — {% endif %}Eternl.AI Whitepaper</title>
 <meta name="description" content="{{ page.excerpt | default: 'Eternl.AI — AI infrastructure for embodied intelligence in interactive gaming.' | strip_html | truncate: 180 }}">
 <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/eternl.css' | relative_url }}">
