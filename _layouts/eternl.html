@@ -1,10 +1,51 @@
+{%- comment -%}
+  _data/navigation.yml is the single source for the paper's order AND its
+  human-readable chapter names. Most chapters carry an empty `title` in front
+  matter — their heading lives in the markdown body — so without this lookup
+  every page would share one <title> and the pager would have nothing to show.
+  Flattened here, at the top, so <head> can use it too.
+  Built with loop-matching rather than array[variable] indexing.
+{%- endcomment -%}
+{%- assign flat_urls = "" -%}
+{%- assign flat_titles = "" -%}
+{%- for item in site.data.navigation.eternl_ai -%}
+  {%- assign flat_urls = flat_urls | append: item.url | append: "|" -%}
+  {%- assign flat_titles = flat_titles | append: item.title | append: "|" -%}
+  {%- for child in item.children -%}
+    {%- assign flat_urls = flat_urls | append: child.url | append: "|" -%}
+    {%- assign flat_titles = flat_titles | append: child.title | append: "|" -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- assign urls = flat_urls | split: "|" -%}
+{%- assign titles = flat_titles | split: "|" -%}
+
+{%- assign pos = -1 -%}
+{%- for u in urls -%}
+  {%- if u == page.url -%}{%- assign pos = forloop.index0 -%}{%- endif -%}
+{%- endfor -%}
+{%- assign pi = pos | minus: 1 -%}
+{%- assign ni = pos | plus: 1 -%}
+{%- assign here_title = "" -%}
+{%- assign prev_url = "" -%}{%- assign next_url = "" -%}
+{%- assign prev_title = "" -%}{%- assign next_title = "" -%}
+{%- if pos >= 0 -%}
+  {%- for u in urls -%}
+    {%- if forloop.index0 == pi -%}{%- assign prev_url = u -%}{%- endif -%}
+    {%- if forloop.index0 == ni -%}{%- assign next_url = u -%}{%- endif -%}
+  {%- endfor -%}
+  {%- for t in titles -%}
+    {%- if forloop.index0 == pos -%}{%- assign here_title = t -%}{%- endif -%}
+    {%- if forloop.index0 == pi -%}{%- assign prev_title = t -%}{%- endif -%}
+    {%- if forloop.index0 == ni -%}{%- assign next_title = t -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{%- if here_title == "" -%}{%- assign here_title = page.title -%}{%- endif -%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{%- comment -%} the index page is itself titled "Eternl.AI Whitepaper" {%- endcomment -%}
-<title>{% if page.title and page.title != "" and page.title != "Eternl.AI Whitepaper" %}{{ page.title }} — {% endif %}Eternl.AI Whitepaper</title>
+<title>{% if here_title and here_title != "" and here_title != "Eternl.AI Whitepaper" %}{{ here_title }} — {% endif %}Eternl.AI Whitepaper</title>
 <meta name="description" content="{{ page.excerpt | default: 'Eternl.AI — AI infrastructure for embodied intelligence in interactive gaming.' | strip_html | truncate: 180 }}">
 <link rel="stylesheet" href="{{ '/assets/css/tokens.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/eternl.css' | relative_url }}">
@@ -55,45 +96,7 @@
     Prev/next walk the collection in `order`, so a reader can move through
     the paper without returning to the contents each time.
   {%- endcomment -%}
-  {%- comment -%}
-    Prev/next comes from _data/navigation.yml rather than the collection's
-    `order`, for two reasons: it is the same ordering the contents rail shows,
-    and most chapters carry an empty `title` in front matter (their heading
-    lives in the markdown), so the collection has no usable label to print.
-    Built with loop-matching rather than array[variable] indexing.
-  {%- endcomment -%}
-  {%- assign flat_urls = "" -%}
-  {%- assign flat_titles = "" -%}
-  {%- for item in site.data.navigation.eternl_ai -%}
-    {%- assign flat_urls = flat_urls | append: item.url | append: "|" -%}
-    {%- assign flat_titles = flat_titles | append: item.title | append: "|" -%}
-    {%- for child in item.children -%}
-      {%- assign flat_urls = flat_urls | append: child.url | append: "|" -%}
-      {%- assign flat_titles = flat_titles | append: child.title | append: "|" -%}
-    {%- endfor -%}
-  {%- endfor -%}
-  {%- assign urls = flat_urls | split: "|" -%}
-  {%- assign titles = flat_titles | split: "|" -%}
-
-  {%- assign pos = -1 -%}
-  {%- for u in urls -%}
-    {%- if u == page.url -%}{%- assign pos = forloop.index0 -%}{%- endif -%}
-  {%- endfor -%}
-  {%- assign pi = pos | minus: 1 -%}
-  {%- assign ni = pos | plus: 1 -%}
-  {%- assign prev_url = "" -%}{%- assign next_url = "" -%}
-  {%- assign prev_title = "" -%}{%- assign next_title = "" -%}
-  {%- if pos >= 0 -%}
-    {%- for u in urls -%}
-      {%- if forloop.index0 == pi -%}{%- assign prev_url = u -%}{%- endif -%}
-      {%- if forloop.index0 == ni -%}{%- assign next_url = u -%}{%- endif -%}
-    {%- endfor -%}
-    {%- for t in titles -%}
-      {%- if forloop.index0 == pi -%}{%- assign prev_title = t -%}{%- endif -%}
-      {%- if forloop.index0 == ni -%}{%- assign next_title = t -%}{%- endif -%}
-    {%- endfor -%}
-  {%- endif -%}
-
+  {%- comment -%} prev/next resolved at the top of this layout {%- endcomment -%}
   {% if prev_url != "" or next_url != "" %}
     <nav class="pager">
       {% if prev_url != "" %}
