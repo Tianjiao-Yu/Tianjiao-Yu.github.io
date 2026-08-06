@@ -96,11 +96,20 @@
   .btn.ghost:hover{border-color:var(--accent-2); color:var(--accent-2)}
   .socials{display:flex; gap:8px; flex-wrap:wrap}
   .chip{
+    display:inline-flex; align-items:center; gap:6px;
     font-family:var(--mono); font-size:11.5px; text-decoration:none;
     padding:6px 11px; border-radius:999px;
     border:1px solid var(--line); color:var(--ink-dim); transition:.18s;
   }
   .chip:hover{color:var(--accent-2); border-color:var(--accent-2)}
+  /* Line icons, not brand logos: an envelope, a mortarboard, a branch, the
+     LinkedIn square and the X. Drawn as geometry in currentColor so they
+     inherit the chip's hover colour and stay crisp at any size. */
+  .chip .ic{
+    width:13px; height:13px; flex:0 0 auto;
+    fill:none; stroke:currentColor; stroke-width:1.5;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
 
   .readout{
     position:absolute; left:var(--gutter); bottom:26px; z-index:5;
@@ -395,11 +404,16 @@
     </div>
 
     <div class="socials">
-      <a class="chip" href="mailto:ty41@illinois.edu">Email</a>
-      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">Scholar</a>
-      <a class="chip" href="https://github.com/Tianjiao-Yu">GitHub</a>
-      <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">LinkedIn</a>
-      <a class="chip" href="https://twitter.com/yu_tianjiao">Twitter</a>
+      <a class="chip" href="mailto:ty41@illinois.edu">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.4" y="3.4" width="13.2" height="9.2" rx="1.6"/><path d="M2 4.6l6 4.4 6-4.4"/></svg>Email</a>
+      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2l6.6 3.3L8 8.8 1.4 5.5 8 2.2z"/><path d="M4.2 7.3v3.3c0 1 1.7 1.9 3.8 1.9s3.8-.9 3.8-1.9V7.3"/></svg>Scholar</a>
+      <a class="chip" href="https://github.com/Tianjiao-Yu">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4.6" cy="3.6" r="1.7"/><circle cx="4.6" cy="12.4" r="1.7"/><circle cx="11.4" cy="6.2" r="1.7"/><path d="M4.6 5.3v5.4"/><path d="M9.9 7.6c-.5 2.2-2.4 2.9-5.3 3.1"/></svg>GitHub</a>
+      <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="2.6"/><path d="M5 7v4.3"/><circle cx="5" cy="4.7" r=".85" fill="currentColor" stroke="none"/><path d="M8.1 11.3V7m0 .9c.3-.6.9-1 1.6-1 1 0 1.7.7 1.7 1.9v2.5"/></svg>LinkedIn</a>
+      <a class="chip" href="https://twitter.com/yu_tianjiao">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 3.2l9.6 9.6M12.8 3.2l-9.6 9.6"/></svg>Twitter</a>
     </div>
   </div>
 
@@ -449,7 +463,7 @@
 </section>
 
 <section id="publications">
-  <div class="sec-head"><h2>Publications</h2><span class="rule"></span><span class="count" id="pubcount"></span></div>
+  <div class="sec-head"><h2>Selected Publications</h2><span class="rule"></span><span class="count" id="pubcount"></span></div>
 
   <div class="pub-card">
     <span class="mark">⭐🔥</span><span class="title">DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</span>
