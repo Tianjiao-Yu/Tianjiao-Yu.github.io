@@ -33,6 +33,15 @@ const CFG = {
   FILL_RAIL  : 0.62,            // size once parked in the right margin
   MORPH_EASE : 0.055,           // lower = slower, more visible re-forming
 
+  /* Glitter. A gentle shimmer across every point, plus rare sharp flares on
+     a minority — uniform twinkling reads as noise, while occasional bright
+     specks read as sparkle. */
+  GLIT_SHIM  : 0.44,            // depth of the continuous wink
+  GLIT_FRAC  : 0.34,            // share of points that can flare
+  GLIT_RATE  : 1.70,            // base flare rate, Hz-ish
+  GLIT_GAIN  : 0.14,            // flares barely touch alpha — see note below
+  GLIT_TONE  : 0.35,            // flare strength before a point catches light
+
   /* Orientation fixes for supplied meshes — flip if yours load sideways.
      ROT is applied once at load: [x, y, z] radians. */
   MESH_ROT   : [0, 0, 0],
@@ -317,6 +326,22 @@ function run(clouds) {
     ease[i] = 0.10 + Math.random() * 0.10;
     accent[i] = Math.random() < 0.055 ? 1 : 0;
   }
+
+  /* glitter state: a phase and rate per point, and a flag for the minority
+     that flare. Sampling a sine table rather than calling Math.sin keeps
+     this off the hot path — it runs 9000 times a frame. */
+  const TAU = Math.PI * 2;
+  const LUTN = 1024, LMASK = LUTN - 1, LINV = LUTN / TAU;
+  const SINT = new Float32Array(LUTN);
+  for (let k = 0; k < LUTN; k++) SINT[k] = 0.5 + 0.5 * Math.sin((k / LUTN) * TAU);
+  const twp = new Float32Array(N), tws = new Float32Array(N);
+  const spark = new Uint8Array(N);
+  for (let i = 0; i < N; i++) {
+    twp[i] = Math.random() * TAU;
+    tws[i] = CFG.GLIT_RATE * (0.45 + Math.random() * 1.7);
+    spark[i] = Math.random() < CFG.GLIT_FRAC ? 1 : 0;
+  }
+  let clock = 0;
   /* projected target of every core point, refreshed each frame */
   const tx = new Float32Array(N), ty = new Float32Array(N);
 
@@ -431,6 +456,7 @@ function run(clouds) {
     if (!W || !H) { req(); return; }
 
     if (!REDUCED) theta += CFG.SPIN * dt;
+    clock = (clock + dt) % 1000;     // wrapped so the LUT index stays small
     morph = Math.max(0, morph - dt * 0.8);
     refreshPanel();
     ctx.clearRect(0, 0, W, H);
@@ -513,11 +539,32 @@ function run(clouds) {
       const fog = 0.62 + 0.38 * clamp((z2 + 0.6) / 1.2, 0, 1);
       const shade = clamp(0.18 + 0.82 * diff + rim, 0, 1);   // lighting only
       /* on dark, light means a brighter dot; on light, shadow means more ink */
-      const a = clamp(gate * fog * (LIGHT ? 0.26 + 0.74 * (1 - shade) : shade), 0, 1);
+      let a = clamp(gate * fog * (LIGHT ? 0.26 + 0.74 * (1 - shade) : shade), 0, 1);
+      let tone = accent[i] ? 3 : (shade > 0.62 ? 0 : shade > 0.26 ? 1 : 2);
+      let size = shade > 0.55 ? 1.9 : 1.4;
+
+      /* Glitter rides on top of the lighting rather than replacing it, so the
+         form still reads. Alpha is already quantised into buckets downstream,
+         so this costs a table lookup and no extra draw state. */
+      if (!REDUCED) {
+        const s = SINT[(((clock * tws[i] + twp[i]) * LINV) | 0) & LMASK];
+        a *= 1 - CFG.GLIT_SHIM + CFG.GLIT_SHIM * s;
+        if (spark[i] && !accent[i]) {
+          const s2 = s * s, s4 = s2 * s2, fl = s4 * s4;   // s^8: a narrow spike
+          a = clamp(a + fl * CFG.GLIT_GAIN, 0, 1);
+          /* A glint catches light — it does not gain weight. Pushing alpha
+             and reaching for the darkest tone made flares read as heavier,
+             browner specks sitting on the cloud. Tone 0 is the LIT end of
+             both palettes (pale slate on light, near-white on dark), so a
+             flaring point lightens and grows a little, and the sparkle comes
+             from points winking rather than from anything getting stronger. */
+          if (fl > CFG.GLIT_TONE) { tone = 0; size += fl * 0.8; }
+        }
+      }
       if (a < 0.03) continue;
-      const tone = accent[i] ? 3 : (shade > 0.62 ? 0 : shade > 0.26 ? 1 : 2);
+
       bx[bn] = sx[i]; by[bn] = sy[i];
-      bs[bn] = shade > 0.55 ? 1.9 : 1.4;
+      bs[bn] = size;
       bucket[bn] = tone * ALEV + Math.min(ALEV - 1, (a * ALEV) | 0);
       bn++;
     }
