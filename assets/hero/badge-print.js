@@ -287,6 +287,7 @@
       },
       land() {
         this.badge.classList.remove('printing');
+        this.badge.__job = null;
         this.cv.style.transition = `opacity ${CFG.FADE}s ease`;
         this.cv.style.opacity = '0';
         const cv = this.cv;
@@ -295,6 +296,7 @@
       },
       abort() {                       // a badge must never be left invisible
         this.badge.classList.remove('printing');
+        this.badge.__job = null;
         this.cv.remove();
         this.done = true;
       }
@@ -314,16 +316,23 @@
   function ensureLoop() { if (!raf && jobs.length) raf = requestAnimationFrame(tick); }
 
   function print(badge) {
-    if (badge.dataset.printed) return;
+    if (badge.__job) return;          // still flying — never stack two runs
+    if (badge.dataset.printed) return; // already printed, not yet re-armed
     badge.dataset.printed = '1';
     let job = null;
     try { job = build(badge); } catch (_) { badge.classList.remove('printing'); return; }
     if (!job) return;
+    badge.__job = job;
     jobs.push(job);
     ensureLoop();
     setTimeout(() => { if (!job.done) job.abort(); },
                (CFG.DUR * (1 + CFG.SPREAD) + 1.6) * 1000);
   }
+
+  const onScreen = el => {
+    const r = el.getBoundingClientRect();
+    return r.bottom > 0 && r.top < innerHeight;
+  };
 
   function setup() {
     const badges = [...document.querySelectorAll('.venue-badge')];
@@ -338,13 +347,26 @@
 
     if (!('IntersectionObserver' in window)) { badges.forEach(print); return; }
     let n = 0;
-    const io = new IntersectionObserver((entries, obs) => {
+    /* Kept under observation rather than unobserved after the first run: a
+       badge re-arms once it has left the viewport completely, so scrolling
+       away and back prints it again. Requiring a full exit is the hysteresis
+       that stops it re-firing on small scrolls around the boundary. */
+    const io = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        obs.unobserve(e.target);
-        setTimeout(() => print(e.target), (n++ % 6) * CFG.STAGGER);
+        if (e.isIntersecting) {
+          const badge = e.target;
+          const wait = (n++ % 6) * CFG.STAGGER;
+          /* by the time the stagger elapses the reader may have scrolled on;
+             re-arm instead of printing something nobody is looking at */
+          setTimeout(() => {
+            if (onScreen(badge)) print(badge);
+            else delete badge.dataset.printed;
+          }, wait);
+        } else if (e.intersectionRatio === 0) {
+          delete e.target.dataset.printed;
+        }
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: [0, 0.1] });
     badges.forEach(b => io.observe(b));
   }
 
@@ -354,11 +376,13 @@
 
   window.BadgePrint = {
     cfg: CFG,
+    print,                            // exposed for tests; guards still apply
     replayAll() {
       jobs.length = 0;
       document.querySelectorAll('.printfx').forEach(c => c.remove());
       document.querySelectorAll('.venue-badge').forEach((b, i) => {
         delete b.dataset.printed;
+        b.__job = null;
         b.classList.remove('printing');
         setTimeout(() => print(b), (i % 8) * CFG.STAGGER);
       });
