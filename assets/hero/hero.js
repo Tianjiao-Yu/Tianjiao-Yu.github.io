@@ -36,11 +36,11 @@ const CFG = {
   /* Glitter. A gentle shimmer across every point, plus rare sharp flares on
      a minority — uniform twinkling reads as noise, while occasional bright
      specks read as sparkle. */
-  GLIT_SHIM  : 0.26,            // depth of the continuous shimmer
-  GLIT_FRAC  : 0.18,            // share of points that can flare
-  GLIT_RATE  : 1.15,            // base flare rate, Hz-ish
-  GLIT_GAIN  : 0.80,            // how hard a flare pushes alpha
-  GLIT_TONE  : 0.45,            // flare strength before a point turns accent
+  GLIT_SHIM  : 0.44,            // depth of the continuous wink
+  GLIT_FRAC  : 0.34,            // share of points that can flare
+  GLIT_RATE  : 1.70,            // base flare rate, Hz-ish
+  GLIT_GAIN  : 0.14,            // flares barely touch alpha — see note below
+  GLIT_TONE  : 0.35,            // flare strength before a point catches light
 
   /* Orientation fixes for supplied meshes — flip if yours load sideways.
      ROT is applied once at load: [x, y, z] radians. */
@@ -552,12 +552,13 @@ function run(clouds) {
         if (spark[i] && !accent[i]) {
           const s2 = s * s, s4 = s2 * s2, fl = s4 * s4;   // s^8: a narrow spike
           a = clamp(a + fl * CFG.GLIT_GAIN, 0, 1);
-          /* A glint is the same material catching the light, not a different
-             pigment. Flaring to the warm accent made the sparks read as brown
-             particles layered on top of the cloud; going to the highest
-             contrast tone already in the palette — deepest ink on light,
-             brightest white on dark — keeps them part of the same body. */
-          if (fl > CFG.GLIT_TONE) { tone = LIGHT ? 2 : 0; size += fl * 0.9; }
+          /* A glint catches light — it does not gain weight. Pushing alpha
+             and reaching for the darkest tone made flares read as heavier,
+             browner specks sitting on the cloud. Tone 0 is the LIT end of
+             both palettes (pale slate on light, near-white on dark), so a
+             flaring point lightens and grows a little, and the sparkle comes
+             from points winking rather than from anything getting stronger. */
+          if (fl > CFG.GLIT_TONE) { tone = 0; size += fl * 0.8; }
         }
       }
       if (a < 0.03) continue;
