@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Venue badge — animation options</title>
+<link rel="stylesheet" href="/assets/css/tokens.css">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0; background:var(--bg); color:var(--ink); padding:34px 4vw 80px;
+       font:15px/1.6 var(--sans)}
+  h1{font-size:21px; margin:0 0 4px; font-weight:600}
+  .lede{color:var(--ink-dim); font-size:13.5px; margin:0 0 6px; max-width:78ch}
+  .lede b{color:var(--ink)}
+  .bar{display:flex; gap:10px; align-items:center; margin:18px 0 26px}
+  .bar button{
+    font-family:var(--mono); font-size:12px; padding:8px 14px; border-radius:9px;
+    border:1px solid var(--line); background:var(--bg-2); color:var(--ink); cursor:pointer;
+  }
+  .bar button:hover{border-color:var(--accent-2); color:var(--accent-2)}
+
+  .grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+  .demo{background:var(--bg-2); border:1px solid var(--line); border-radius:16px; padding:20px 20px 24px}
+  .tag{font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+       text-transform:uppercase; color:var(--accent); margin-bottom:5px}
+  .note{font-size:12.4px; color:var(--ink-dim); margin:0 0 16px; line-height:1.55; min-height:56px}
+  .row{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+
+  /* ---------- shared badge shell (matches the live site) ---------- */
+  .b{
+    position:relative; display:inline-flex; align-items:center; justify-content:center;
+    overflow:hidden; isolation:isolate;
+    padding:.42em .66em .3em; border-radius:7px; border:1px solid transparent;
+    font-family:var(--mono); font-size:12px; font-weight:600; line-height:1;
+    letter-spacing:.01em; white-space:nowrap;
+    box-shadow:0 1px 3px rgba(0,0,0,.07), inset 0 1px 0 rgba(255,255,255,.45);
+  }
+  .b .v{position:relative; z-index:3}
+  .cvpr {background:#fff1e8; color:#c96a28; border-color:#f6dccb}
+  .eccv {background:#fff0f0; color:#c94444; border-color:#f2cccc}
+  .neur {background:#eefaf0; color:#4c8c5a; border-color:#d7eedc}
+  .arxv {background:#f5f5f5; color:#7a7a7a; border-color:#e6e6e6}
+
+  /* ============ 0 · CURRENT: ambient sweep ============ */
+  .fx0::before{
+    content:""; position:absolute; z-index:1; top:-40%; left:0; width:24%; height:180%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);
+    transform:translateX(-280%) skewX(-18deg);
+    animation:sweep0 6s var(--d,0s) ease-in-out infinite;
+  }
+  @keyframes sweep0{
+    0%,58%{transform:translateX(-280%) skewX(-18deg); opacity:0}
+    61%{opacity:1} 76%{transform:translateX(540%) skewX(-18deg); opacity:0}
+    100%{transform:translateX(540%) skewX(-18deg); opacity:0}
+  }
+
+  /* ============ A · FOIL: iridescent, wider, brighter ============ */
+  .fxA::before{
+    content:""; position:absolute; z-index:1; inset:-60% -10%;
+    background:linear-gradient(115deg,
+      transparent 38%,
+      rgba(255,255,255,.95) 46%,
+      rgba(120,200,255,.75) 50%,
+      rgba(255,190,140,.75) 54%,
+      rgba(255,255,255,.95) 58%,
+      transparent 66%);
+    transform:translateX(-120%);
+    animation:foil 4.4s var(--d,0s) cubic-bezier(.4,0,.2,1) infinite;
+  }
+  @keyframes foil{
+    0%,55%{transform:translateX(-120%)}
+    80%,100%{transform:translateX(120%)}
+  }
+
+  /* ============ B · SPECULAR: highlight tracks the cursor ============ */
+  .fxB{transition:transform .18s ease, box-shadow .18s ease}
+  .fxB::before{
+    content:""; position:absolute; z-index:1; inset:0;
+    background:radial-gradient(70px circle at var(--mx,50%) var(--my,50%),
+               rgba(255,255,255,.95), rgba(255,255,255,0) 60%);
+    opacity:0; transition:opacity .22s ease;
+  }
+  .fxB:hover{transform:translateY(-2px); box-shadow:0 6px 16px -6px rgba(20,40,70,.35)}
+  .fxB:hover::before{opacity:1}
+
+  /* ============ C · STAMP: one-time settle when it scrolls in ============ */
+  .fxC{opacity:0}
+  .fxC.go{animation:stamp .62s cubic-bezier(.2,.8,.25,1) forwards}
+  .fxC.go::before{
+    content:""; position:absolute; z-index:1; inset:-60% -10%;
+    background:linear-gradient(110deg,transparent 40%,rgba(255,255,255,.95) 50%,transparent 60%);
+    transform:translateX(-120%);
+    animation:stampflash .55s .18s cubic-bezier(.3,0,.2,1) forwards;
+  }
+  @keyframes stamp{
+    0%{opacity:0; transform:scale(1.5) rotate(-4deg); filter:blur(3px)}
+    60%{opacity:1; filter:blur(0)}
+    80%{transform:scale(.97) rotate(.5deg)}
+    100%{opacity:1; transform:scale(1) rotate(0); filter:blur(0)}
+  }
+  @keyframes stampflash{to{transform:translateX(120%)}}
+
+  /* ============ D · RING: rotating conic border, top tier only ============ */
+  .fxD .ringfx{
+    position:absolute; z-index:1; inset:-60%;
+    background:conic-gradient(transparent 0 62%, currentColor 78%, transparent 92%);
+    animation:spin 2.8s linear infinite; opacity:.9;
+  }
+  .fxD::after{
+    content:""; position:absolute; z-index:2; inset:1.5px; border-radius:5px;
+    background:inherit;
+  }
+  @keyframes spin{to{transform:rotate(1turn)}}
+
+  /* ============ E · TEXT: gradient runs through the letters ============ */
+  /* The band must be a narrow slice of an otherwise solid gradient, and the
+     rest position must sit on the solid part — otherwise the letters are
+     filled with white and the badge reads as empty. */
+  .fxE .v{
+    background:linear-gradient(100deg,
+      currentColor 0 44%, rgba(255,255,255,.98) 50%, currentColor 56% 100%);
+    background-size:220% 100%;
+    background-position:100% 0;
+    -webkit-background-clip:text; background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:textshine 4.6s var(--d,0s) ease-in-out infinite;
+  }
+  @keyframes textshine{
+    0%,55%{background-position:100% 0}
+    85%,100%{background-position:0% 0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .b::before,.fxD .ringfx,.fxE .v{animation:none}
+    .fxC{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+<h1>Venue badge — six treatments</h1>
+<p class="lede">The current one is <b>0</b>. It feels weak for a structural reason: it runs forever, so it
+   has to stay quiet to avoid being annoying. <b>B</b> and <b>C</b> are event-driven, which is what lets
+   them be bold. <b>D</b> is meant only for top-tier venues, so the motion says something.</p>
+<div class="bar">
+  <button id="replay">Replay the one-shot ones (C)</button>
+  <span class="lede" style="margin:0">Hover everything — B is cursor-driven.</span>
+</div>
+
+<div class="grid">
+
+  <div class="demo">
+    <div class="tag">0 · current</div>
+    <p class="note">Narrow white sweep every 6s, staggered. Reads as a faint glint; easy to miss entirely
+       unless you happen to be looking at that badge.</p>
+    <div class="row">
+      <span class="b eccv fx0"><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fx0" style="--d:.6s"><span class="v">CVPR 2026</span></span>
+      <span class="b neur fx0" style="--d:1.2s"><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv fx0" style="--d:1.8s"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="tag">A · foil</div>
+    <p class="note">Same idea, but a wide iridescent band with blue and warm fringes instead of flat white
+       — reads like foil stock on a printed card. Still ambient, just far more present.</p>
+    <div class="row">
+      <span class="b eccv fxA"><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fxA" style="--d:.5s"><span class="v">CVPR 2026</span></span>
+      <span class="b neur fxA" style="--d:1s"><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv fxA" style="--d:1.5s"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="tag">B · specular (hover)</div>
+    <p class="note">A highlight that follows your cursor across the badge, so it behaves like a physical
+       glossy surface catching light. Nothing moves until you engage — so it can be strong.</p>
+    <div class="row">
+      <span class="b eccv fxB"><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fxB"><span class="v">CVPR 2026</span></span>
+      <span class="b neur fxB"><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv fxB"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="tag">C · stamp (on scroll-in)</div>
+    <p class="note">Drops in scaled-up and blurred, overshoots, settles, with a single flash across it —
+       once, as the card enters view. Punchy precisely because it never repeats.</p>
+    <div class="row">
+      <span class="b eccv fxC"><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fxC"><span class="v">CVPR 2026</span></span>
+      <span class="b neur fxC"><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv fxC"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="tag">D · rotating ring</div>
+    <p class="note">A conic gradient sweeping around the border. Strong enough that it should be reserved
+       for top-tier venues — then the motion itself carries meaning rather than decoration.</p>
+    <div class="row">
+      <span class="b eccv fxD"><i class="ringfx"></i><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fxD"><i class="ringfx"></i><span class="v">CVPR 2026</span></span>
+      <span class="b neur fxD"><i class="ringfx"></i><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+  <div class="demo">
+    <div class="tag">E · text shine</div>
+    <p class="note">The gradient runs through the letterforms rather than over the pill. Quietest of the
+       lot, and the only one that draws the eye to the venue name itself.</p>
+    <div class="row">
+      <span class="b eccv fxE"><span class="v">ECCV 2026</span></span>
+      <span class="b cvpr fxE" style="--d:.5s"><span class="v">CVPR 2026</span></span>
+      <span class="b neur fxE" style="--d:1s"><span class="v">NeurIPS 2025</span></span>
+      <span class="b arxv fxE" style="--d:1.5s"><span class="v">arXiv 2026</span></span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* B: feed cursor position to the specular gradient */
+document.querySelectorAll('.fxB').forEach(el => {
+  el.addEventListener('pointermove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+    el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+  });
+});
+
+/* C: fire once on scroll-in, replayable here for comparison */
+function playStamps() {
+  document.querySelectorAll('.fxC').forEach((el, i) => {
+    el.classList.remove('go');
+    void el.offsetWidth;                        // restart the animation
+    setTimeout(() => el.classList.add('go'), i * 90);
+  });
+}
+document.getElementById('replay').addEventListener('click', playStamps);
+playStamps();
+</script>
+</body>
+</html>

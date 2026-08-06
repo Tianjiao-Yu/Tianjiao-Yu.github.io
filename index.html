@@ -96,11 +96,20 @@
   .btn.ghost:hover{border-color:var(--accent-2); color:var(--accent-2)}
   .socials{display:flex; gap:8px; flex-wrap:wrap}
   .chip{
+    display:inline-flex; align-items:center; gap:6px;
     font-family:var(--mono); font-size:11.5px; text-decoration:none;
     padding:6px 11px; border-radius:999px;
     border:1px solid var(--line); color:var(--ink-dim); transition:.18s;
   }
   .chip:hover{color:var(--accent-2); border-color:var(--accent-2)}
+  /* Line icons, not brand logos: an envelope, a mortarboard, a branch, the
+     LinkedIn square and the X. Drawn as geometry in currentColor so they
+     inherit the chip's hover colour and stay crisp at any size. */
+  .chip .ic{
+    width:13px; height:13px; flex:0 0 auto;
+    fill:none; stroke:currentColor; stroke-width:1.5;
+    stroke-linecap:round; stroke-linejoin:round;
+  }
 
   .readout{
     position:absolute; left:var(--gutter); bottom:26px; z-index:5;
@@ -296,30 +305,22 @@
     box-shadow:0 3px 7px rgba(0,0,0,.11), inset 0 1px 0 rgba(255,255,255,.55);
   }
 
-  /* Light sweep. Animating transform (not `left`) keeps this on the
-     compositor — with 16 badges looping forever, animating a layout
-     property would mean 16 layout passes every frame. */
-  /* the label is lifted above the sweep so the shine glosses the badge
-     without washing out the venue name as it passes */
   .venue-badge .v{position:relative; z-index:2}
-  .venue-badge::before{
-    content:""; position:absolute; z-index:1;
-    top:-40%; left:0; width:24%; height:180%;
-    background:linear-gradient(90deg,transparent,rgba(255,255,255,.9),transparent);
-    transform:translateX(-280%) skewX(-18deg);
-    pointer-events:none;
-  }
-  /* .live is added only while the badge is on screen, so nothing animates
-     in a section the reader has not reached (or has already passed) */
-  .venue-badge.live::before{
-    animation:venue-shine 6s var(--shine-delay,0s) ease-in-out infinite;
-  }
-  @keyframes venue-shine{
-    0%,58%{transform:translateX(-280%) skewX(-18deg); opacity:0}
-    61%   {opacity:1}
-    76%   {transform:translateX(540%) skewX(-18deg); opacity:0}
-    100%  {transform:translateX(540%) skewX(-18deg); opacity:0}
-  }
+
+  /* ---- particle print (assets/hero/badge-print.js) ----------------------
+     Replaces the old perpetual light sweep. A sweep has to stay quiet to
+     avoid irritating, which caps how much it can do; this fires once as the
+     badge scrolls in and then the page is completely still.
+     The wrapper exists because the pill has overflow:hidden and would clip
+     particles arriving from outside it. */
+  .badge-wrap{position:relative; display:inline-flex; vertical-align:middle}
+  .printfx{position:absolute; pointer-events:none; z-index:4}
+  .venue-badge .v{transition:opacity .28s ease}
+  /* While printing the badge IS the particles — the real pill has to go,
+     background, border and shadow, or the swarm just overlays it.
+     (0,2,0) beats the .venue-* colour classes without !important. */
+  .venue-badge.printing{background:transparent; border-color:transparent; box-shadow:none}
+  .venue-badge.printing .v{opacity:0}
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto}
@@ -403,11 +404,16 @@
     </div>
 
     <div class="socials">
-      <a class="chip" href="mailto:ty41@illinois.edu">Email</a>
-      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">Scholar</a>
-      <a class="chip" href="https://github.com/Tianjiao-Yu">GitHub</a>
-      <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">LinkedIn</a>
-      <a class="chip" href="https://twitter.com/yu_tianjiao">Twitter</a>
+      <a class="chip" href="mailto:ty41@illinois.edu">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.4" y="3.4" width="13.2" height="9.2" rx="1.6"/><path d="M2 4.6l6 4.4 6-4.4"/></svg>Email</a>
+      <a class="chip" href="https://scholar.google.com/citations?user=AmsXr58AAAAJ">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2.2l6.6 3.3L8 8.8 1.4 5.5 8 2.2z"/><path d="M4.2 7.3v3.3c0 1 1.7 1.9 3.8 1.9s3.8-.9 3.8-1.9V7.3"/></svg>Scholar</a>
+      <a class="chip" href="https://github.com/Tianjiao-Yu">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="4.6" cy="3.6" r="1.7"/><circle cx="4.6" cy="12.4" r="1.7"/><circle cx="11.4" cy="6.2" r="1.7"/><path d="M4.6 5.3v5.4"/><path d="M9.9 7.6c-.5 2.2-2.4 2.9-5.3 3.1"/></svg>GitHub</a>
+      <a class="chip" href="https://www.linkedin.com/in/tianjiao-joey-yu-08403316a/">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="1.5" width="13" height="13" rx="2.6"/><path d="M5 7v4.3"/><circle cx="5" cy="4.7" r=".85" fill="currentColor" stroke="none"/><path d="M8.1 11.3V7m0 .9c.3-.6.9-1 1.6-1 1 0 1.7.7 1.7 1.9v2.5"/></svg>LinkedIn</a>
+      <a class="chip" href="https://twitter.com/yu_tianjiao">
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.2 3.2l9.6 9.6M12.8 3.2l-9.6 9.6"/></svg>Twitter</a>
     </div>
   </div>
 
@@ -457,7 +463,7 @@
 </section>
 
 <section id="publications">
-  <div class="sec-head"><h2>Publications</h2><span class="rule"></span><span class="count" id="pubcount"></span></div>
+  <div class="sec-head"><h2>Selected Publications</h2><span class="rule"></span><span class="count" id="pubcount"></span></div>
 
   <div class="pub-card">
     <span class="mark">⭐🔥</span><span class="title">DreamPartGen: 3D Generation with Part-Level Text Guidance through Collaborative Part-Latent Denoising</span>
@@ -592,21 +598,23 @@
 </div>
 
 <script>
-/* Load the engine with a cache-buster on localhost only. Plain `hero.js`
-   gets served from cache during development even across hard reloads, which
+/* Load the engines with a cache-buster on localhost only. Plain sources get
+   served from cache during development even across hard reloads, which
    silently runs stale code and looks like a logic bug. Production keeps the
    clean URL so normal caching applies. */
 (function () {
   const dev = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-  const s = document.createElement('script');
-  s.src = '/assets/hero/hero.js' + (dev ? '?t=' + Date.now() : '');
-  document.body.appendChild(s);
+  const bust = dev ? '?t=' + Date.now() : '';
+  ['/assets/hero/hero.js', '/assets/hero/badge-print.js'].forEach(src => {
+    const s = document.createElement('script');
+    s.src = src + bust;
+    document.body.appendChild(s);
+  });
 })();
 </script>
 <script>
-/* Cards settle in as they scroll into view, and the badge sweep only runs
-   while a badge is actually on screen — 16 infinite animations looping in
-   sections nobody is looking at is wasted compositor work. */
+/* Card entrances and the left rail's demotion. The badges themselves are
+   handled by assets/hero/badge-print.js, loaded below. */
 (function () {
   const cards = [...document.querySelectorAll('.pub-card')];
   document.getElementById('pubcount').textContent = cards.length + ' entries';
@@ -615,19 +623,13 @@
   /* failsafe: whatever happens to the observer, nothing stays hidden */
   setTimeout(revealAll, 1500);
 
-  document.querySelectorAll('.venue-badge').forEach((b, i) => {
-    /* wrap the label so it can be stacked above the sweep; done here rather
-       than in the markup so the badges stay plain text without JS */
+  /* wrap the label so the print effect can hide it while the particles fly;
+     done here rather than in the markup so badges stay plain text without JS */
+  document.querySelectorAll('.venue-badge').forEach(b => {
     b.innerHTML = '<span class="v">' + b.textContent.trim() + '</span>';
-    /* de-sync the sweeps so they don't all flash on the same beat */
-    b.style.setProperty('--shine-delay', ((i % 7) * 0.62).toFixed(2) + 's');
   });
 
-  if (!('IntersectionObserver' in window)) {
-    revealAll();
-    document.querySelectorAll('.venue-badge').forEach(b => b.classList.add('live'));
-    return;
-  }
+  if (!('IntersectionObserver' in window)) { revealAll(); return; }
 
   const reveal = new IntersectionObserver((entries, obs) => {
     entries.forEach(e => {
@@ -639,11 +641,6 @@
     });
   }, { rootMargin: '0px 0px -12% 0px', threshold: 0.05 });
   cards.forEach(c => reveal.observe(c));
-
-  const shine = new IntersectionObserver(entries => {
-    entries.forEach(e => e.target.classList.toggle('live', e.isIntersecting));
-  }, { threshold: 0 });
-  document.querySelectorAll('.venue-badge').forEach(b => shine.observe(b));
 
   /* Demote the left rail once the hero is mostly past. Watching the hero
      itself rather than a scroll offset keeps this correct at any viewport
