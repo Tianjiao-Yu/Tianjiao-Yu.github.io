@@ -29,8 +29,9 @@ const CFG = {
   START_ANGLE: -0.55,           // radians; -0.55 ≈ three-quarter view
   TILT       : 0.06,            // fixed X tilt
   FOV        : 2.6,             // perspective strength (smaller = wider)
-  FILL       : 0.62,            // hero size as a fraction of the short side
-  FILL_RAIL  : 0.62,            // size once parked in the right margin
+  FILL       : 0.62,            // hero size as a ceiling, in viewport heights
+  FILL_RAIL  : 0.62,            // same ceiling once parked in the right margin
+  FIG_SPAN   : 2.00,            // size as a multiple of the figure column's width
   MORPH_EASE : 0.055,           // lower = slower, more visible re-forming
 
   /* Glitter. A gentle shimmer across every point, plus rare sharp flares on
@@ -293,6 +294,7 @@ function run(clouds) {
   const hero    = document.getElementById('hero');
   const panel   = document.querySelector('.intro');
   const column  = document.querySelector('.wrap');
+  const figcol  = document.getElementById('figcol');
   const mergedEl = document.getElementById('merged');
   const poseEl  = document.getElementById('pose');
   const DPR = Math.min(2, devicePixelRatio || 1);
@@ -375,17 +377,34 @@ function run(clouds) {
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * DPR; canvas.height = H * DPR;
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    cx = INSPECT ? W * 0.5 : (NARROW ? W * 0.5 : W * 0.68);
-    cy = NARROW ? H * 0.30 : H * 0.50;
-    scale = Math.min(W, H) * (INSPECT ? 0.92 : (NARROW ? 0.52 : CFG.FILL));
+    /* The figure column, measured off the #figcol probe so this tracks the CSS
+       instead of duplicating it. Falling back to the strip right of the content
+       column keeps the old behaviour if the probe is ever missing. */
+    let figX, figW;
+    if (figcol) {
+      const fr = figcol.getBoundingClientRect();
+      figW = fr.width; figX = fr.left + fr.width / 2;
+    } else {
+      const cr = column ? column.getBoundingClientRect().right : W * 0.7;
+      figW = Math.max(0, W - cr); figX = cr + figW / 2;
+    }
 
-    /* Park position: centred in whatever is left of the viewport to the right
-       of the content column. Measured rather than hard-coded so it tracks the
-       CSS margins instead of duplicating them. */
-    const cr = column ? column.getBoundingClientRect().right : W * 0.7;
-    const stripW = Math.max(0, W - cr);
-    railX = cr + stripW / 2;
-    railScale = Math.min(H * CFG.FILL_RAIL, stripW * 1.45);
+    cx = INSPECT ? W * 0.5 : (NARROW ? W * 0.5 : figX);
+    cy = NARROW ? H * 0.30 : H * 0.50;
+
+    /* Two ceilings, whichever is tighter: never taller than a share of the
+       viewport, and never wider than its column allows. Past the three-column
+       breakpoint --fig-w stops growing, so the second ceiling binds and the
+       figure holds its size however large the display gets. */
+    const fit = Math.min(H * CFG.FILL, figW * CFG.FIG_SPAN);
+    scale = INSPECT ? Math.min(W, H) * 0.92
+          : NARROW  ? Math.min(W, H) * 0.52
+          : fit;
+
+    /* Park position: centred in that same column, so the figure settles where
+       the layout already reserved room for it. */
+    railX = figX;
+    railScale = Math.min(H * CFG.FILL_RAIL, figW * CFG.FIG_SPAN);
     refreshPanel();
   }
   function refreshPanel() {

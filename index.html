@@ -19,8 +19,48 @@
     --rail:340px;
     --gutter:4vw;
     --col:calc(var(--gutter) + var(--rail) + 44px);   /* where content begins */
+
+    /* Shell = the centred band the whole page lives in. Below the three-column
+       breakpoint these are plain viewport spans, so this layer changes nothing;
+       the 1400px block below redefines them as a capped, centred shell. */
+    --shell-x:var(--gutter);
+    --shell-w:calc(100vw - 2*var(--gutter));
+    /* Figure column, as a fixed-position rect. hero.js reads this off #figcol
+       rather than recomputing it, so the CSS stays the single source of truth. */
+    --fig-x:48vw;
+    --fig-w:40vw;
   }
   @media (min-width:1440px){ :root{--rail:380px; --gutter:5vw} }
+
+  /* ---------- three columns, centred and capped --------------------------
+     Past 1400px there is finally room for rail | content | figure to sit side
+     by side without the figure crowding the text. The shell is capped, so
+     everything past that width becomes outer margin: the band stays the same
+     size on a 1440px laptop and a 4K display, it just centres. This is what
+     stops the point cloud from growing with the viewport — hero.js sizes it
+     from --fig-w, which stops growing here. */
+  @media (min-width:1400px){
+    :root{
+      --shell-max:1500px;
+      --colgap:44px;
+      --fig-min:340px;                 /* figure column never narrower than this */
+      --shell-w:min(var(--shell-max), calc(100vw - 2*var(--gutter)));
+      --shell-x:calc((100vw - var(--shell-w))/2);
+      --col:calc(var(--shell-x) + var(--rail) + var(--colgap));
+      /* content takes what is left, capped for line length; the figure column
+         absorbs the slack on very wide screens */
+      --content:min(620px, calc(var(--shell-w) - var(--rail) - var(--fig-min) - 2*var(--colgap)));
+      --fig-x:calc(var(--col) + var(--content) + var(--colgap));
+      --fig-w:calc(var(--shell-x) + var(--shell-w) - var(--fig-x));
+    }
+  }
+
+  /* Zero-height probe marking the figure column. Measured by hero.js; never
+     painted. visibility:hidden still reports a live rect, display:none would not. */
+  #figcol{
+    position:fixed; top:0; left:var(--fig-x); width:var(--fig-w); height:1px;
+    visibility:hidden; pointer-events:none; z-index:-1;
+  }
 
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -217,7 +257,17 @@
     /* keep the readout out from under the card by aligning it to the column */
     .readout{left:var(--col)}
   }
-  section{padding:9vh 0}
+
+  /* Element half of the three-column shell. It has to come after the 1024px
+     block: those rules pin .intro and .wrap to the old two-column geometry at
+     the same specificity, so only source order decides the winner. */
+  @media (min-width:1400px){
+    nav{padding-left:var(--shell-x); padding-right:var(--shell-x)}
+    .intro{left:var(--shell-x)}
+    .wrap{max-width:var(--content)}
+    .scrollhint{right:var(--shell-x)}
+  }
+  section{padding:clamp(52px,9vh,104px) 0}
   .sec-head{display:flex; align-items:baseline; gap:14px; margin:0 0 22px}
   .sec-head h2{font-family:var(--serif); font-weight:500; font-size:28px; margin:0}
   .sec-head .rule{flex:1; height:1px; background:var(--line)}
@@ -379,6 +429,7 @@
 </nav>
 
 <canvas id="pc"></canvas>
+<div id="figcol" aria-hidden="true"></div>
 
 <div class="hero" id="hero">
   <div class="intro">
